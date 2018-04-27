@@ -1,10 +1,10 @@
 $(document).ready(function(){
-    alert("hola1");
+    //alert("hola1");
     allCars();
 });
 
 function allCars(){
-    alert("hola2");
+    //alert("hola2");
     $.ajax({
         url:"ajax/gestionar-allCars.php",
             dataType:"JSON",
@@ -13,10 +13,13 @@ function allCars(){
                 "accion":"listar-carros"
             },
             success:function(respuesta){
-                alert("hola3");
+                //alert("hola3");
                 for (var i = 0; i < respuesta.length ; i++) {
                     var carros = respuesta[i];
-                    var fila =  '   <div class="col-md-4 col-lg-4 col-sm-6" >'+
+                    var fila =  '<li>'+
+
+                                '<div class="dotted_line"></div>'+
+                                '   <div class="col-md-4 col-lg-4 col-sm-6" >'+
                                 '       <div class="card">'+
                                 '           <div class="card-header cards-courses-h">'+carros.marca+" "+carros.modelo+
                                 '           </div>'+    
@@ -28,7 +31,7 @@ function allCars(){
                                 '                   <p><a class="btn btn-primary" href="#" role="button">Ver Vehículo &raquo;</a></p>'+
                                 '           </div>'+
                                 '       </div>'+
-                                '   </div>';                   
+                                '   </div></li>';                   
                     $("#carros").append(fila);
                 }
             },

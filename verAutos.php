@@ -173,8 +173,8 @@
         <!--section id="maincontent"-->
         <div  class="container">
             <ul>
-            <div id="carros" name="carros" class="row"></div>
-        </ul>
+                <div id="carros" name="carros" class="row"></div>
+            </ul>
         </div>
 <!--/section-->
 <footer class="footer">

@@ -329,7 +329,6 @@
                 </div>
                 <div class="span6">
                     <div class="credits">
-
                         <p> 
                             <?php  
                             if(isset($_SESSION["status"])==true){

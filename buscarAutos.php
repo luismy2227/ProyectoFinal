@@ -5,39 +5,20 @@
         header("Location: login.php");
     }
 
-    /*include("class/class-conexion.php");
+    include("class/class-conexion.php");
     $conexion = new Conexion();
-    //Obteniendo los cargo
-    $query = "SELECT idcargo, descripcion FROM tbl_cargo ORDER BY descripcion;";
-    $rescargo = $conexion->ejecutarConsulta($query);
 
-    //Obteniendo los Empleado Superior
-    $query = "SELECT e.idEmpleado,p.primerNombre, p.primerApellido FROM tbl_Empleado e
-    INNER JOIN tbl_Persona p ON e.idPersona=p.idPersona
-    ORDER BY p.primerNombre;";
-    $resEmpleadoSuperior = $conexion->ejecutarConsulta($query);*/
-
-
-    /*$msg="";
-    $idVehiculo =0;
-    $idFoto =0;
-    if(isset($_POST['upload'])){
-    $target = "uploaded/".basename($_FILES['image']['name']);
-    $image = $_FILES['image']['name'];
-
-    $query ="SELECT MAX(idVehiculo) FROM tbl_Vehiculo;";
-    $idVehiculo = ($conexion -> ejecutarConsulta($query)) + 1;
-    $query ="SELECT MAX(idFoto) FROM tbl_Foto;";
-    $idFoto = ($conexion -> ejecutarConsulta($query)) + 1;
-
-    if(move_uploaded_file(($_FILES['image']['tmp_name']), $target)){
-    $msg = "Se subió exitosamente la imagen";
-    }else{
-    $msg="Se produjo un error al subir la imagen";
-    }
-    $query = "INSERT INTO tbl_Foto (idFoto, rutaFoto, idVehiculo) VALUES('$idFoto', '$target', '$idVehiculo');";
-    $conexion->ejecutarConsulta($query);
-    }*/
+    $carro = $_POST["busqueda"];
+    $query = "SELECT tbl_VehiculoEmpresa.idVehiculoEmpresa idVehiculo, tbl_Marca.descripcion marca, tbl_Modelo.descripcion modelo,
+            tbl_VehiculoEmpresa.precioVenta precioVenta, tbl_VehiculoEmpresa.precioVenta precioRenta, tbl_Foto.rutaFoto foto FROM tbl_VehiculoEmpresa 
+            INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
+            INNER JOIN tbl_Marca ON tbl_Vehiculo.idMarca = tbl_Marca.idMarca
+            INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
+            INNER JOIN tbl_Version ON tbl_Version.idVersion = tbl_Vehiculo.idVersion
+            INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo
+            WHERE tbl_Marca.descripcion LIKE '%$carro%' OR tbl_Modelo.descripcion LIKE '%$carro%'
+                    OR tbl_Version.descripcion LIKE '%$carro%';";
+    $vehiculos = $conexion -> ejecutarConsulta($query);
 ?>
 
 <!DOCTYPE html>
@@ -73,16 +54,14 @@
         <link href="css/custom.css" rel="stylesheet">
     </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
-        <header>
-            <!-- Navbar
-            ================================================== -->
+        <!--header>
+            
             <div class="navbar navbar-fixed-top">
                 <div class="navbar-inner">
                     <div class="container">
-                        <!-- logo -->
+                        
                         <a class="brand logo" href="index.html"><img src="assets/img/logo.png" alt=""></a>
-                        <!-- end logo -->
-                        <!-- top menu -->
+                        
                         <div class="navigation">
                             <nav>
                                 <ul class="nav topnav">
@@ -146,34 +125,75 @@
                                 </ul>
                             </nav>
                         </div>
-                        <!-- end menu -->
+                      
                     </div>
                 </div>
             </div>
-        </header>
+        </header-->
 
         <section id="subintro">
             <div class="jumbotron subhead" id="overview">
                 <div class="container">
+                    <!-- Search -->
+                     
                     <div class="row">
                         <div class="span12">
                             <div class="centered">
                                 <h3>Vehículos</h3>
-                                <p>
-                                    Todos los vehículos, tanto en renta como en venta
-                                </p>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </section>
+
+        <div class="container">
+            <div class="box search">
+                <!-- Busqueda -->
+                <h2>Buscar <span></span></h2>
+                <form action="buscarAutos.php" method="post">
+                    <fieldset>
+                        <input type="text" name="busqueda" id="busqueda">
+                        <input type="submit" value="Buscar">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
 
 
         <!--section id="maincontent"-->
         <div  class="container">
             <ul>
-                <div id="carros" name="carros" class="row"></div>
+                <p>
+                    <?php
+                        if ($vehiculos->num_rows > 0) {
+                            while ($row = $vehiculo->fetch_assoc()) {
+                                echo '<li>'.
+                                        '<div class="dotted_line"></div>'.
+                                        '   <div class="col-md-6 col-lg-4" >'.
+                                        '   <div class="single-feature">'.
+                                        '       <div class="card">'.
+                                        '           <div class="card-header cards-courses-h">'.$row["marca"]." ".$row["modelo"].
+                                        '           </div>'.    
+                                        '           <div class="card-body">'.
+                                        '                   <h5 class="card-title">'.'</h5>'.
+                                        /*'                   <p class="card-text">Precio de venta: </p>'+
+                                        '                   <p class="card-text">'+carros.precioventa+'</p>'+*/
+                                        '                   <img src="'.$row["foto"].'" alt="" width="350" height="350">'.
+                                        '                   <p><a class="btn btn-primary" href="#" role="button">Ver Vehículo &raquo;</a></p>'.
+                                        '           </div>'.
+                                        '       </div>'.
+                                        '    </div>'.
+                                        '</div></li>';
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    
+                    ?>                                
+                </p>
             </ul>
         </div>
 <!--/section-->
@@ -253,7 +273,7 @@
 
 <!--Únicas cosas que yo metí-->
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/allCars.js"></script>
+<!--script src="js/allCars.js"></script-->
 
 <!--Combobox dependientes-->
 <!--script language="javascript">

@@ -5,7 +5,7 @@
         header("Location: login.php");
     }
 
-    include("class/class-conexion.php");
+    /*include("class/class-conexion.php");
     $conexion = new Conexion();
     //Obteniendo los cargo
     $query = "SELECT idcargo, descripcion FROM tbl_cargo ORDER BY descripcion;";
@@ -15,7 +15,7 @@
     $query = "SELECT e.idEmpleado,p.primerNombre, p.primerApellido FROM tbl_Empleado e
     INNER JOIN tbl_Persona p ON e.idPersona=p.idPersona
     ORDER BY p.primerNombre;";
-    $resEmpleadoSuperior = $conexion->ejecutarConsulta($query);
+    $resEmpleadoSuperior = $conexion->ejecutarConsulta($query);*/
 
 
     /*$msg="";

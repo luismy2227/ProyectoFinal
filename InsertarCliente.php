@@ -38,22 +38,22 @@
                 <div class="navbar-inner">
                     <div class="container">
                         <!-- logo -->
-                        <a class="brand logo" href="index.html"><img src="assets/img/logo.png" alt=""></a>
+                        <a class="brand logo" href="index.php"><img src="assets/img/logo.png" alt=""></a>
                         <!-- end logo -->
                         <!-- top menu -->
                         <div class="navigation">
                             <nav>
                                 <ul class="nav topnav">
-                                    <li class="dropdown active">
+                                    <li class="dropdown">
 
                                         <a href="index.php">Inicio</a>
                                     </li>
                                     <li class="dropdown">
                                         <a href="#">Vehículos</a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="overview.html">Ver Todo</a></li>
-                                            <li><a href="scaffolding.html">Renta</a></li>
-                                            <li><a href="base-css.html">Venta</a></li>
+                                            <li><a href="verAutos.php">Ver Todo</a></li>
+                                            <li><a href="verAutosRenta.php">Renta</a></li>
+                                            <li><a href="verAutosVenta.php">Venta</a></li>
                                             <li class="dropdown"><a href="#">Agregar</a>
                                                 <ul class="dropdown-menu sub-menu">
                                                     <li><a href="InsertarAutoCliente.php">Agregar Auto Cliente</a></li>
@@ -62,7 +62,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown">
+                                    <li class="dropdown active">
                                         <a href="#">Personas</a>
                                         <ul class="dropdown-menu">
                                             <li class="dropdown"><a href="#">Clientes</a>
@@ -86,7 +86,15 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">Sucursales</a>
+                                        <a href="#">Facturacion</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="InsertarFacturaRenta.php">Renta</a></li>
+                                            <li><a href="InsertarFacturaVenta.php">Venta</a></li>
+                                            <li><a href="InsertarFacturaMantenimiento.php">Mantenimienro</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="Sucursales.php">Sucursales</a>
 
                                     </li>
 

@@ -38,19 +38,16 @@
 		}
 
 		public static function listar($conexion){
-			$query = "SELECT tbl_VehiculoEmpresa.idVehiculoEmpresa idVehiculo, tbl_Marca.descripcion marca, tbl_Modelo.descripcion modelo,
-			tbl_VehiculoEmpresa.precioVenta precioVenta, tbl_VehiculoEmpresa.precioVenta precioRenta, tbl_Foto.rutaFoto foto FROM tbl_VehiculoEmpresa 
-			INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
-			INNER JOIN tbl_Marca ON tbl_Vehiculo.idMarca = tbl_Marca.idMarca
-			INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
-			INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo;";
-			$vehiculos = $conexion -> ejecutarConsulta($query);
-			$carros = array();
+			$query = "SELECT suc.idSucursal idSucursal, suc.descripcion descripcion, suc.rutaFoto foto, dir.departamento departamento, 
+			dir.municipio municipio, dir.colonia, colonia, dir.sector sector, dir.numeroCasa numeroCasa FROM tbl_Sucursal suc
+			INNER JOIN tbl_Direccion dir ON dir.idDireccion = suc.idDireccion;";
+			$sucursales = $conexion -> ejecutarConsulta($query);
+			$res = array();
 
-			while($respuesta=$conexion->obtenerFilas($vehiculos)){
-                $carros[]=$respuesta;
+			while($respuesta=$conexion->obtenerFilas($sucursales)){
+                $res[]=$respuesta;
             }
-            return $carros;
+            return $res;
 
 		}
 	}

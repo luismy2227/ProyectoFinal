@@ -34,56 +34,91 @@
     </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
          <header>
-    <!-- Navbar
-    ================================================== -->
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <!-- logo -->
-          <a class="brand logo" href="index.html"><img src="assets/img/logo.png" alt=""></a>
-          <!-- end logo -->
-          <!-- top menu -->
-          <div class="navigation">
-            <nav>
-              <ul class="nav topnav">
-                <li class="dropdown active">
-                  <a href="index.php">Inicio</a>
-                </li>
-                <li class="dropdown">
-                  <a href="#">Vehículos</a>
-                  <ul class="dropdown-menu">
-                    <li><a href="VerAutos.php">Ver Todo</a></li>
-                    <li><a href="VerAutosRenta.php">Renta</a></li>
-                    <li><a href="VerAutosVenta.php">Venta</a></li>
-                    <li><a href="VerAutosSeleccionado.php">Seleccionado</a></li>
-                    
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#">Mantenimiento</a>
-                  <ul class="dropdown-menu">
-                    <li><a href="about.html">Servicios</a></li>
-                    <li><a href="pricingtable.html">Repuestos</a></li>
-                  
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#">Sucursales</a>
-                 
-                </li>
-                <li class="dropdown">
-                  <a href="contact.html">Contactenos</a>
-                 
-                </li>
-                
-              </ul>
-            </nav>
-          </div>
-          <!-- end menu -->
-        </div>
-      </div>
-    </div>
-  </header>
+            <!-- Navbar
+            ================================================== -->
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <!-- logo -->
+                        <a class="brand logo" href="index.php"><img src="assets/img/logo.png" alt=""></a>
+                        <!-- end logo -->
+                        <!-- top menu -->
+                        <div class="navigation">
+                            <nav>
+                                <ul class="nav topnav">
+                                    <li class="dropdown">
+
+                                        <a href="index.php">Inicio</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Vehículos</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="verAutos.php">Ver Todo</a></li>
+                                            <li><a href="verAutosRenta.php">Renta</a></li>
+                                            <li><a href="verAutosVenta.php">Venta</a></li>
+                                            <li class="dropdown"><a href="#">Agregar</a>
+                                                <ul class="dropdown-menu sub-menu">
+                                                    <li><a href="InsertarAutoCliente.php">Agregar Auto Cliente</a></li>
+                                                    <li><a href="InsertarAutoEmpresa.php">Agregar Auto Empresa</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Personas</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown"><a href="#">Clientes</a>
+                                                <ul class="dropdown-menu sub-menu">
+                                                    <li><a href="InsertarCliente.php">Agregar Cliente</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown"><a href="#">Empleados</a>
+                                                <ul class="dropdown-menu sub-menu">
+                                                    <li><a href="InsertarEmpleado.php">Agregar Empleado</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Mantenimiento</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="about.html">Servicios</a></li>
+                                            <li><a href="pricingtable.html">Repuestos</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown active">
+                                        <a href="#">Facturacion</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="InsertarFacturaRenta.php">Renta</a></li>
+                                            <li><a href="InsertarFacturaVenta.php">Venta</a></li>
+                                            <li><a href="InsertarFacturaMantenimiento.php">Mantenimienro</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="Sucursales.php">Sucursales</a>
+
+                                    </li>
+
+                                    <?php
+                                    if(isset($_SESSION["status"])==true){
+                                    $boton ="<li><a  id=\"btn_Logout\" name=\"btn_Logout\" href=\"includes/logout.php\">Cerrar Sesión</a></li>";
+                                    echo $boton;
+                                    }
+                                    else{
+                                    $boton1 ="<li><a  id=\"btn_Log\" name=\"btn_Log\" href=\"login.php\">Iniciar Sesión</a></li>";
+                                    echo $boton1;
+                                    }
+                                    ?>
+
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- end menu -->
+                    </div>
+                </div>
+            </div>
+        </header>
 
         <section id="subintro">
             <div class="jumbotron subhead" id="overview">

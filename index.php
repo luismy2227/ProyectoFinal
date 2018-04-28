@@ -44,7 +44,7 @@
                 <div class="navbar-inner">
                     <div class="container">
                         <!-- logo -->
-                        <a class="brand logo" href="index.html"><img src="assets/img/logo.png" alt=""></a>
+                        <a class="brand logo" href="index.php"><img src="assets/img/logo.png" alt=""></a>
                         <!-- end logo -->
                         <!-- top menu -->
                         <div class="navigation">
@@ -100,7 +100,7 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">Sucursales</a>
+                                        <a href="Sucursales.php">Sucursales</a>
 
                                     </li>
 

@@ -4,40 +4,6 @@
         session_destroy();
         header("Location: login.php");
     }
-
-    include("class/class-conexion.php");
-    $conexion = new Conexion();
-    //Obteniendo los cargo
-    $query = "SELECT idcargo, descripcion FROM tbl_cargo ORDER BY descripcion;";
-    $rescargo = $conexion->ejecutarConsulta($query);
-
-    //Obteniendo los Empleado Superior
-    $query = "SELECT e.idEmpleado,p.primerNombre, p.primerApellido FROM tbl_Empleado e
-    INNER JOIN tbl_Persona p ON e.idPersona=p.idPersona
-    ORDER BY p.primerNombre;";
-    $resEmpleadoSuperior = $conexion->ejecutarConsulta($query);
-
-
-    /*$msg="";
-    $idVehiculo =0;
-    $idFoto =0;
-    if(isset($_POST['upload'])){
-    $target = "uploaded/".basename($_FILES['image']['name']);
-    $image = $_FILES['image']['name'];
-
-    $query ="SELECT MAX(idVehiculo) FROM tbl_Vehiculo;";
-    $idVehiculo = ($conexion -> ejecutarConsulta($query)) + 1;
-    $query ="SELECT MAX(idFoto) FROM tbl_Foto;";
-    $idFoto = ($conexion -> ejecutarConsulta($query)) + 1;
-
-    if(move_uploaded_file(($_FILES['image']['tmp_name']), $target)){
-    $msg = "Se subió exitosamente la imagen";
-    }else{
-    $msg="Se produjo un error al subir la imagen";
-    }
-    $query = "INSERT INTO tbl_Foto (idFoto, rutaFoto, idVehiculo) VALUES('$idFoto', '$target', '$idVehiculo');";
-    $conexion->ejecutarConsulta($query);
-    }*/
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +56,7 @@
 
                                         <a href="index.php">Inicio</a>
                                     </li>
-                                    <li class="dropdown active">
+                                    <li class="dropdown">
                                         <a href="#">Vehículos</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="verAutos.php">Ver Todo</a></li>
@@ -135,7 +101,7 @@
                                             <li><a href="InsertarFacturaMantenimiento.php">Mantenimienro</a></li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown">
+                                    <li class="dropdown active">
                                         <a href="Sucursales.php">Sucursales</a>
 
                                     </li>
@@ -166,9 +132,9 @@
                     <div class="row">
                         <div class="span12">
                             <div class="centered">
-                                <h3>Vehículos</h3>
+                                <h3>Sucursales</h3>
                                 <p>
-                                    Todos los vehículos en venta
+                                    Información, ubicación y más
                                 </p>
                             </div>
                         </div>
@@ -181,7 +147,7 @@
         <!--section id="maincontent"-->
         <div  class="container">
             <ul>
-                <div id="carros" name="carros" class="row"></div>
+                <div id="sucursales" name="sucursales" class="row"></div>
             </ul>
         </div>
 <!--/section-->
@@ -261,47 +227,9 @@
 
 <!--Únicas cosas que yo metí-->
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/ventCars.js"></script>
+<script src="js/sucursales.js"></script>
 
-<!--Combobox dependientes-->
-<!--script language="javascript">
-    //Combobox de modelos
-    $(document).ready(function () {
-        $("#cbx_Marca").change(function () {
-            $('#cbx_Version').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-            $("#cbx_Marca option:selected").each(function () {
-                idMarca = $(this).val();
-                $.post("includes/get-Modelos.php", {idMarca: idMarca}, function (data) {
-                    $("#cbx_Modelo").html(data);
-                });
-            });
-        })
-    });
 
-    //Combobox de versiones
-    $(document).ready(function () {
-        $("#cbx_Modelo").change(function () {
-            $("#cbx_Modelo option:selected").each(function () {
-                idModelo = $(this).val();
-                $.post("includes/get-Versiones.php", {idModelo: idModelo}, function (data) {
-                    $("#cbx_Version").html(data);
-                });
-            });
-        })
-    });
-
-    //Combobox de garages
-    $(document).ready(function () {
-        $("#cbx_Sucursal").change(function () {
-            $("#cbx_Sucursal option:selected").each(function () {
-                idSucursal = $(this).val();
-                $.post("includes/get-Sucursales.php", {idSucursal: idSucursal}, function (data) {
-                    $("#cbx_Garage").html(data);
-                });
-            });
-        })
-    });
-</script-->
 
 </body>
 </html>

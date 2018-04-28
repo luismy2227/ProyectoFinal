@@ -6,20 +6,22 @@ $(document).ready(function(){
 function allCars(){
     //alert("hola2");
     $.ajax({
-        url:"ajax/gestionar-allCars.php",
+        url:"ajax/gestionar-rentCars.php",
             dataType:"JSON",
             method:"POST",
             data:{
-                "accion":"listar-carros"
+                "accion":"listar-carrosRenta"
             },
             success:function(respuesta){
                 //alert("hola3");
+                //alert("respuesta");
                 for (var i = 0; i < respuesta.length ; i++) {
                     var carros = respuesta[i];
                     var fila =  '<li>'+
 
                                 '<div class="dotted_line"></div>'+
                                 '   <div class="col-md-6 col-lg-4" >'+
+                                '   <div class="single-feature">'+
                                 '       <div class="card">'+
                                 '           <div class="card-header cards-courses-h">'+carros.marca+" "+carros.modelo+
                                 '           </div>'+    
@@ -30,6 +32,7 @@ function allCars(){
                                 '                   <img src="'+carros.foto+'" alt="" width="350" height="350">'+
                                 '                   <p><a class="btn btn-primary" href="#" role="button">Ver Vehículo &raquo;</a></p>'+
                                 '           </div>'+
+                                '       </div>'+
                                 '       </div>'+
                                 '   </div></li>';                   
                     $("#carros").append(fila);

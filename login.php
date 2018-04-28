@@ -60,11 +60,11 @@
           <p class="login-img"><i class="icon_lock_alt"></i></p>
           <div class="input-group">
             <span class="input-group-addon"><i class="icon_profile"></i></span>
-            <input type="text" id="text_usuario" name="text_usuario" class="form-control" placeholder="Usuario" autofocus>
+            <input type="text" id="text_usuario" name="text_usuario" class="form-control" placeholder="Usuario" autofocus required>
           </div>
           <div class="input-group">
             <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-            <input type="password" id="text_contrasena" name="text_contrasena" class="form-control" placeholder="Precio de venta">
+            <input type="password" id="text_contrasena" name="text_contrasena" class="form-control" placeholder="Precio de venta" required>
           </div>
           <label class="checkbox">
             <input type="checkbox" value="remember-me"> Recordarme

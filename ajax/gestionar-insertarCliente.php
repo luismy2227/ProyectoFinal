@@ -158,3 +158,5 @@ else if ($numerocasa==null or $numerocasa==""){
   }
   $conexion->cerrarConexion();
   echo json_encode($respuesta); 
+
+?>

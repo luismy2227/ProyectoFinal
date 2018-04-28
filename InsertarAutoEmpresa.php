@@ -191,7 +191,7 @@
 
                                         <!-- Combobox de marcas-->
                                         <div> 
-                                            <select id="cbx_Marca" name="cbx_Marca">
+                                            <select id="cbx_Marca" name="cbx_Marca" required>
                                                 <option value='0'>Selecciona una marca</option>
                                                 <?php while($rowMarcas = pg_fetch_array($resMarcas)) { ?>
                                                 <option value="<?php echo $rowMarcas[0]; ?>" ><?php echo $rowMarcas[1]; ?> </option>
@@ -201,17 +201,17 @@
 
                                         <!-- Combobox de modelos-->
                                         <div>
-                                            <select id="cbx_Modelo" name="cbx_Modelo"></select>
+                                            <select id="cbx_Modelo" name="cbx_Modelo" required></select>
                                         </div>
 
                                         <!-- Combobox de versiones-->
                                         <div>
-                                            <select id="cbx_Version" name="cbx_Version"></select>
+                                            <select id="cbx_Version" name="cbx_Version" required></select>
                                         </div>
 
                                         <!-- Combobox de transmisiones-->
                                         <div> 
-                                            <select id="cbx_Transmisiones" name="cbx_Transmisiones">
+                                            <select id="cbx_Transmisiones" name="cbx_Transmisiones" required>
                                                 <option value='0'>Transmisión</option>
                                                 <?php while($rowTransmision = pg_fetch_array($resTransmision)) { ?>
                                                 <option value="<?php echo $rowTransmision[0]; ?>" ><?php echo $rowTransmision[1]; ?> </option>
@@ -221,7 +221,7 @@
 
                                         <!-- Combobox de gasolinas-->
                                         <div> 
-                                            <select id="cbx_Gasolinas" name="cbx_Gasolinas">
+                                            <select id="cbx_Gasolinas" name="cbx_Gasolinas" required>
                                                 <option value='0'>Combustible</option>
                                                 <?php while($rowGasolina = pg_fetch_array($resGasolina)) { ?>
                                                 <option value="<?php echo $rowGasolina[0]; ?>" ><?php echo $rowGasolina[1]; ?> </option>
@@ -231,7 +231,7 @@
 
                                         <!-- Combobox de cilindrajes-->
                                         <div> 
-                                            <select id="cbx_Cilindraje" name="cbx_Cilindraje">
+                                            <select id="cbx_Cilindraje" name="cbx_Cilindraje" required>
                                                 <option value='0'>Número de cilindros</option>
                                                 <?php while($rowCilindros = pg_fetch_array($resCilindraje)) { ?>
                                                 <option value="<?php echo $rowCilindros[0]; ?>" ><?php echo $rowCilindros[1]; ?> </option>
@@ -241,7 +241,7 @@
 
                                         <!-- Combobox de estados-->
                                         <div> 
-                                            <select id="cbx_Estado" name="cbx_Estado">
+                                            <select id="cbx_Estado" name="cbx_Estado" required>
                                                 <option value='0'>Estado</option>
                                                 <?php while($rowEstado = pg_fetch_array($resEstado)) { ?>
                                                 <option value="<?php echo $rowEstado[0]; ?>" ><?php echo $rowEstado[1]; ?> </option>
@@ -251,47 +251,47 @@
 
                                         <div> 
                                             <!-- Combobox de si se vende-->
-                                            <select id="cbx_SeVende" name="cbx_SeVende">
+                                            <select id="cbx_SeVende" name="cbx_SeVende" required>
                                                 <option value='0'>Venta</option>
                                                 <option value='1'>Si</option>
                                                 <option value='2'>No</option>
                                             </select>
 
-                                            <input type="text" class="form-control" name="text_PrecioVenta" id="text_PrecioVenta" placeholder="Precio de venta" data-rule="minlen:4" data-msg="Precio de venta" />
+                                            <input required type="text" class="form-control" name="text_PrecioVenta" id="text_PrecioVenta" placeholder="Precio de venta" data-rule="minlen:4" data-msg="Precio de venta" />
 
                                             <!-- Combobox de si se renta-->
-                                            <select id="cbx_SeRenta" name="cbx_SeRenta">
+                                            <select id="cbx_SeRenta" name="cbx_SeRenta" required>
                                                 <option value='0'>Renta</option>
                                                 <option value='1'>Si</option>
                                                 <option value='2'>No</option>
                                             </select>
 
-                                            <input type="text" class="form-control" name="text_PrecioRenta" id="text_PrecioRenta" placeholder="Precio de renta por hora" data-rule="minlen:4" data-msg="Precio de renta" />
+                                            <input required type="text" class="form-control" name="text_PrecioRenta" id="text_PrecioRenta" placeholder="Precio de renta por hora" data-rule="minlen:4" data-msg="Precio de renta" />
                                         </div>
 
                                         <!-- Combobox de estado de matrícula-->
-                                        <select id="cbx_EstadoMatricula" name="cbx_EstadoMatricula">
+                                        <select id="cbx_EstadoMatricula" name="cbx_EstadoMatricula" required>
                                             <option value='0'>Estado de matrícula</option>
                                             <option value='1'>Pagada</option>
                                             <option value='2'>No pagada</option>
                                         </select>
 
-                                        <input type="text" class="form-control" name="text_MontoMatricula" id="text_MontoMatricula" placeholder="Monto de matrícula" data-rule="minlen:4" data-msg="Monto de matrícula" />
+                                        <input required type="text" class="form-control" name="text_MontoMatricula" id="text_MontoMatricula" placeholder="Monto de matrícula" data-rule="minlen:4" data-msg="Monto de matrícula" />
 
                                     </div>
 
                                     <div class="span4 form-group">
-                                        <input type="text" class="form-control" name="text_Color" id="text_Color" placeholder="Color" data-rule="minlen:4" data-msg="Campo requerido: Color" />
+                                        <input required type="text" class="form-control" name="text_Color" id="text_Color" placeholder="Color" data-rule="minlen:4" data-msg="Campo requerido: Color" />
                                         <div class="validation"></div>
                                     </div>
 
                                     <div class="span4 form-group">
-                                        <input type="text" class="form-control" name="text_Placa" id="text_Placa" placeholder="Placa" data-rule="minlen:4" data-msg="Campo requerido: Placa" />
+                                        <input required type="text" class="form-control" name="text_Placa" id="text_Placa" placeholder="Placa" data-rule="minlen:4" data-msg="Campo requerido: Placa" />
                                         <div class="validation"></div>
                                     </div>
 
                                     <div class="span4 form-group">
-                                        <input type="text" class="form-control" name="text_Anio" id="text_Anio" placeholder="Año (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Año" />
+                                        <input required type="text" class="form-control" name="text_Anio" id="text_Anio" placeholder="Año (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Año" />
                                         <div class="validation"></div>
                                     </div>
                                     <div class="span4 form-group">
@@ -299,24 +299,24 @@
                                         <div class="validation"></div>
                                     </div>
                                     <div class="span4 form-group">
-                                        <input type="text" class="form-control" name="text_Serie" id="text_Serie" placeholder="Número de Serie" data-rule="minlen:4" data-msg="Campo requerido: Serie" />
+                                        <input required type="text" class="form-control" name="text_Serie" id="text_Serie" placeholder="Número de Serie" data-rule="minlen:4" data-msg="Campo requerido: Serie" />
                                         <div class="validation"></div>
                                     </div>
                                     <div class="span4 form-group">
-                                        <input type="text" class="form-control" name="text_TipoMotor" id="text_TipoMotor" placeholder="Tipo de motor" data-rule="minlen:4" data-msg="Campo requerido: Tipo de Motor" />
+                                        <input required type="text" class="form-control" name="text_TipoMotor" id="text_TipoMotor" placeholder="Tipo de motor" data-rule="minlen:4" data-msg="Campo requerido: Tipo de Motor" />
                                         <div class="validation"></div>
                                     </div>
                                     <div class="container">
                                         <div class="span4 form-group">
-                                            <input type="text" class="form-control" name="text_FechaAdquisicion" id="text_FechaAdquisicion" placeholder= "Fecha de Adquisicion (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha de adquisición" />
+                                            <input required type="text" class="form-control" name="text_FechaAdquisicion" id="text_FechaAdquisicion" placeholder= "Fecha de Adquisicion (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha de adquisición" />
                                             <div class="validation"></div>
 
-                                            <input type="text" class="form-control" name="text_Seguro" id="text_Seguro" placeholder= "Monto Asegurado" data-rule="minlen:4" data-msg="Campo requerido: Monto asegurado" />
+                                            <input required type="text" class="form-control" name="text_Seguro" id="text_Seguro" placeholder= "Monto Asegurado" data-rule="minlen:4" data-msg="Campo requerido: Monto asegurado" />
                                             <div class="validation"></div>
 
                                             <!-- Combobox de sucursales-->
                                             <div> 
-                                                <select id="cbx_Sucursal" name="cbx_Sucursal">
+                                                <select id="cbx_Sucursal" name="cbx_Sucursal" required>
                                                     <option value='0'>Selecciona una sucursal</option>
                                                     <?php while($rowSucursal = pg_fetch_array($resSucursal)) { ?>
                                                     <option value="<?php echo $rowSucursal[0]; ?>" ><?php echo $rowSucursal[1]; ?> </option>
@@ -326,7 +326,7 @@
 
                                             <!-- Combobox de garages-->
                                             <div>
-                                                <select id="cbx_Garage" name="cbx_Garage"></select>
+                                                <select id="cbx_Garage" name="cbx_Garage" required></select>
                                             </div>
                                         </div>
 

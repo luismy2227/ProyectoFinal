@@ -24,7 +24,8 @@
 		</head>
 		<body>
 
-			  <header id="header" id="home">
+			 
+			 <header id="header" id="home">
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
@@ -43,12 +44,23 @@
 				              <li><a href="blog-single.html">Opiniones</a></li>
 				              <li><a href="elements.html">Acerca RENTCAR</a></li>
 				            </ul>
-				          </li>			          
+				          </li>	
+				          <?php
+                                    if(isset($_SESSION["status"])==true){
+                                    $boton ="<li><a  id=\"btn_Logout\" name=\"btn_Logout\" href=\"includes/logout.php\">Cerrar Sesión</a></li>";
+                                    echo $boton;
+                                    }
+                                    else{
+                                    $boton1 ="<li><a  id=\"btn_Log\" name=\"btn_Log\" href=\"login.php\">Iniciar Sesión</a></li>";
+                                    echo $boton1;
+                                    }
+                                    ?>			          
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
 			    </div>
-			  </header><!-- #header -->
+			  </header><!-- #header <!-- #header -->
+
 
 
 			<!-- start banner Area -->

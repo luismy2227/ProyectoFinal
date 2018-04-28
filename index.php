@@ -92,6 +92,14 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown">
+                                        <a href="#">Facturacion</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="InsertarFacturaRenta.php">Renta</a></li>
+                                            <li><a href="InsertarFacturaVenta.php">Venta</a></li>
+                                            <li><a href="InsertarFacturaMantenimiento.php">Mantenimienro</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
                                         <a href="#">Sucursales</a>
 
                                     </li>

@@ -481,22 +481,22 @@
             (7, 16);
 
     /*Tabla Sucursal*/
-      INSERT INTO tbl_Sucursal(idsucursal, descripcion, iddireccion)
-      VALUES(1, 'Tegucigalpa 1', 31),
-            (2, 'Tegucigalpa 2', 32),
-            (3, 'Comayagua 1',3),
-            (4, 'Comayagua 2', 4),
-            (5, 'San Pedro Sula 1', 5),
-            (6, 'San Pedro Sula 2', 6),
-            (7, 'Tela 1', 7),
-            (8, 'Tela 2', 8),
-            (9, 'Ceiba 1', 9),
-            (10, 'Ceiba 2', 10),
-            (11, 'Trujillo 1', 11),
-            (12, 'Trujillo 2', 12),
-            (13, 'Cholute 1', 13),
-            (14, 'Choluteca 2', 14),
-            (15, 'Danlí', 15);
+      INSERT INTO tbl_Sucursal(idsucursal, descripcion, iddireccion, rutaFoto)
+      VALUES(1, 'Tegucigalpa 1', 31, 'uploaded\Sucursales\Sucursal1.jpg'),
+            (2, 'Tegucigalpa 2', 32, 'uploaded\Sucursales\Sucursal2.jpg'),
+            (3, 'Comayagua 1',3, 'uploaded\Sucursales\Sucursal3.jpg'),
+            (4, 'Comayagua 2', 4, 'uploaded\Sucursales\Sucursal4.jpg'),
+            (5, 'San Pedro Sula 1', 5, 'uploaded\Sucursales\Sucursal5.jpg'),
+            (6, 'San Pedro Sula 2', 6, 'uploaded\Sucursales\Sucursal6.jpg'),
+            (7, 'Tela 1', 7, 'uploaded\Sucursales\Sucursal7.jpg'),
+            (8, 'Tela 2', 8, 'uploaded\Sucursales\Sucursal8.jpg'),
+            (9, 'Ceiba 1', 9, 'uploaded\Sucursales\Sucursal9.jpg'),
+            (10, 'Ceiba 2', 10, 'uploaded\Sucursales\Sucursal10.jpg'),
+            (11, 'Trujillo 1', 11, 'uploaded\Sucursales\Sucursal11.jpg'),
+            (12, 'Trujillo 2', 12, 'uploaded\Sucursales\Sucursal12.jpg'),
+            (13, 'Cholute 1', 13, 'uploaded\Sucursales\Sucursal13.jpg'),
+            (14, 'Choluteca 2', 14, 'uploaded\Sucursales\Sucursal14.jpg'),
+            (15, 'Danlí', 15, 'uploaded\Sucursales\Sucursal15.jpg');
 
     /*Tabla Garage*/
       INSERT INTO tbl_Garage(idGarage, descripcion, idsucursal)

@@ -189,6 +189,7 @@
             idSucursal INTEGER NOT NULL,
             descripcion VARCHAR(45) NOT NULL,
             idDireccion INTEGER NOT NULL,
+            rutaFoto VARCHAR(100) NOT NULL,
             CONSTRAINT Pk_Sucursal_idSucursal PRIMARY KEY (idSucursal),
             CONSTRAINT Fk_Direccion_idDireccion FOREIGN KEY (idDireccion) REFERENCES tbl_Direccion (idDireccion)
             ON DELETE NO ACTION

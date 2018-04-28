@@ -236,6 +236,9 @@ nav select {
   margin-top: 0px;
 }
 
+#Cajita {float:left; width:30%; height:40%;}
+/*#carPicture {float:left; width:50%; height:40%;}*/
+
 /* intro */
 
 section#intro {

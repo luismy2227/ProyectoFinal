@@ -255,45 +255,7 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/allCars.js"></script>
 
-<!--Combobox dependientes-->
-<!--script language="javascript">
-    //Combobox de modelos
-    $(document).ready(function () {
-        $("#cbx_Marca").change(function () {
-            $('#cbx_Version').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-            $("#cbx_Marca option:selected").each(function () {
-                idMarca = $(this).val();
-                $.post("includes/get-Modelos.php", {idMarca: idMarca}, function (data) {
-                    $("#cbx_Modelo").html(data);
-                });
-            });
-        })
-    });
 
-    //Combobox de versiones
-    $(document).ready(function () {
-        $("#cbx_Modelo").change(function () {
-            $("#cbx_Modelo option:selected").each(function () {
-                idModelo = $(this).val();
-                $.post("includes/get-Versiones.php", {idModelo: idModelo}, function (data) {
-                    $("#cbx_Version").html(data);
-                });
-            });
-        })
-    });
-
-    //Combobox de garages
-    $(document).ready(function () {
-        $("#cbx_Sucursal").change(function () {
-            $("#cbx_Sucursal option:selected").each(function () {
-                idSucursal = $(this).val();
-                $.post("includes/get-Sucursales.php", {idSucursal: idSucursal}, function (data) {
-                    $("#cbx_Garage").html(data);
-                });
-            });
-        })
-    });
-</script-->
 
 </body>
 </html>

@@ -139,15 +139,15 @@ else if ($municipio==null or $municipio==""){
 
 }
 else if ($colonia==null or $colonia==""){
-  $colonia="Ingrese el colonia";
+  $respuesta="Ingrese el colonia";
 
 }
 else if ($sector==null or $sector==""){
-  $sector="Ingrese el sector";
+  $respuesta="Ingrese el sector";
 
 }
 else if ($numerocasa==null or $numerocasa==""){
-  $numerocasa="Ingrese el numerocasa";
+  $respuesta="Ingrese el numerocasa";
 
 }
   else{

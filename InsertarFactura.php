@@ -27,6 +27,8 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
 
 
     </head>
@@ -109,43 +111,37 @@
                     <div class="span4">
                         <div class="span8">
                             <div class="spacer30"></div>
-  <p>
-                                  Modulo Factura Renta
+                                 <p>
+                                   <h3>Renta</h3>
+                                   <div class="dotted_line"></div>
                                 </p>
+
+
                             <form action="" id="Form_InsertarFactura" name="Form_InsertarFactura method="post" role="form" class="contactForm">
                                 <div class="row">
                                     <div class="span4 form-group">
                                          <div class="span4 form-group">
-                               <input type="text" class="form-control" name="text_Idfactura" id="text_Idfactura" placeholder="Id Factura" data-rule="minlen:4" data-msg="Campo requerido: Id Factura" />
-                                        <div class="validation"></div>
+                                                                 
 
-                                        <input type="text" class="form-control" name="text_Fechafactura" id="text_Fechafactura" placeholder="Fecha Facturacion (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha Facturacion" />
-                                        <div class="validation"></div>
-
-                                        <input type="text" class="form-control" name="text_Cantidad" id="text_Cantidad" placeholder="Cantidad" data-rule="minlen:4" data-msg="Campo requerido: Cantidad" />
-                                        <div class="validation"></div>
+  
                
-                <input type="text" class="form-control" name="text_Descuento" id="text_Descuento" placeholder="Ingrese Descuento" data-rule="minlen:4" data-msg="Porfavor ingrese Descuento" />
-                <div class="validation"></div>
-   
+               
               
                               </div>
                               <div class="span4 form-group">
-                                <input type="text" class="form-control" name="text_Impuesto" id="text_Impuesto" placeholder="Ingrese el Impuesto"  data-rule="minlen:4" data-msg="Porfavor ingrese Impuesto" />
-                <div class="validation"></div>
-                 <input type="password" class="form-control" name="text_Monto" id="text_Monto" placeholder="Ingrese el Monto"  data-rule="minlen:4" data-msg="Porfavor ingrese Monto" />
-                                
-                                <input type="text" class="form-control" name="text_FormaPago" id="text_FormaPago" placeholder="Ingrese la Forma de Pago"data-rule="minlen:4" data-msg="Porfavor ingrese Forma Pago" />
-                                       <div class="validation"></div>
+                              
+                             
 
-                <input type="text" class="form-control" name="text_FechaReserva" id="text_FechaReserva" placeholder="Ingrese la Fecha Reserva" data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Reserva" />
-                <div class="validation"></div>
-                <input type="text" class="form-control" name="text_FechaEntrega" id="text_FechaEntrega" placeholder="Ingrese la Fecha Entrega" data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Entrega" />
+                <input required type="text" class="form-control" name="text_FechaEntrega" id="text_FechaEntrega" placeholder="Ingrese la Fecha Entrega" data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Entrega" />
 
              
                 <div class="validation"></div>
-                   <input type="text" class="form-control" name="text_FechaDevolucion" id="text_FechaDevolucion" placeholder="Ingrese la Fecha Devolucion" data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Devolucion" />
+                   <input required type="text" class="form-control" name="text_FechaDevolucion" id="text_FechaDevolucion" placeholder="Ingrese la Fecha Devolucion" data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Devolucion" />
                 <div class="validation"></div>
+                 <select required type="text" id="cbx_SeleccioneDescuento" name="cbx_SeleccioneDescuento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
+                                  <option value='0'>Seleccione un Vehículo</option>
+                                 
+                                </select>
                               </div>
                             
                 
@@ -154,40 +150,22 @@
                                     <div class="span4 form-group">
                                       
               <div class="span4 form-group">
-                                <input type="text" class="form-control" name="text_Mora" id="text_Mora" placeholder="Valor Mora" data-rule="minlen:4" data-msg="Campo requerido: Mora" />
+                              
+
+
+                                        <input required type="text" class="form-control" name="text_Anticipo" id="text_Anticipo" placeholder="Anticipo" data-rule="minlen:4" data-msg="Campo requerido: Anticipo" />
                                         <div class="validation"></div>
-
-                                        <input type="text" class="form-control" name="text_Total" id="text_Total" placeholder="Total Factura" data-rule="minlen:4" data-msg="Campo requerido: Total" />
-                                        <div class="validation"></div>
-
-                                        <input type="text" class="form-control" name="text_Anticipo" id="text_Anticipo" placeholder="Anticipo" data-rule="minlen:4" data-msg="Campo requerido: Anticipo" />
-                                        <div class="validation"></div>
-                                      <select type="text" id="cbx_SeleccioneDescuento" name="cbx_SeleccioneDescuento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
-                                  <option value='0'>Seleccione un Descuento</option>
-                                 
-                                </select>
-
-
-                <input type="text" class="form-control" name="text_FechaDescuento" id="text_FechaDescuento" placeholder="Ingrese Fecha Descuento"  data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Descuento (YYYYMMDD)" />
-                <div class="validation"></div>
-
-                <input type="text" class="form-control" name="text_EstadoDescuento" id="text_EstadoDescuento"  placeholder="Ingrese Estado del Descuento" data-rule="minlen:4" data-msg="Porfavor ingrese Estado Descuento " />
-                <div class="validation"></div>
-
-                <input type="text" class="form-control" name="text_DescripcionDescuento" id="text_DescripcionDescuento"  placeholder="Ingrese Descripcion Descuento" data-rule="minlen:4" data-msg="Porfavor ingrese Descripcion Descuento " />
-                <div class="validation"></div>
-                 <input type="text" class="form-control" name="text_HoraEntrega" id="text_HoraEntrega" placeholder="Ingrese la Hora Entrega"  data-rule="minlen:4" data-msg="Porfavor ingrese Hora Entrega" />
-                <div class="validation"></div>
+                                     
+                
                               </div>
                             </div>
                             <div class="span4 form-group">
     <div class="span4 form-group">
                 
 
-                <input type="text" class="form-control" name="text_HoraDevolucion" id="text_HoraDevolucion" placeholder="Ingrese la Hora Devolucion" data-rule="minlen:4" data-msg="Porfavor ingrese Hora Devolucion" />
+              
                 <div class="validation"></div>
-                 <input type="text" class="form-control" name="text_Observaciones" id="text_Observaciones" placeholder="Ingrese la Observacion" data-rule="minlen:4" data-msg="Porfavor ingrese Observacion" />
-                <div class="validation"></div>
+                
 
 
                                     </div>
@@ -196,58 +174,26 @@
                                 </div>
                                 <div class="span4 form-group">
                                   <p>
-                                  Modulo Factura Venta
+                                  <h3>Modulo Factura Venta</h3>
                                 </p>
-<input type="text" class="form-control" name="text_IdfacturaV" id="text_IdfacturaV" placeholder="Id Factura Venta" data-rule="minlen:4" data-msg="Campo requerido: Id Factura Venta" />
-                                        <div class="validation"></div>
-                                    <input type="text" class="form-control" name="text_ValorVenta" id="text_ValorVenta" placeholder="Ingrese el Valor Venta"  data-rule="minlen:4" data-msg="Porfavor ingrese Valor" />
-                <div class="validation"></div>
-                 <input type="password" class="form-control" name="text_Impuesto" id="text_Impuesto" placeholder="Ingrese el Impuesto Venta"  data-rule="minlen:4" data-msg="Porfavor ingrese Impuesto Venta" />
-               
-                                      
-  <select type="text" id="cbx_SeleccioneDescuento" name="cbx_SeleccioneDescuento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
-                                  <option value='0'>Seleccione un Descuento</option>
+                                <div class="dotted_line"></div>
+                                 <div class="span4 form-group">
+ <select required type="text" id="cbx_SeleccioneDescuento" name="cbx_SeleccioneDescuento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
+                                  <option value='0'>Seleccione un Vehículo</option>
                                  
                                 </select>
-                                   <input type="text" class="form-control" name="text_ValorDescuento" id="text_ValorDescuento" placeholder="Valor Descuento" data-rule="minlen:4" data-msg="Campo requerido: Valor" />
-                                        <div class="validation"></div>
-
-                   <input type="text" class="form-control" name="text_FechaVenta" id="text_FechaVenta" placeholder="Fecha Venta (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha Venta" />
-                                        <div class="validation"></div>
-
-                                        <input type="text" class="form-control" name="text_CantidadV" id="text_CantidadV" placeholder="Cantidad" data-rule="minlen:4" data-msg="Campo requerido: Cantidad" />
-                                        <div class="validation"></div>
-                                 <input type="text" class="form-control" name="text_Observaciones" id="text_Observaciones" placeholder="Ingrese la Observacion" data-rule="minlen:4" data-msg="Porfavor ingrese Observacion" />
-                <div class="validation"></div>
                                     </div>
+                                  </div>
                                      <div class="span4 form-group">
                                   <p>
-                                  Modulo Factura Mantenimiento
+                                  <h3>Modulo Factura Mantenimiento</h3>
+                                  <div class="dotted_line"></div>
                                 </p>
-<input type="text" class="form-control" name="text_IdfacturaM" id="text_IdfacturaM" placeholder="Id Factura Mantenimiento" data-rule="minlen:4" data-msg="Campo requerido: Id Factura Mantenimiento" />
-                                        <div class="validation"></div>
-                                    <input type="text" class="form-control" name="text_ValorMantenimiento" id="text_ValorMantenimiento" placeholder="Ingrese el Valor Mantenimiento"  data-rule="minlen:4" data-msg="Porfavor ingrese Valor " />
-                <div class="validation"></div>
-                 <input type="text" class="form-control" name="text_ImpuestoM" id="text_ImpuestoM" placeholder="Ingrese el Impuesto Mantenimiento"  data-rule="minlen:4" data-msg="Porfavor ingrese Impuesto Mantenimiento" />
-               
-                                      
-  <select type="text" id="cbx_SeleccioneDescuento" name="cbx_SeleccioneDescuento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
-                                  <option value='0'>Seleccione un Descuento</option>
+                                 <div class="span4 form-group">
+ <select required type="text" id="cbx_SeleccioneMantenimiento" name="cbx_SeleccioneMantenimiento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione Mantenimiento">
+                                  <option value='0'>Seleccione Mantenimiento</option>
                                  
                                 </select>
-                                 
-  <input type="text" class="form-control" name="text_ValorDescuento" id="text_ValorDescuento" placeholder="Valor Descuento" data-rule="minlen:4" data-msg="Campo requerido: Valor" />
-                                        <div class="validation"></div>
-                   <input type="text" class="form-control" name="text_FechaIngresoMantenimiento" id="text_FechaIngresoMantenimiento" placeholder="Fecha Ingreso Mantenimiento (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha Ingreso Mantenimiento" />
-                                        <div class="validation"></div>
-
-                                         <input type="text" class="form-control" name="text_FechaSalidaMantenimiento" id="text_FechaSalidaMantenimiento" placeholder="Fecha Salida Mantenimiento (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha Salida Mantenimiento" />
-                                        <div class="validation"></div>
-
-
-                                      
-                                 <input type="text" class="form-control" name="text_Observaciones" id="text_Observaciones" placeholder="Ingrese la Observacion" data-rule="minlen:4" data-msg="Porfavor ingrese Observacion" />
-                <div class="validation"></div>
 
                 <div class="span8 form-group">
                                     <div class="text-center">

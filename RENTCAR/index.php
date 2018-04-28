@@ -51,7 +51,12 @@
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="index.php">Inicio</a></li>                                        				          <li><a href="cars.html">Vehiculos</a></li>
+				          <li class="menu-active"><a href="index.php">Inicio</a></li>                                        				          <li class="menu-has-children"><a href="">Vehiculos</a>
+				            <ul>
+				              <li><a href="VerAutos.php">Ver Todos</a></li>
+				              <li><a href="VerAutos.php">Autos Rentas</a></li>
+				              <li><a href="VerAutos.php">Autos Ventas</a></li>
+				            </ul>
 				          <li><a href="service.html">Servicios</a></li>
 				          <li><a href="team.html">Nuestro Equipo</a></li>
 				          <li><a href="about.html">Sucursales</a></li>	

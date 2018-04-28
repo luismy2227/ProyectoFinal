@@ -46,7 +46,7 @@
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="index.php">Inicio</a></li>                                        				          <li><a href="cars.html">Vehiculos</a></li>
+				          <li class="menu-active"><a href="index.php">Inicio</a></li>                      <li><a href="VerAutos.php"></a></li>                              				                          
 				          <li><a href="service.html">Servicios</a></li>
 				          <li><a href="team.html">Nuestro Equipo</a></li>
 				          <li><a href="about.html">Sucursales</a></li>	
@@ -81,9 +81,9 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								About Us				
+								Vehiculos				
 							</h1>	
-							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="about.html"> About Us</a></p>
+							<p class="text-white link-nav"><a href="inicio.php">Inico </a>  <span class="lnr lnr-arrow-right"></span>  <a href="VerAutos.php"> Vehiculos</a></p>
 						</div>											
 					</div>
 				</div>
@@ -95,19 +95,18 @@
 				<div class="container-fluid">				
 					<div class="row justify-content-center align-items-center">
 						<div class="col-lg-6 no-padding home-about-left">
-							<img class="img-fluid" src="img/about-img.jpg" alt="">
+							
 						</div>
 						<div class="col-lg-6 no-padding home-about-right">
-							<h1>Globally Connected <br>
-							by Large Network</h1>
+							<h1> <br>
+							</h1>
 							<p>
-								<span>We are here to listen from you deliver exellence</span>
+								<span></span>
 							</p>
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-								Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+								
 							</p>
-							<a class="text-uppercase primary-btn" href="#">get details</a>
+							
 						</div>
 					</div>
 				</div>	

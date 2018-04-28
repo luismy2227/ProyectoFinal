@@ -1,5 +1,5 @@
 /*Procedimiento Login*/
-	CREATE OR REPLACE FUNCTION Funcion_Login(
+	CREATE OR REPLACE FUNCTION Funcion_Login_Cliente(
 		IN pc_usuario 		VARCHAR(45),
 		IN pc_userPassword 	VARCHAR(45),
 		OUT pcMensaje 		VARCHAR(2000),

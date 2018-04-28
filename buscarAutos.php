@@ -1,10 +1,26 @@
 <?php
-session_start();
-if(isset($_SESSION["status"])==false){
-session_destroy();
-header("Location: login.php");
-}
+    session_start();
+    if(isset($_SESSION["status"])==false){
+        session_destroy();
+        header("Location: login.php");
+    }
+
+    include("class/class-conexion.php");
+    $conexion = new Conexion();
+
+    $carro = $_POST["busqueda"];
+    $query = "SELECT tbl_VehiculoEmpresa.idVehiculoEmpresa idVehiculo, tbl_Marca.descripcion marca, tbl_Modelo.descripcion modelo,
+            tbl_VehiculoEmpresa.precioVenta precioVenta, tbl_VehiculoEmpresa.precioVenta precioRenta, tbl_Foto.rutaFoto foto FROM tbl_VehiculoEmpresa 
+            INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
+            INNER JOIN tbl_Marca ON tbl_Vehiculo.idMarca = tbl_Marca.idMarca
+            INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
+            INNER JOIN tbl_Version ON tbl_Version.idVersion = tbl_Vehiculo.idVersion
+            INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo
+            WHERE tbl_Marca.descripcion LIKE '%$carro%' OR tbl_Modelo.descripcion LIKE '%$carro%'
+                    OR tbl_Version.descripcion LIKE '%$carro%';";
+    $vehiculos = $conexion -> ejecutarConsulta($query);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,27 +43,31 @@ header("Location: login.php");
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- Custom styles for this template -->
+        <link href="css/jumbotron.css" rel="stylesheet">
 
+        <!--Custom-->
+        <link href="css/custom.css" rel="stylesheet">
     </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
-        <header>
-            <!-- Navbar
-            ================================================== -->
+        <!--header>
+            
             <div class="navbar navbar-fixed-top">
                 <div class="navbar-inner">
                     <div class="container">
-                        <!-- logo -->
+                        
                         <a class="brand logo" href="index.html"><img src="assets/img/logo.png" alt=""></a>
-                        <!-- end logo -->
-                        <!-- top menu -->
+                        
                         <div class="navigation">
                             <nav>
                                 <ul class="nav topnav">
                                     <li class="dropdown active">
-                                        <a href="index.html">Inicio</a>
+
+                                        <a href="index.php">Inicio</a>
                                     </li>
                                     <li class="dropdown">
                                         <a href="#">Vehículos</a>
@@ -55,8 +75,27 @@ header("Location: login.php");
                                             <li><a href="overview.html">Ver Todo</a></li>
                                             <li><a href="scaffolding.html">Renta</a></li>
                                             <li><a href="base-css.html">Venta</a></li>
-                                            <li><a href="components.html">Promociones</a></li>
-
+                                            <li class="dropdown"><a href="#">Agregar</a>
+                                                <ul class="dropdown-menu sub-menu">
+                                                    <li><a href="InsertarAutoCliente.php">Agregar Auto Cliente</a></li>
+                                                    <li><a href="InsertarAutoEmpresa.php">Agregar Auto Empresa</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Personas</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown"><a href="#">Clientes</a>
+                                                <ul class="dropdown-menu sub-menu">
+                                                    <li><a href="InsertarCliente.php">Agregar Cliente</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown"><a href="#">Empleados</a>
+                                                <ul class="dropdown-menu sub-menu">
+                                                    <li><a href="InsertarEmpleado.php">Agregar Empleado</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="dropdown">
@@ -71,10 +110,7 @@ header("Location: login.php");
                                         <a href="#">Sucursales</a>
 
                                     </li>
-                                    <li class="dropdown">
-                                        <a href="contact.html">Contactenos</a>
 
-                                    </li>
                                     <?php
                                     if(isset($_SESSION["status"])==true){
                                     $boton ="<li><a  id=\"btn_Logout\" name=\"btn_Logout\" href=\"includes/logout.php\">Cerrar Sesión</a></li>";
@@ -84,145 +120,83 @@ header("Location: login.php");
                                     $boton1 ="<li><a  id=\"btn_Log\" name=\"btn_Log\" href=\"login.php\">Iniciar Sesión</a></li>";
                                     echo $boton1;
                                     }
-                                    ?>  
+                                    ?>
+
                                 </ul>
                             </nav>
                         </div>
-                        <!-- end menu -->
+                      
                     </div>
                 </div>
             </div>
-        </header>
+        </header-->
 
         <section id="subintro">
             <div class="jumbotron subhead" id="overview">
                 <div class="container">
+                    <!-- Search -->
+                     
                     <div class="row">
                         <div class="span12">
                             <div class="centered">
-                                <h3>MFacturación</h3>
-                                <p>
-                                    Ingresa la información solicitada 
-                                </p>
+                                <h3>Vehículos</h3>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </section>
 
-
-
-
-        <section id="maincontent">
-            <div class="container">
-                <div class="row">
-                    <div class="span4">
-                        <div class="span8">
-                            <div class="spacer30"></div>
-                            <p>
-                            <h3>Renta</h3>
-                            <div class="dotted_line"></div>
-                            </p>
-
-
-                            <form action="" id="Form_InsertarFactura" name="Form_InsertarFactura" method="post" role="form" class="contactForm">
-                                <div class="row">
-                                    <div class="span4 form-group">
-                                        <div class="span4 form-group">
-
-
-
-
-
-
-                                        </div>
-                                        <div class="span4 form-group">
-
-
-
-                                            <input required type="text" class="form-control" name="text_FechaEntrega" id="text_FechaEntrega" placeholder="Ingrese la Fecha Entrega" data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Entrega" />
-
-
-                                            <div class="validation"></div>
-                                            <input required type="text" class="form-control" name="text_FechaDevolucion" id="text_FechaDevolucion" placeholder="Ingrese la Fecha Devolucion" data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Devolucion" />
-                                            <div class="validation"></div>
-                                            <select required type="text" id="cbx_SeleccioneDescuento" name="cbx_SeleccioneDescuento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
-                                                <option value='0'>Seleccione un Vehículo</option>
-
-                                            </select>
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="span4 form-group">
-
-                                        <div class="span4 form-group">
-
-
-
-                                            <input required type="text" class="form-control" name="text_Anticipo" id="text_Anticipo" placeholder="Anticipo" data-rule="minlen:4" data-msg="Campo requerido: Anticipo" />
-                                            <div class="validation"></div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="span4 form-group">
-                                        <div class="span4 form-group">
-
-
-
-                                            <div class="validation"></div>
-
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="span4 form-group">
-                            <p>
-                            <h3>Venta</h3>
-                            </p>
-                            <div class="dotted_line"></div>
-                            <div class="span4 form-group">
-                                <select required type="text" id="cbx_SeleccioneDescuento" name="cbx_SeleccioneDescuento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
-                                    <option value='0'>Seleccione un Vehículo</option>
-
-                                </select>
-                            </div>
-                        </div>
-                        <div class="span4 form-group">
-                            <p>
-                            <h3>Mantenimiento</h3>
-                            <div class="dotted_line"></div>
-                            </p>
-                            <div class="span4 form-group">
-                                <select required type="text" id="cbx_SeleccioneMantenimiento" name="cbx_SeleccioneMantenimiento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione Mantenimiento">
-                                    <option value='0'>Seleccione Mantenimiento</option>
-
-                                </select>
-
-                                <div class="span8 form-group">
-                                    <div class="text-center">
-                                        <button class="btn btn-color btn-rounded" id="btn_Guardar" name="btn_Guardar" type="submit">Guardar</button>
-                                        <button class="btn btn-color btn-rounded" id="btn_Cancelar" name="btn_Cancelar" type="cancel" onclick="javascript:window.location = 'index.php';">Cancelar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
+        <div class="container">
+            <div class="box search">
+                <!-- Busqueda -->
+                <h2>Buscar <span></span></h2>
+                <form action="buscarAutos.php" method="post">
+                    <fieldset>
+                        <input type="text" name="busqueda" id="busqueda">
+                        <input type="submit" value="Buscar">
+                    </fieldset>
+                </form>
             </div>
-        </form>
-    </div>
-</div>
-</div>
-</div>
-</section>
+        </div>
+
+
+        <!--section id="maincontent"-->
+        <div  class="container">
+            <ul>
+                <p>
+                    <?php
+                        if ($vehiculos->num_rows > 0) {
+                            while ($row = $vehiculo->fetch_assoc()) {
+                                echo '<li>'.
+                                        '<div class="dotted_line"></div>'.
+                                        '   <div class="col-md-6 col-lg-4" >'.
+                                        '   <div class="single-feature">'.
+                                        '       <div class="card">'.
+                                        '           <div class="card-header cards-courses-h">'.$row["marca"]." ".$row["modelo"].
+                                        '           </div>'.    
+                                        '           <div class="card-body">'.
+                                        '                   <h5 class="card-title">'.'</h5>'.
+                                        /*'                   <p class="card-text">Precio de venta: </p>'+
+                                        '                   <p class="card-text">'+carros.precioventa+'</p>'+*/
+                                        '                   <img src="'.$row["foto"].'" alt="" width="350" height="350">'.
+                                        '                   <p><a class="btn btn-primary" href="#" role="button">Ver Vehículo &raquo;</a></p>'.
+                                        '           </div>'.
+                                        '       </div>'.
+                                        '    </div>'.
+                                        '</div></li>';
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    
+                    ?>                                
+                </p>
+            </ul>
+        </div>
+<!--/section-->
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -236,12 +210,7 @@ header("Location: login.php");
 
                 </div>
             </div>
-            <div class="span4">
-                <div class="widget">
-
-
-                </div>
-            </div>
+            
         </div>
     </div>
     <div class="verybottom">
@@ -269,6 +238,7 @@ header("Location: login.php");
                 </div>
             </div>
         </div>
+    </div>
 </footer>
 
 
@@ -287,6 +257,13 @@ header("Location: login.php");
 <script src="assets/js/hover/jquery-hover-effect.js"></script>
 <script src="assets/js/hover/setting.js"></script>
 
+<!--Robert-->
+<script src="js/jquery-3.3.1.slim.min.js" ></script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"></script>')</script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
 
 <!-- Contact Form JavaScript File -->
 <script src="contactform/contactform.js"></script>
@@ -294,13 +271,14 @@ header("Location: login.php");
 <!-- Template Custom JavaScript File -->
 <script src="assets/js/custom.js"></script>
 
+<!--Únicas cosas que yo metí-->
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/insertarCliente.js"></script>
+<!--script src="js/allCars.js"></script-->
 
 <!--Combobox dependientes-->
-<script language="javascript">
+<!--script language="javascript">
     //Combobox de modelos
-    /*$(document).ready(function () {
+    $(document).ready(function () {
         $("#cbx_Marca").change(function () {
             $('#cbx_Version').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
             $("#cbx_Marca option:selected").each(function () {
@@ -334,8 +312,8 @@ header("Location: login.php");
                 });
             });
         })
-    });*/
-</script>
+    });
+</script-->
 
 </body>
 </html>

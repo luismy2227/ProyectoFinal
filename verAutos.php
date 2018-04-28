@@ -171,9 +171,34 @@
 
 
         <!--section id="maincontent"-->
-        <div  class="container">
-            <ul>
+      <section class="home-about-area" id="about">
+                <div class="container-fluid">               
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-6 no-padding home-about-left">
+                            
+                        </div>
+                        <div class="col-lg-6 no-padding home-about-right">
+                            <h1> <br>
+                            </h1>
+                            <p>
+                                
+                                <span></span>
+                              
+                            </p>
+                            <p>
+                                
+                            </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>  
+            </section>
+            <!-- End home-about Area -->    
+ <div  class="container" class="col-lg-6 no-padding home-about-right">
+            <ul><div class="col-lg-6 no-padding home-about-right">
                 <div id="carros" name="carros" class="row"></div>
+            </div>
             </ul>
         </div>
 <!--/section-->

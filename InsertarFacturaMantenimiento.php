@@ -116,8 +116,7 @@
 
                             <form action="" id="Form_InsertarFactura" name="Form_InsertarFactura method="post" role="form" class="contactForm">
                                 <div class="row">
-                                    <div class="span4 form-group">
-                                         <div class="span4 form-group">
+                                   
                                                                  
 
   
@@ -127,7 +126,7 @@
                               </div>
                               
                                   </div>
-                                     <div class="span4 form-group">
+                                     
                                   <p>
                                   <h3>Mantenimiento</h3>
                                   <div class="dotted_line"></div>
@@ -137,6 +136,7 @@
                                   <option value='0'>Seleccione Mantenimiento</option>
                                  
                                 </select>
+                              </div>
 
                 <div class="span8 form-group">
                                     <div class="text-center">

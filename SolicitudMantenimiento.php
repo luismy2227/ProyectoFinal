@@ -46,60 +46,39 @@
                             <nav>
                                 <ul class="nav topnav">
                                     <li class="dropdown active">
-                                        <a href="index.html">Inicio</a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#">Features</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="overview.html">Overview</a></li>
-                                            <li><a href="scaffolding.html">Scaffolding</a></li>
-                                            <li><a href="base-css.html">Base CSS</a></li>
-                                            <li><a href="components.html">Components</a></li>
-                                            <li><a href="javascript.html">Javascripts</a></li>
-                                            <li><a href="icons.html">More icons</a></li>
-                                            <li class="dropdown"><a href="#">3rd level</a>
-                                                <ul class="dropdown-menu sub-menu">
-                                                    <li><a href="#">Example menu</a></li>
-                                                    <li><a href="#">Example menu</a></li>
-                                                    <li><a href="#">Example menu</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#">Pages</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="about.html">About us</a></li>
-                                            <li><a href="pricingtable.html">Pricing table</a></li>
-                                            <li><a href="fullwidth.html">Fullwidth</a></li>
-                                            <li><a href="404.html">404</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#">Blog</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog_left_sidebar.html">Blog left sidebar</a></li>
-                                            <li><a href="blog_right_sidebar.html">Blog right sidebar</a></li>
-                                            <li><a href="post_left_sidebar.html">Post left sidebar</a></li>
-                                            <li><a href="post_right_sidebar.html">Post right sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#">Portfolio</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="portfolio-2cols.html">Portfolio 2 columns</a></li>
-                                            <li><a href="portfolio-3cols.html">Portfolio 3 columns</a></li>
-                                            <li><a href="portfolio-4cols.html">Portfolio 4 columns</a></li>
-                                            <li><a href="portfolio-detail.html">Portfolio detail</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a href="contact.html">Contact</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                                        <a href="index.<?php  ?>">Inicio</a>
+                                       </li>
+                <li class="dropdown">
+                  <a href="#">Vehículos</a>
+                  <ul class="dropdown-menu">
+                 <li><a href="VerAutos.php">Ver Todo</a></li>
+                    <li><a href="VerAutosRenta.php">Renta</a></li>
+                    <li><a href="VerAutosVenta.php">Venta</a></li>
+                    <li><a href="VerAutosSeleccionado.php">Seleccionado</a></li>
+                    
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#">Mantenimiento</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="about.html">Servicios</a></li>
+                    <li><a href="pricingtable.html">Repuestos</a></li>
+                  
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#">Sucursales</a>
+                 
+                </li>
+                <li class="dropdown">
+                  <a href="contact.html">Contactenos</a>
+                 
+                </li>
+                
+              </ul>
+            </nav>
+          </div>
+          
                         <!-- end menu -->
                     </div>
                 </div>
@@ -135,19 +114,44 @@
                                 <div class="row">
                                     <div class="span4 form-group">
 
-                                        <!-- Combobox de marcas-->
+                                        <select required type="text" id="cbx_Vehiculo" name="cbx_Vehiculo" class="form-control" placeholder="Seleccione Vehiculo"minlen:4" data-msg="Seleccione Mantenimiento">
+                                  <option value='0'>Seleccione Vehiculo
+                                 
+                                </select>
+                                <select required type="text" id="cbx_TipoMantenimiento" name="cbx_TipoMantenimiento" class="form-control" placeholder="Seleccione Tipo Mantenimiento"  data-rule="minlen:4" data-msg="Seleccione Mantenimiento"/>
+                                  <option value='0'>Seleccione Mantenimiento</option>
                                         <div> 
-                                             <input type="text" class="form-control" name="text_IdSolicitud" id="text_IdSolicitud" placeholder="Solicitud" data-rule="minlen:4" data-msg="Campo requerido: Solicitud" />
+                                            </select>
+                             
+ <select required type="text" id="cbx_Repuesto" name="cbx_Repuesto" class="form-control" placeholder="Seleccione Repuesto"  data-rule="minlen:4" data-msg="Seleccione Mantenimiento">
+                                  <option value='0'>Seleccione Repuesto</option>
+                                 
+                                </select>
+                            
+
+                                  
+ 
+
+                                 
+ 
+                                             <input required type="text" class="form-control" name="text_Descripcion" id="text_Descripcion" placeholder="Descripcion" data-rule="minlen:4" data-msg="Campo requerido: Descripcion" />
                                         <div class="validation"></div>
 
-                                        <input type="text" class="form-control" name="text_FechaSolicitud" id="text_FechaSolicitud" placeholder="Fecha Solicitud (YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido: Placa" />
+                                        
+                                            
+                                          <input required type="text" class="form-control" name="text_FechaSalida" id="text_FechaSalida" placeholder="Fecha Salida(YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido: Estado" />
                                         <div class="validation"></div>
 
-                                          <input type="text" class="form-control" name="text_Estado" id="text_Estado" placeholder="Estado Solitud" data-rule="minlen:4" data-msg="Campo requerido: Estado" />
+
+                                        <input required type="text" class="form-control" name="text_FechaIngreso" id="text_FechaIngreso" placeholder="Fecha Solicitud (YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido:Fecha Ingreso"/>
                                         <div class="validation"></div>
 
-                                        <input type="text" class="form-control" name="text_Observacion" id="text_Observacion" placeholder="Observacion " data-rule="minlen:4" data-msg="Campo requerido: Observacion" />
-                                        <div class="validation"></div>
+                                     
+                                        
+
+                                 
+                        
+                              
 
                                       
                                         </div>

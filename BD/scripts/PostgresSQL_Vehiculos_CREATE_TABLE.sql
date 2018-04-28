@@ -524,9 +524,7 @@
             idItinerario INTEGER NOT NULL,
             fechaReserva DATE NOT NULL,
             fechaEntrega DATE NOT NULL,
-            horaEntrega TIME NOT NULL,
             fechaDevolucion DATE NOT NULL,
-            horaDevolucion TIME NOT NULL,
             CONSTRAINT Pk_idItinerario PRIMARY KEY (idItinerario)
           );
 

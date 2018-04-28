@@ -1,40 +1,22 @@
 <?php
     session_start();
     if(isset($_SESSION["status"])==false){
-    session_destroy();
-    header("Location: login.php");
+        session_destroy();
+        header("Location: login.php");
     }
-?>
-<!DOCTYPE html>
-<?php
+
     include("class/class-conexion.php");
     $conexion = new Conexion();
-    //Obteniendo las marcas
-    $query = "SELECT idMarca, descripcion FROM tbl_Marca ORDER BY descripcion;";
-    $resMarcas = $conexion->ejecutarConsulta($query);
+    //Obteniendo los cargo
+    $query = "SELECT idcargo, descripcion FROM tbl_cargo ORDER BY descripcion;";
+    $rescargo = $conexion->ejecutarConsulta($query);
 
-    //Obteniendo las transmisiones
-    $query = "SELECT idTransmision, descripcion FROM tbl_Transmision ORDER BY descripcion;";
-    $resTransmision = $conexion->ejecutarConsulta($query);
+    //Obteniendo los Empleado Superior
+    $query = "SELECT e.idEmpleado,p.primerNombre, p.primerApellido FROM tbl_Empleado e
+    INNER JOIN tbl_Persona p ON e.idPersona=p.idPersona
+    ORDER BY p.primerNombre;";
+    $resEmpleadoSuperior = $conexion->ejecutarConsulta($query);
 
-    //Obteniendo los tipos de gasolina
-    $query = "SELECT idTipoGasolina, descripcion FROM tbl_TipoGasolina ORDER BY descripcion;";
-    $resGasolina = $conexion->ejecutarConsulta($query);
-
-    //Obteniendo los tipos de cilindraje
-    $query = "SELECT idCilindraje, descripcion FROM tbl_Cilindraje ORDER BY descripcion;";
-    $resCilindraje = $conexion->ejecutarConsulta($query);
-
-    //Obteniendo las sucursales
-    $query = "SELECT idSucursal, descripcion FROM tbl_Sucursal ORDER BY descripcion;";
-    $resSucursal = $conexion->ejecutarConsulta($query);
-
-    //Obteniendo los clientes
-    $query = "SELECT tbl_Cliente.idCliente, tbl_Persona.primerNombre, tbl_Persona.primerApellido FROM tbl_Cliente 
-    INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Cliente.idPersona
-    WHERE  tbl_Cliente.idCliente<>16
-    ORDER BY tbl_Cliente.idCliente;";
-    $resPersonas = $conexion->ejecutarConsulta($query);
 
     /*$msg="";
     $idVehiculo =0;
@@ -58,6 +40,7 @@
     }*/
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -79,6 +62,15 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="css/jumbotron.css" rel="stylesheet">
+
+        <!--Custom-->
+        <link href="css/custom.css" rel="stylesheet">
     </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
         <header>
@@ -166,9 +158,9 @@
                     <div class="row">
                         <div class="span12">
                             <div class="centered">
-                                <h3>Registro de Vehículo</h3>
+                                <h3>Vehículo Seleccionado</h3>
                                 <p>
-                                    Llena la información solicitada del vehículo del cliente, para registrar su pronto mantenimiento.
+                                    Descripción de vehículo
                                 </p>
                             </div>
                         </div>
@@ -178,135 +170,13 @@
         </section>
 
 
-        <section id="maincontent">
-            <div class="container">
-                <div class="row">
-                    <div class="span4">
-                        <div class="span8">
-                            <div class="spacer30"></div>
-
-                            <form action="" id="Form_InsertarAutoCliente" name="Form_InsertarAutoCliente" method="post" role="form" class="contactForm">
-                                <div class="row">
-                                    <div class="span4 form-group">
-
-                                        <!-- Combobox de marcas-->
-                                        <div> 
-                                            <select id="cbx_Marca" name="cbx_Marca" required>
-                                                <option value='0' >Selecciona una marca</option>
-                                                <?php while($rowMarcas = pg_fetch_array($resMarcas)) { ?>
-                                                <option value="<?php echo $rowMarcas[0]; ?>" ><?php echo $rowMarcas[1]; ?> </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-
-                                        <!-- Combobox de modelos-->
-                                        <div>
-                                            <select id="cbx_Modelo" name="cbx_Modelo" required></select>
-                                        </div>
-
-                                        <!-- Combobox de versiones-->
-                                        <div>
-                                            <select id="cbx_Version" name="cbx_Version" required></select>
-                                        </div>
-
-                                        <!-- Combobox de transmisiones-->
-                                        <div> 
-                                            <select id="cbx_Transmisiones" name="cbx_Transmisiones" required>
-                                                <option value='0'>Transmisión</option>
-                                                <?php while($rowTransmision = pg_fetch_array($resTransmision)) { ?>
-                                                <option value="<?php echo $rowTransmision[0]; ?>" ><?php echo $rowTransmision[1]; ?> </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-
-                                        <!-- Combobox de gasolinas-->
-                                        <div> 
-                                            <select id="cbx_Gasolinas" name="cbx_Gasolinas" required>
-                                                <option value='0'>Combustible</option>
-                                                <?php while($rowGasolina = pg_fetch_array($resGasolina)) { ?>
-                                                <option value="<?php echo $rowGasolina[0]; ?>" ><?php echo $rowGasolina[1]; ?> </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-
-                                        <!-- Combobox de cilindrajes-->
-                                        <div> 
-                                            <select id="cbx_Cilindraje" name="cbx_Cilindraje" required>
-                                                <option value='0'>Número de cilindros</option>
-                                                <?php while($rowCilindros = pg_fetch_array($resCilindraje)) { ?>
-                                                <option value="<?php echo $rowCilindros[0]; ?>" ><?php echo $rowCilindros[1]; ?> </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-
-
-                                        <!-- Combobox de sucursales-->
-                                        <div> 
-                                            <select id="cbx_Sucursal" name="cbx_Sucursal" required>
-                                                <option value='0'>Selecciona una sucursal</option>
-                                                <?php while($rowSucursal = pg_fetch_array($resSucursal)) { ?>
-                                                <option value="<?php echo $rowSucursal[0]; ?>" ><?php echo $rowSucursal[1]; ?> </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-
-                                        <!-- Combobox de garages-->
-                                        <div>
-                                            <select id="cbx_Garage" name="cbx_Garage"></select required> 
-                                        </div><!-- Combobox de Clientes-->
-                                        <div> 
-                                            <select id="cbx_ClientePertenece" name="cbx_ClientePertenece">
-                                                <option value='0'>Selecciona un cliente</option>
-                                                <?php while($rowCliente = pg_fetch_array($resPersonas)) { ?>
-                                                <option value="<?php echo $rowCliente[0]; ?>" ><?php $nombre= $rowCliente[1]." ".$rowCliente[2]; echo $nombre; ?> </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="span4 form-group">
-                                        <input required type="text" class="form-control" name="text_Color" id="text_Color" placeholder="Color" data-rule="minlen:4" data-msg="Campo requerido: Color" />
-                                        <div class="validation"></div>
-
-                                        <input required type="text" class="form-control" name="text_Placa" id="text_Placa" placeholder="Placa" data-rule="minlen:4" data-msg="Campo requerido: Placa" />
-                                        <div class="validation"></div>
-
-                                        <input required type="text" class="form-control" name="text_Anio" id="text_Anio" placeholder="Año (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Año" />
-                                        <div class="validation"></div>
-
-                                        <input required type="text" class="form-control" name="text_Generacion" id="text_Generacion" placeholder="Generación" data-rule="minlen:4" data-msg="Campo requerido: Generacion" />
-                                        <div class="validation"></div>
-
-                                        <input required type="text" class="form-control" name="text_Serie" id="text_Serie" placeholder="Número de Serie" data-rule="minlen:4" data-msg="Campo requerido: Serie" />
-                                        <div class="validation"></div>
-
-                                        <input required type="text" class="form-control" name="text_TipoMotor" id="text_TipoMotor" placeholder="Tipo de motor" data-rule="minlen:4" data-msg="Campo requerido: Tipo de Motor" />
-                                        <div class="validation"></div>
-
-                                    </div>
-
-                                </div>
-                                <div class="span4 form-group">
-                                    <div class="col-md-4">
-                                    </div>
-                                </div>
-                                <div class="span8 form-group">
-                                    <div class="text-center">
-
-                                        <button class="btn btn-color btn-rounded" id="btn_Guardar" name="btn_Guardar" type="submit">Guardar</button>
-                                        <button class="btn btn-color btn-rounded" id="btn_Cancelar" name="btn_Cancelar" type="cancel" onclick="javascript:window.location = 'index.php';">Cancelar</button>
-
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-                </form>
-            </div>
+        <!--section id="maincontent"-->
+        <div  class="container">
+            <ul>
+                <div id="carros" name="carros" class="row"></div>
+            </ul>
         </div>
-    </div>
-</div>
-</section>
+<!--/section-->
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -320,12 +190,7 @@
 
                 </div>
             </div>
-            <div class="span4">
-                <div class="widget">
-
-
-                </div>
-            </div>
+            
         </div>
     </div>
     <div class="verybottom">
@@ -353,6 +218,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </footer>
 
 
@@ -371,6 +237,13 @@
 <script src="assets/js/hover/jquery-hover-effect.js"></script>
 <script src="assets/js/hover/setting.js"></script>
 
+<!--Robert-->
+<script src="js/jquery-3.3.1.slim.min.js" ></script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"></script>')</script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
 
 <!-- Contact Form JavaScript File -->
 <script src="contactform/contactform.js"></script>
@@ -378,11 +251,12 @@
 <!-- Template Custom JavaScript File -->
 <script src="assets/js/custom.js"></script>
 
+<!--Únicas cosas que yo metí-->
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/insertarAutoCliente.js"></script>
+<script src="js/ventCars.js"></script>
 
 <!--Combobox dependientes-->
-<script language="javascript">
+<!--script language="javascript">
     //Combobox de modelos
     $(document).ready(function () {
         $("#cbx_Marca").change(function () {
@@ -419,7 +293,7 @@
             });
         })
     });
-</script>
+</script-->
 
 </body>
 </html>

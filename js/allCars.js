@@ -28,7 +28,7 @@ function allCars(){
                                 /*'                   <p class="card-text">Precio de venta: </p>'+
                                 '                   <p class="card-text">'+carros.precioventa+'</p>'+*/
                                 '                   <img src="'+carros.foto+'" alt="" width="350" height="350">'+
-                                '                   <p><a class="btn btn-primary" href="#" role="button">Ver Vehículo &raquo;</a></p>'+
+                                '                   <p><a class="btn btn-primary" href="verAutoSeleccionado.php" role="button">Ver Vehículo &raquo;</a></p>'+
                                 '           </div>'+
                                 '       </div>'+
                                 '   </div></li>';                   

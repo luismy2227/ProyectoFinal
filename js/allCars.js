@@ -35,8 +35,13 @@ function allCars(){
                                 '                   <h5 class="">'+'</h5>'+
                                 /*'                   <p class="card-text">Precio de venta: </p>'+
                                 '                   <p class="card-text">'+carros.precioventa+'</p>'+*/
+<<<<<<< HEAD
                                 '                   <img src="'+carros.foto+'" alt="" width="200" height="200">'+
                                 '                   <p><a class="btn btn-primary" href="#" role="button">Ver Vehículo &raquo;</a></p>'+
+=======
+                                '                   <img src="'+carros.foto+'" alt="" width="350" height="350">'+
+                                '                   <p><a class="btn btn-primary" href="verAutoSeleccionado.php" role="button">Ver Vehículo &raquo;</a></p>'+
+>>>>>>> f54db400cc232ec1c74c9c00060a80494285609d
                                 '           </div>'+
                                 '       </div>'+
                                 '   </div></li>';                   

@@ -40,6 +40,14 @@
     }*/
 ?>
 
+<?php
+function seleccionarAuto($idVehiculo){
+    session_start();
+     $_SESSION["idVehiculo"] = $idVehiculo;
+     header("Location: verAutoSeleccionado.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

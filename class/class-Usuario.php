@@ -1,6 +1,6 @@
 <?php
 
-	class class-Usuario{
+	class Usuario{
 
 		private $idUsuario;
 		private $nombreUsuario;
@@ -37,6 +37,17 @@
 				" ImagenRuta: " . $this->imagenRuta;
 		}
 
-		
+		public static function verPerfil($conexion, $idUsuario){
+			$query = "SELECT idUsuario, idEmpleado, primerNombre, segundoNombre, primerApellido,segundoApellido, 
+			rutaFoto, fechaContratacion, cargo, fechaPromocion, nombreUsuario, telefono, correoElectronico FROM vv_Informacion_Empleado  WHERE idUsuario=$idUsuario;";
+			$registro = $conexion -> ejecutarConsulta($query);
+			$res = array();
+
+			while($respuesta=$conexion->obtenerFilas($registro)){
+                $res[]=$respuesta;
+            }
+            return $res;
+
+		}
 	}
 ?>

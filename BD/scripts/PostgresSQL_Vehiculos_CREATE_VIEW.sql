@@ -163,3 +163,21 @@
           INNER JOIN vv_Detalle_Vehiculos ON vv_Detalle_Vehiculos.idVehiculo = tbl_Vehiculo.idVehiculo
           ORDER BY tbl_Sucursal.descripcion
         );
+
+  /*Relacionadas con las personas*/
+    /*Vista de cruce de empleados y datos personales*/
+      /*Descripción:*/
+        /*Lista información personal de los empleados*/
+
+      /*Script:*/
+        CREATE OR REPLACE VIEW vv_Informacion_Empleado (idUsuario, idEmpleado, primerNombre, segundoNombre, primerApellido, segundoApellido, rutaFoto,
+          fechaContratacion, cargo, fechaPromocion, nombreUsuario, telefono, correoElectronico) AS(
+          SELECT tbl_Usuario.idUsuario usuario, tbl_Empleado.idEmpleado idEmpleado, tbl_Persona.primerNombre primerNombre, tbl_Persona.segundoNombre segundoNombre, tbl_Persona.primerApellido primerApellido, 
+          tbl_Persona.segundoApellido segundoApellido, tbl_Usuario.imagenRuta rutaFoto, tbl_Empleado.fechaContratacion fechaContratacion, tbl_Cargo.descripcion cargo, tbl_Empleado.fechaPromocion fechaPromocion, 
+          tbl_Usuario.nombreUsuario nombreUsuario, tbl_Telefono.telefono telefono, tbl_CorreoElectronico.correoElectronico correoElectronico FROM tbl_Usuario
+          INNER JOIN tbl_Empleado ON tbl_Empleado.idUsuario = tbl_Usuario.idUsuario
+          INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Empleado.idPersona
+          INNER JOIN tbl_Cargo ON tbl_Cargo.idCargo = tbl_Empleado.idCargo
+          INNER JOIN tbl_Telefono ON tbl_Telefono.idPersona = tbl_Persona.idPersona
+          INNER JOIN tbl_CorreoElectronico ON tbl_CorreoElectronico.idPersona = tbl_Persona.idPersona
+        );

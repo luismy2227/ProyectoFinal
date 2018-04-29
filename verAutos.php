@@ -4,40 +4,6 @@
         session_destroy();
         header("Location: login.php");
     }
-
-    /*include("class/class-conexion.php");
-    $conexion = new Conexion();
-    //Obteniendo los cargo
-    $query = "SELECT idcargo, descripcion FROM tbl_cargo ORDER BY descripcion;";
-    $rescargo = $conexion->ejecutarConsulta($query);
-
-    //Obteniendo los Empleado Superior
-    $query = "SELECT e.idEmpleado,p.primerNombre, p.primerApellido FROM tbl_Empleado e
-    INNER JOIN tbl_Persona p ON e.idPersona=p.idPersona
-    ORDER BY p.primerNombre;";
-    $resEmpleadoSuperior = $conexion->ejecutarConsulta($query);*/
-
-
-    /*$msg="";
-    $idVehiculo =0;
-    $idFoto =0;
-    if(isset($_POST['upload'])){
-    $target = "uploaded/".basename($_FILES['image']['name']);
-    $image = $_FILES['image']['name'];
-
-    $query ="SELECT MAX(idVehiculo) FROM tbl_Vehiculo;";
-    $idVehiculo = ($conexion -> ejecutarConsulta($query)) + 1;
-    $query ="SELECT MAX(idFoto) FROM tbl_Foto;";
-    $idFoto = ($conexion -> ejecutarConsulta($query)) + 1;
-
-    if(move_uploaded_file(($_FILES['image']['tmp_name']), $target)){
-    $msg = "Se subió exitosamente la imagen";
-    }else{
-    $msg="Se produjo un error al subir la imagen";
-    }
-    $query = "INSERT INTO tbl_Foto (idFoto, rutaFoto, idVehiculo) VALUES('$idFoto', '$target', '$idVehiculo');";
-    $conexion->ejecutarConsulta($query);
-    }*/
 ?>
 
 <!DOCTYPE html>

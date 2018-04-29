@@ -25,6 +25,7 @@
     INNER JOIN tbl_Empleado ON tbl_Empleado.idUsuario = tbl_Usuario.idUsuario
     WHERE tbl_Usuario.nombreUsuario = '$usuario';";
     $id = $conexion -> ejecutarConsulta($query);
+    $idUser = $conexion ->obtenerFila($id);
 
     $query="SELECT tbl_Persona.primerNombre, tbl_Persona.primerApellido FROM tbl_Usuario 
     INNER JOIN tbl_Empleado ON tbl_Empleado.idUsuario = tbl_Usuario.idUsuario
@@ -36,7 +37,7 @@
 
     $_SESSION['status']=true;
     $_SESSION['ultimoAcceso']=date("Y-n-j H:i:s");
-    $_SESSION['idUsuario'] = $id;
+    $_SESSION['idUsuario'] = $idUser[0];
     $_SESSION['nombre']=$nombreCompleto;
     $respuesta['loggedin']=1;
     $respuesta['mensajeSesion']="Tiene acceso";

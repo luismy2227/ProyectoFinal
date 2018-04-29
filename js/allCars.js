@@ -19,7 +19,7 @@ function allCars(){
                    var fila =  
                                 //'<div class="dotted_line"></div>'+
                                 '<div class ="Cajita" id="Cajita">'+
-                                '   <div class="col-md-6 col-lg-4" ></div>'+
+                                '   <div class="col-md-6 col-lg-4" >'+
                                 '   <div class="single-feature">'+
                                 '       <div class="card">'+
                                 '           <div class="card-header cards-courses-h">'+carros.marca+" "+carros.modelo+

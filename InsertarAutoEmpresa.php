@@ -129,10 +129,9 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">Mantenimiento</a>
+                                         <a href="#">Mantenimiento</a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="about.html">Servicios</a></li>
-                                            <li><a href="pricingtable.html">Repuestos</a></li>
+                                            <li><a href="SolicitudMantenimiento.php">Solicitud</a></li>
 
                                         </ul>
                                     </li>

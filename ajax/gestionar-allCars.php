@@ -10,7 +10,12 @@
             echo json_encode($respuesta);
       break;
 
-      case "seleccionar":
+      case "seleccionar-especifico":
+            if(isset($_POST["idvehiculo"])){
+              $idVehiculo = (int)$_POST["idvehiculo"];
+            }
+            $respuesta=Vehiculo::listarSeleccionado($conexion, $idVehiculo);
+            echo json_encode($respuesta);
       break;
 
       case "eliminar-registro":

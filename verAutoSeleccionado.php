@@ -73,6 +73,7 @@
         <link href="css/custom.css" rel="stylesheet">
     </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
         <header>
             <!-- Navbar
             ================================================== -->
@@ -171,6 +172,10 @@
 
         <!--section id="maincontent"-->
         <div  class="container">
+            <?php
+              echo '<input type="hidden" id="txt_idVehiculo" value="'.$_GET['id'].'">';
+              //echo $_GET['id'];
+            ?>
             <ul>
                 <div id="carros" name="carros" class="row"></div>
             </ul>
@@ -252,7 +257,7 @@
 
 <!--Únicas cosas que yo metí-->
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/ventCars.js"></script>
+<script src="js/verAutoSeleccionado.js"></script>
 
 <!--Combobox dependientes-->
 <!--script language="javascript">

@@ -10,7 +10,9 @@
             echo json_encode($respuesta);
       break;
 
-      case "seleccionar":
+      case "cargarInfo":
+            $respuesta=Usuario::cargarInfo($conexion, $_SESSION['idUsuario']);
+            echo json_encode($respuesta);
       break;
 
       case "eliminar-registro":

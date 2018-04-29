@@ -5,6 +5,6 @@
 
 	$conexion = new Conexion();
 
-	$respuesta = Usuario::verPerfil($conexion, 23);
+	$respuesta = Usuario::cargarInfo($conexion, 23);
 	var_dump($respuesta);
 ?>

@@ -47,7 +47,25 @@
                 $res[]=$respuesta;
             }
             return $res;
+		}
 
+		public static function cargarInfo($conexion, $idUsuario){
+			$query = "SELECT vv_Informacion_Empleado.idUsuario, vv_Informacion_Empleado.idEmpleado, tbl_Persona.identidad, vv_Informacion_Empleado.primerNombre, 
+			vv_Informacion_Empleado.segundoNombre, vv_Informacion_Empleado.primerApellido, vv_Informacion_Empleado.segundoApellido, 
+			vv_Informacion_Empleado.rutaFoto, vv_Informacion_Empleado.fechaContratacion, tbl_Empleado.idCargo, vv_Informacion_Empleado.fechaPromocion, 
+			vv_Informacion_Empleado.nombreUsuario,  vv_Informacion_Empleado.telefono, vv_Informacion_Empleado.correoElectronico, tbl_Direccion.departamento,
+			tbl_Direccion.municipio, tbl_Direccion.colonia, tbl_Direccion.sector, tbl_Direccion.numeroCasa FROM vv_Informacion_Empleado  
+			INNER JOIN tbl_Empleado ON tbl_Empleado.idEmpleado = vv_Informacion_Empleado.idEmpleado
+			INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Empleado.idPersona
+			INNER JOIN tbl_Direccion ON tbl_Direccion.idDireccion = tbl_Persona.idDireccion
+			WHERE vv_Informacion_Empleado.idUsuario=$idUsuario;";
+			$registro = $conexion -> ejecutarConsulta($query);
+			$res = array();
+
+			while($respuesta=$conexion->obtenerFilas($registro)){
+                $res[]=$respuesta;
+            }
+            return $res;
 		}
 	}
 ?>

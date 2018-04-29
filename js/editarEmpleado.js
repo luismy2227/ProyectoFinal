@@ -78,3 +78,26 @@ function cargarInfo(){
             }
     });
 }
+
+$(function () {
+  //alert("Entré aquí 1");
+  $(document).on("submit","#Form_EditarEmpleado",function(event){
+    event.preventDefault();
+    //alert("Entré aquí 2");
+    $.ajax({
+        type:"POST",
+        url:"ajax/gestionar-editarEmpleado.php",
+        dataType:"JSON",
+        data:$(this).serialize(),
+        success:function(respuesta){
+           //alert("Entré aquí 3");
+            alert(respuesta);
+            console.log(respuesta);
+            if(respuesta == 'Empleado actualizado con éxito'){
+                window.location='verPerfil.php';
+            }   
+            /*console.log(respuesta[0]);*/
+        }
+    });
+  });
+});

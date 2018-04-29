@@ -42,7 +42,3 @@ function allCars(){
             }
     });
 }
-
-function seleccionar(idvehiculo){
-    alert(idvehiculo);
-}

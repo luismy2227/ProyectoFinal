@@ -103,12 +103,11 @@
 			INNER JOIN tbl_Usuario ON tbl_Usuario.idUsuario = tbl_Empleado.idUsuario
 			WHERE tbl_Usuario.idUsuario = pn_idUsuario; -- Obtener el id de Persona	
 
-			UPDATE tbl_Empleado (fechaContratacion, idPersona, idCargo, 
-			idUsuario, idEmpleadoSuperior, fechaPromocion)
-			VALUES (pd_fechaContratacion, auxiliarPersona, pn_idCargo,
-			pn_idUsuario, pn_idEmpleadoSuperior, pd_fechaPromocion);
+			UPDATE tbl_Empleado SET fechaContratacion = pd_fechaContratacion, idPersona = auxiliarPersona, idCargo = pn_idCargo, 
+			idEmpleadoSuperior= pn_idEmpleadoSuperior, fechaPromocion = pd_fechaPromocion
+			WHERE idUsuario = pn_idUsuario;
 
-			pcMensajeEmpleado := 'Empleado insertado con éxito';
+			pcMensajeEmpleado := 'Empleado actualizado con éxito';
 			pbOcurreErrorEmpleado := FALSE;
 			--COMMIT;
 			RETURN;

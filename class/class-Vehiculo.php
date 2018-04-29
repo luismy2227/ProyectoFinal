@@ -200,7 +200,8 @@
 
 		public static function listarSeleccionado($conexion, $idVehiculo){
 			$query = "SELECT tbl_VehiculoEmpresa.idVehiculoEmpresa idVehiculo, tbl_Marca.descripcion marca, tbl_Modelo.descripcion modelo,
-			tbl_VehiculoEmpresa.precioVenta precioVenta, tbl_VehiculoEmpresa.precioRentaHora precioRenta, tbl_Foto.rutaFoto foto FROM tbl_VehiculoEmpresa 
+			tbl_VehiculoEmpresa.seVende seVende, tbl_VehiculoEmpresa.precioVenta precioVenta, tbl_VehiculoEmpresa.precioRentaHora precioRenta, 
+			tbl_VehiculoEmpresa.seRenta seRenta, tbl_Foto.rutaFoto foto, EXTRACT(YEAR FROM tbl_Vehiculo.anio) anio FROM tbl_VehiculoEmpresa 
 			INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
 			INNER JOIN tbl_Marca ON tbl_Vehiculo.idMarca = tbl_Marca.idMarca
 			INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo

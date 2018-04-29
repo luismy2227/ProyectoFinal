@@ -14,6 +14,7 @@
 
 		DECLARE
 			contador 		INTEGER DEFAULT 0;
+			var2			INTEGER DEFAULT 0;
 			temMensaje 		VARCHAR(2000);
 			auxiliarUsuario	INTEGER DEFAULT 0;
 
@@ -46,20 +47,24 @@
 
 			--Comprobando que el nombre de usuario no se duplique
 			SELECT COUNT(*) INTO contador FROM tbl_Usuario 
-			WHERE  tbl_Usuario.nombreUsuario = pc_nombreUsuario AND tbl_Usuario.idUsuario <> pn_idUsuario;
+			WHERE  tbl_Usuario.nombreUsuario = pc_nombreUsuario;
+			
 	 		IF contador > 0 THEN
-				RAISE NOTICE 'Valor unico en la tabla Usuario ya existe ( % )', pc_nombreUsuario;
-				pcMensaje := 'El nombre de usUario "'|| pc_nombreUsuario ||'" ya existe';
-				RETURN;
+	 			SELECT tbl_Usuario.idUsuario INTO var2 FROM tbl_Usuario 
+				WHERE  tbl_Usuario.nombreUsuario = pc_nombreUsuario;
+				IF var2 <> pn_idUsuario THEN
+					RAISE NOTICE 'Valor unico en la tabla Usuario ya existe ( % )', pc_nombreUsuario;
+					pcMensaje := 'El nombre de usUario "'|| pc_nombreUsuario ||'" ya existe';
+					RETURN;
+				END IF;
 			END IF;
 
 			-- Insertando usuario
 			
-			UPDATE tbl_Usuario (nombreUsuario, userPassword, imagenRuta)
-			VALUES (pc_nombreUsuario,pc_userPassword, pc_imagenRuta)
+			UPDATE tbl_Usuario SET nombreUsuario = pc_nombreUsuario, userPassword = pc_userPassword, imagenRuta = pc_imagenRuta
 			WHERE tbl_Usuario.idUsuario = pn_idUsuario;
 
-			pcMensaje := 'Usuario insertado con éxito';
+			pcMensaje := 'Usuario actualizado con éxito';
 			pbOcurreError := FALSE;
 			--COMMIT;
 			RETURN;
@@ -69,5 +74,5 @@
 	COST 100;
 
 /*Probando la función:
-	SELECT Funcion_Agregar_Usuario('prueba', 'prueba', 'ruta2');
+	SELECT public.funcion_actualizar_usuario('margarito1', 'margarito1', 'uploaded\u23.png', 23);
 */

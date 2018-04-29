@@ -1,6 +1,7 @@
 <?php
   include("../class/class-conexion.php");
   $conexion= new Conexion();
+  session_start();
   $aux=null;
   $aux1=null;
   $aux2=null;
@@ -11,9 +12,7 @@
     $genero=$_POST["cbx_SeleccioneGenero"];
     $genero=(int)$genero;
   }
-  
-
-  
+    
 if(isset($_POST["text_PrimerNombre"])){
     $primernombre=$_POST["text_PrimerNombre"];
     
@@ -184,10 +183,13 @@ else if ($numerocasa==null or $numerocasa==""){
 
 }
   else{
-    $query="SELECT  * FROM funcion_agregar_usuario_empleado('$identidad','$primernombre','$segundonombre','$primerapellido','$segundoapellido','$telefono','$correo','$departamento','$municipio','$colonia','$sector','$numerocasa',$genero,'$nombreusuario','$userpassword','$imagenruta','$fechacontratacion',$cargo,$empleadosuperior,'$fechapromocion');";  
+    $query="SELECT  * FROM funcion_actualizar_usuario_empleado('$identidad','$primernombre','$segundonombre','$primerapellido',
+      '$segundoapellido','$telefono','$correo','$departamento','$municipio','$colonia','$sector','$numerocasa',$genero,
+      '$nombreusuario','$userpassword','$imagenruta','$fechacontratacion',$cargo,$empleadosuperior,'$fechapromocion',"
+      .(int)$_SESSION['idUsuario'].");";  
     $resultados=$conexion->ejecutarConsulta($query);
     $respuesta=$conexion->obtenerFila($resultados);
-    $respuesta=$respuesta[0];//
+    $respuesta=$respuesta[0];
   }
   $conexion->cerrarConexion();
   echo json_encode($respuesta); 

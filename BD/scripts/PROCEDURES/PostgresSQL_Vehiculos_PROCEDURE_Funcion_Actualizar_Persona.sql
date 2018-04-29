@@ -23,7 +23,7 @@
 	$BODY$
 		DECLARE
 			contador 			INTEGER DEFAULT 0;
-			contador2 			INTEGER DEFAULT 0;
+			var2 			INTEGER DEFAULT 0;
 			auxiliarDireccion 	INTEGER DEFAULT 0;
 			auxiliarPersona 	INTEGER DEFAULT 0;
 			auxiliarTelefono 	INTEGER DEFAULT 0;
@@ -106,12 +106,12 @@
 			WHERE  tbl_Persona.identidad = pc_identidad;
 
 	 		IF contador > 0 THEN
-	 			SELECT COUNT(*) INTO contador2 FROM tbl_Persona 
+	 			SELECT tbl_Usuario.idUsuario INTO var2 FROM tbl_Persona 
 				INNER JOIN tbl_Empleado ON tbl_Empleado.idPersona = tbl_Persona.idPersona
 				INNER JOIN tbl_Usuario ON tbl_Usuario.idUsuario = tbl_Empleado.idUsuario
-				WHERE  tbl_Persona.identidad = pc_identidad AND tbl_Usuario.idUsuario = pn_idUsuario;
+				WHERE  tbl_Persona.identidad = pc_identidad;
 
-				IF contador2 <> 0 THEN
+				IF var2 <> pn_idUsuario THEN
 					RAISE NOTICE 'Valor unico en la tabla Persona ya existe ( % )', pc_identidad;
 					pcMensaje := 'La identidad "'|| pc_identidad ||'" ya está siendo utilizado';
 					RETURN;
@@ -126,12 +126,12 @@
 			WHERE  tbl_Telefono.telefono = pc_telefono;
 
 	 		IF contador > 0 THEN
-	 			SELECT COUNT(*) INTO contador2 FROM tbl_Telefono 
+	 			SELECT tbl_Usuario.idUsuario INTO var2 FROM tbl_Telefono 
 				INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Telefono.idPersona 
 				INNER JOIN tbl_Empleado ON tbl_Empleado.idPersona = tbl_Persona.idPersona
 				INNER JOIN tbl_Usuario ON tbl_Usuario.idUsuario = tbl_Empleado.idUsuario 
-				WHERE  tbl_Telefono.telefono = pc_telefono AND tbl_Usuario.idUsuario = pn_idUsuario;
-				IF contador2 <> 0 THEN
+				WHERE  tbl_Telefono.telefono = pc_telefono;
+				IF var2 <> pn_idUsuario THEN
 					RAISE NOTICE 'Valor unico en la tabla Telefono ya existe ( % )', pc_telefono;
 					pcMensaje := 'El numero de telefono "'|| pc_telefono ||'" ya esta siendo utilizado';
 					RETURN;
@@ -140,19 +140,19 @@
 				
 				--Comprobando que el correo electronico  no se duplique
 			SELECT COUNT(*) INTO contador FROM tbl_CorreoElectronico  
-			INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Telefono.idPersona 
+			INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_CorreoElectronico.idPersona 
 			INNER JOIN tbl_Empleado ON tbl_Empleado.idPersona = tbl_Persona.idPersona
 			INNER JOIN tbl_Usuario ON tbl_Usuario.idUsuario = tbl_Empleado.idUsuario 
 			WHERE  tbl_CorreoElectronico.correoElectronico = pc_correoElectronico;
 
 	 		IF contador > 0 THEN
-	 			SELECT COUNT(*) INTO contador2 FROM tbl_CorreoElectronico  
-				INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Telefono.idPersona 
+	 			SELECT tbl_Usuario.idUsuario INTO var2 FROM tbl_CorreoElectronico  
+				INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_CorreoElectronico.idPersona 
 				INNER JOIN tbl_Empleado ON tbl_Empleado.idPersona = tbl_Persona.idPersona
 				INNER JOIN tbl_Usuario ON tbl_Usuario.idUsuario = tbl_Empleado.idUsuario 
-				WHERE  tbl_CorreoElectronico.correoElectronico = pc_correoElectronico AND tbl_Usuario.idUsuario = pn_idUsuario;
+				WHERE  tbl_CorreoElectronico.correoElectronico = pc_correoElectronico;
 
-				IF contador2 <> 0 THEN
+				IF var2 <> pn_idUsuario THEN
 					RAISE NOTICE 'Valor unico en la tabla Correo Electronico ya existe ( % )', pc_correoElectronico;
 					pcMensaje := 'El correo Electronico "'|| pc_correoElectronico ||'" ya esta siendo utilizado';
 					RETURN;
@@ -161,7 +161,7 @@
 			
 			--Insertando la direccion:
 			SELECT tbl_Direccion.idDireccion INTO auxiliarDireccion FROM tbl_Direccion
-			INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Telefono.idPersona 
+			INNER JOIN tbl_Persona ON tbl_Persona.idDireccion = tbl_Direccion.idDireccion 
 			INNER JOIN tbl_Empleado ON tbl_Empleado.idPersona = tbl_Persona.idPersona
 			INNER JOIN tbl_Usuario ON tbl_Usuario.idUsuario = tbl_Empleado.idUsuario 
 			WHERE tbl_Usuario.idUsuario = pn_idUsuario; --Obtener el idDireccion
@@ -192,7 +192,7 @@
 			
 			--Insertando correo:
 			SELECT idCorreoElectronico INTO auxiliarCorreo FROM tbl_CorreoElectronico
-			INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Telefono.idPersona 
+			INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_CorreoElectronico.idPersona 
 			INNER JOIN tbl_Empleado ON tbl_Empleado.idPersona = tbl_Persona.idPersona
 			INNER JOIN tbl_Usuario ON tbl_Usuario.idUsuario = tbl_Empleado.idUsuario
 			WHERE tbl_Usuario.idUsuario = pn_idUsuario; --Obtener el idCorreo
@@ -210,6 +210,20 @@
 	COST 100;
 
 /*Prueba de la función:
-	SELECT Funcion_Agregar_Persona('0801199707679', 'Marcos', 'Miguel', 'Andino', 'Andrade', 
-	'96068545', 'luismy2227@gmail.com', 'Francisco Morazán', 'DC', 'Centro América', 'Sector 2', 'Casa 4',2);
+	SELECT public.funcion_actualizar_persona(
+	'0801-1987-6751', 
+	'Margarito', 
+	'Addison', 
+	'Xenos', 
+	'Harrington', 
+	'+504-9960-6230', 
+	'diam.at@interdumNuncsollicitudin.ca', 
+	'Francisco Morazán', 
+	'DC', 
+	'Nueva Capital', 
+	'Sector 3', 
+	'Casa 143', 
+	2, 
+	23
+);
 */

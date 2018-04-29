@@ -45,59 +45,39 @@
                         <div class="navigation">
                             <nav>
                                 <ul class="nav topnav">
-                                    <li class="dropdown">
 
-                                        <a href="index.php">Inicio</a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#">Vehículos</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="verAutos.php">Ver Todo</a></li>
-                                            <li><a href="verAutosRenta.php">Renta</a></li>
-                                            <li><a href="verAutosVenta.php">Venta</a></li>
-                                            <li class="dropdown"><a href="#">Agregar</a>
-                                                <ul class="dropdown-menu sub-menu">
-                                                    <li><a href="InsertarAutoCliente.php">Agregar Auto Cliente</a></li>
-                                                    <li><a href="InsertarAutoEmpresa.php">Agregar Auto Empresa</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#">Personas</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown"><a href="#">Clientes</a>
-                                                <ul class="dropdown-menu sub-menu">
-                                                    <li><a href="InsertarCliente.php">Agregar Cliente</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown"><a href="#">Empleados</a>
-                                                <ul class="dropdown-menu sub-menu">
-                                                    <li><a href="InsertarEmpleado.php">Agregar Empleado</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li class="dropdown active">
-                                        <a href="#">Mantenimiento</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="about.html">Servicios</a></li>
-                                            <li><a href="pricingtable.html">Repuestos</a></li>
-
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#">Facturacion</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="InsertarFacturaRenta.php">Renta</a></li>
-                                            <li><a href="InsertarFacturaVenta.php">Venta</a></li>
-                                            <li><a href="InsertarFacturaMantenimiento.php">Mantenimienro</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="Sucursales.php">Sucursales</a>
-
-                                    </li>
+                                        <a href="index.<?php  ?>">Inicio</a>
+                                       </li>
+                <li class="dropdown">
+                  <a href="#">Vehículos</a>
+                  <ul class="dropdown-menu">
+                 <li><a href="VerAutos.php">Ver Todo</a></li>
+                    <li><a href="VerAutosRenta.php">Renta</a></li>
+                    <li><a href="VerAutosVenta.php">Venta</a></li>
+                    <li><a href="VerAutosSeleccionado.php">Seleccionado</a></li>
+                    
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#">Mantenimiento</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="about.html">Servicios</a></li>
+                    <li><a href="pricingtable.html">Repuestos</a></li>
+                  
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#">Sucursales</a>
+                 
+                </li>
+                <li class="dropdown">
+                  <a href="contact.html">Contactenos</a>
+                 
+                </li>
+                
+            
+          
 
                                     <?php
                                     if(isset($_SESSION["status"])==true){
@@ -113,6 +93,7 @@
                                 </ul>
                             </nav>
                         </div>
+
                         <!-- end menu -->
                     </div>
                 </div>
@@ -148,19 +129,44 @@
                                 <div class="row">
                                     <div class="span4 form-group">
 
-                                        <!-- Combobox de marcas-->
+                                        <select required type="text" id="cbx_Vehiculo" name="cbx_Vehiculo" class="form-control" placeholder="Seleccione Vehiculo"minlen:4" data-msg="Seleccione Mantenimiento">
+                                  <option value='0'>Seleccione Vehiculo
+                                 
+                                </select>
+                                <select required type="text" id="cbx_TipoMantenimiento" name="cbx_TipoMantenimiento" class="form-control" placeholder="Seleccione Tipo Mantenimiento"  data-rule="minlen:4" data-msg="Seleccione Mantenimiento"/>
+                                  <option value='0'>Seleccione Mantenimiento</option>
                                         <div> 
-                                             <input type="text" class="form-control" name="text_IdSolicitud" id="text_IdSolicitud" placeholder="Solicitud" data-rule="minlen:4" data-msg="Campo requerido: Solicitud" />
+                                            </select>
+                             
+ <select required type="text" id="cbx_Repuesto" name="cbx_Repuesto" class="form-control" placeholder="Seleccione Repuesto"  data-rule="minlen:4" data-msg="Seleccione Mantenimiento">
+                                  <option value='0'>Seleccione Repuesto</option>
+                                 
+                                </select>
+                            
+
+                                  
+ 
+
+                                 
+ 
+                                             <input required type="text" class="form-control" name="text_Descripcion" id="text_Descripcion" placeholder="Descripcion" data-rule="minlen:4" data-msg="Campo requerido: Descripcion" />
                                         <div class="validation"></div>
 
-                                        <input type="text" class="form-control" name="text_FechaSolicitud" id="text_FechaSolicitud" placeholder="Fecha Solicitud (YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido: Placa" />
+                                        
+                                            
+                                          <input required type="text" class="form-control" name="text_FechaSalida" id="text_FechaSalida" placeholder="Fecha Salida(YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido: Estado" />
                                         <div class="validation"></div>
 
-                                          <input type="text" class="form-control" name="text_Estado" id="text_Estado" placeholder="Estado Solitud" data-rule="minlen:4" data-msg="Campo requerido: Estado" />
+
+                                        <input required type="text" class="form-control" name="text_FechaIngreso" id="text_FechaIngreso" placeholder="Fecha Solicitud (YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido:Fecha Ingreso"/>
                                         <div class="validation"></div>
 
-                                        <input type="text" class="form-control" name="text_Observacion" id="text_Observacion" placeholder="Observacion " data-rule="minlen:4" data-msg="Campo requerido: Observacion" />
-                                        <div class="validation"></div>
+                                     
+                                        
+
+                                 
+                        
+                              
 
                                       
                                         </div>

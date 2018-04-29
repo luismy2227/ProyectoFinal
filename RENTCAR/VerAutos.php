@@ -1,10 +1,13 @@
+	
 	<?php
     session_start();
     if(isset($_SESSION["status"])==false){
         session_destroy();
         header("Location: login.php");
     }
-?>
+    ?>
+
+
 
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -12,9 +15,9 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/elements/fav.png">
+		<link rel="shortcut icon" href="img/fav.png">
 		<!-- Author Meta -->
-		<meta name="author" content="colorlib">
+		<meta name="author" content="codepixer">
 		<!-- Meta Description -->
 		<meta name="description" content="">
 		<!-- Meta Keyword -->
@@ -22,23 +25,25 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>Car Rentals</title>
+		<title>RENTCAR</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
 			CSS
 			============================================= -->
 			<link rel="stylesheet" href="css/linearicons.css">
-			<link rel="stylesheet" href="css/owl.carousel.css">
 			<link rel="stylesheet" href="css/font-awesome.min.css">
-			<link rel="stylesheet" href="css/nice-select.css">			
-			<link rel="stylesheet" href="css/magnific-popup.css">
 			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/magnific-popup.css">
+			<link rel="stylesheet" href="css/nice-select.css">					
+			<link rel="stylesheet" href="css/animate.min.css">
+			<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">			
+			<link rel="stylesheet" href="css/owl.carousel.css">
 			<link rel="stylesheet" href="css/main.css">
 		</head>
 		<body>
 
-			 <header id="header" id="home">
+			  <header id="header" id="home">
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
@@ -46,17 +51,13 @@
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="index.php">Inicio</a></li>                      <li><a href="VerAutos.php"></a></li>                              				                          
-				          <li><a href="service.html">Servicios</a></li>
-				          <li><a href="team.html">Nuestro Equipo</a></li>
-				          <li><a href="about.html">Sucursales</a></li>	
+				          <li class="menu-active"><a href="index.php">Inicio</a></li>
+				          <li><a href="servicios.php">Servicios</a></li>
+				          <li><a href="NuestroEquipo.php">Nuestro Equipo</a></li>
+				          <li><a href="">Sucursales</a></li>	
 				          <li><a href="blog-home.html">Blog</a></li>	
-				          <li><a href="contact.html">Contactanos</a></li>	
-				          <li class="menu-has-children"><a href="">Mas</a>
-				            <ul>
-				              <li><a href="blog-single.html">Opiniones</a></li>
-				              <li><a href="elements.html">Acerca RENTCAR</a></li>
-				            </ul>
+				          <li><a href="contactanos.php">Contactanos</a></li>	
+				          
 				          </li>	
 				          <?php
                                     if(isset($_SESSION["status"])==true){
@@ -72,7 +73,7 @@
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
 			    </div>
-			  </header><!-- #header <!-- #header -->
+			  </header><!-- #header -->
 
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">	
@@ -141,7 +142,7 @@
 			<script src="js/jquery.counterup.min.js"></script>					
 			<script src="js/parallax.min.js"></script>		
 			<script src="js/mail-script.js"></script>	
-			<script src="js/main.js"></script>	
+			<script src="js/main.js"></script>
 
 			<script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/allCars.js"></script>

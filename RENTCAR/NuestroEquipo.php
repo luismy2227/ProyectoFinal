@@ -57,8 +57,8 @@
 				              <li><a href="VerAutos.php">Autos Rentas</a></li>
 				              <li><a href="VerAutos.php">Autos Ventas</a></li>
 				            </ul>
-				          <li><a href="servicios.php">Servicios</a></li>
-				          <li><a href="team.html">Nuestro Equipo</a></li>
+				          <li><a href="Servicios.php">Servicios</a></li>
+				          <li><a href="NuestroEquipo.php">Nuestro Equipo</a></li>
 				          <li><a href="">Sucursales</a></li>	
 				          <li><a href="blog-home.html">Blog</a></li>	
 				          <li><a href="contactanos.php">Contactanos</a></li>	
@@ -78,100 +78,238 @@
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
 			    </div>
-			  </header><!-- #header -->
-
+			  </header>
 
 			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">
-				<div class="overlay overlay-bg"></div>	
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
 				<div class="container">
-					<div class="row fullscreen d-flex align-items-center justify-content-center">
-						<div class="banner-content col-lg-7 col-md-6 ">
-							<h6 class="text-white ">La Mejor Compañia de Renta de Carros</h6>
-							<h1 class="text-white text-uppercase">
-								Porque te lo mereces  un Viaje Relajado			
-							</h1>
-							<p class="pt-20 pb-20 text-white">
-								RentCar una compañia que brinda los mejores servicios de renta y venta de vehiculos a nivel nacional somos la mejor empresa de renta,venta y mantenimiento de vehiculo.
-							</p>
-							<a href="Index.php" class="primary-btn text-uppercase">RENTCAR</a>
-						</div>
-																
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Support Teams			
+							</h1>	
+							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="team.html"> Teams</a></p>
+						</div>											
 					</div>
-				</div>					
+				</div>
 			</section>
 			<!-- End banner Area -->	
+
+			<!-- Start team Area -->
+			<section class="team-area section-gap team-page-teams" id="team">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Experienced Mentor Team</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>						
+					<div class="row justify-content-center d-flex align-items-center">
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="img/pages/t1.jpg" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Ethel Davis</h4>
+							    <p>Managing Director (Sales)</p>									    	
+						    </div>
+						</div>
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="img/pages/t2.jpg" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Rodney Cooper</h4>
+							    <p>Creative Art Director (Project)</p>			    	
+						    </div>
+						</div>	
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="img/pages/t3.jpg" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Dora Walker</h4>
+							    <p>Senior Core Developer</p>			    	
+						    </div>
+						</div>	
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="img/pages/t4.jpg" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Lena Keller</h4>
+							    <p>Creative Content Developer</p>			    	
+						    </div>
+						</div>		
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="img/pages/t1.jpg" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Ethel Davis</h4>
+							    <p>Managing Director (Sales)</p>									    	
+						    </div>
+						</div>
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="img/pages/t2.jpg" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Rodney Cooper</h4>
+							    <p>Creative Art Director (Project)</p>			    	
+						    </div>
+						</div>	
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="img/pages/t3.jpg" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Dora Walker</h4>
+							    <p>Senior Core Developer</p>			    	
+						    </div>
+						</div>	
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="img/pages/t4.jpg" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Lena Keller</h4>
+							    <p>Creative Content Developer</p>			    	
+						    </div>
+						</div>															
+					</div>
+				</div>	
+			</section>
+			<!-- End team Area -->					
+
+
+			<!-- Start callaction Area -->
+			<section class="callaction-area relative section-gap">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-10">
+							<h1 class="text-white">Experience Great Support</h1>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+							</p>
+							<a class="callaction-btn text-uppercase" href="#">Reach Our Support Team</a>	
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End callaction Area -->
 
 			<!-- Start feature Area -->
 			<section class="feature-area section-gap" id="service">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-md-8 pb-40 header-text">
-							<h1>Cuales son nuestros Servicios para los Clientes</h1>
+							<h1>What Services we offer to our clients</h1>
 							<p>
-								Somos una empresa agradable y con much calidad de Servicios.
+								Who are in extremely love with eco friendly system.
 							</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-4 col-md-6">
 							<div class="single-feature">
-								<h4><span class="lnr lnr-user"></span>Somos Expertos </h4>
+								<h4><span class="lnr lnr-user"></span>Expert Technicians</h4>
 								<p>
-									Somos la mejor empresa en brindarte los mejores servicios en renta de vehiculos .
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-feature">
-								<h4><span class="lnr lnr-license"></span>Un Servicio Profesional</h4>
+								<h4><span class="lnr lnr-license"></span>Professional Service</h4>
 								<p>
-									Profesionales en el campo de renta,venta y mantenimiento de vehiculos ven buscanos.
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>								
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-feature">
-								<h4><span class="lnr lnr-phone"></span>El Mejor Mantenimiento</h4>
+								<h4><span class="lnr lnr-phone"></span>Great Support</h4>
 								<p>
-									Nos especializamos en el mejor servicio de mantenimiento a nivel nacional ven buscanos.
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>								
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-feature">
-								<h4><span class="lnr lnr-rocket"></span>Repuestos</h4>
+								<h4><span class="lnr lnr-rocket"></span>Technical Skills</h4>
 								<p>
-									Ofrecemos la mejor calidad de Repuestos las mejores marcas porque pensamos en tu seguridad.
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>				
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-feature">
-								<h4><span class="lnr lnr-diamond"></span>Renta</h4>
+								<h4><span class="lnr lnr-diamond"></span>Highly Recomended</h4>
 								<p>
-									Mejores autos tenemos a a renta solo a gama mas alta del mercado de automoviles rentcar te lo presenta.
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>								
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-feature">
-								<h4><span class="lnr lnr-bubble"></span>Venta</h4>
+								<h4><span class="lnr lnr-bubble"></span>Positive Reviews</h4>
 								<p>
-									Tambien Somos especializados en la venta de vehiculos tenemos la mas ata gama de vehiculos .
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
 								</p>									
 							</div>
 						</div>						
 					</div>
 				</div>	
 			</section>
-			
-
-			
-
-
+			<!-- End feature Area -->				
+	
 			<!-- start footer Area -->		
-			/*<!--footer class="footer-area section-gap">
+			<footer class="footer-area section-gap">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-2 col-md-6 col-sm-6">
@@ -237,11 +375,13 @@
 							</div>
 						</div>	
 						<p class="mt-50 mx-auto footer-text col-lg-12">
-						
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</p>											
 					</div>
 				</div>
-			</footer-->	
+			</footer>	
 			<!-- End footer Area -->		
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
@@ -264,6 +404,3 @@
 			<script src="js/main.js"></script>	
 		</body>
 	</html>
-
-
-

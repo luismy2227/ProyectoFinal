@@ -57,8 +57,8 @@
 				              <li><a href="VerAutos.php">Autos Rentas</a></li>
 				              <li><a href="VerAutos.php">Autos Ventas</a></li>
 				            </ul>
-				          <li><a href="servicios.php">Servicios</a></li>
-				          <li><a href="team.html">Nuestro Equipo</a></li>
+				          <li><a href="Servicios.php">Servicios</a></li>
+				          <li><a href="NuestroEquipo.php">Nuestro Equipo</a></li>
 				          <li><a href="">Sucursales</a></li>	
 				          <li><a href="blog-home.html">Blog</a></li>	
 				          <li><a href="contactanos.php">Contactanos</a></li>	
@@ -78,100 +78,84 @@
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
 			    </div>
-			  </header><!-- #header -->
-
+			  </header>
 
 			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">
-				<div class="overlay overlay-bg"></div>	
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
 				<div class="container">
-					<div class="row fullscreen d-flex align-items-center justify-content-center">
-						<div class="banner-content col-lg-7 col-md-6 ">
-							<h6 class="text-white ">La Mejor Compañia de Renta de Carros</h6>
-							<h1 class="text-white text-uppercase">
-								Porque te lo mereces  un Viaje Relajado			
-							</h1>
-							<p class="pt-20 pb-20 text-white">
-								RentCar una compañia que brinda los mejores servicios de renta y venta de vehiculos a nivel nacional somos la mejor empresa de renta,venta y mantenimiento de vehiculo.
-							</p>
-							<a href="Index.php" class="primary-btn text-uppercase">RENTCAR</a>
-						</div>
-																
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Contact Us
+							</h1>	
+							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="contact.html"> Contact Us</a></p>
+						</div>											
 					</div>
-				</div>					
+				</div>
 			</section>
 			<!-- End banner Area -->	
 
-			<!-- Start feature Area -->
-			<section class="feature-area section-gap" id="service">
+			<!-- Start contact-page Area -->
+			<section class="contact-page-area section-gap">
 				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="col-md-8 pb-40 header-text">
-							<h1>Cuales son nuestros Servicios para los Clientes</h1>
-							<p>
-								Somos una empresa agradable y con much calidad de Servicios.
-							</p>
-						</div>
-					</div>
 					<div class="row">
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-user"></span>Somos Expertos </h4>
-								<p>
-									Somos la mejor empresa en brindarte los mejores servicios en renta de vehiculos .
-								</p>
+						<div class="map-wrap" style="width:100%; height: 445px;" id="map"></div>
+						<div class="col-lg-4 d-flex flex-column address-wrap">
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-home"></span>
+								</div>
+								<div class="contact-details">
+									<h5>Dhaka, Bangladesh</h5>
+									<p>56/8, West Panthapath</p>
+								</div>
 							</div>
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-phone-handset"></span>
+								</div>
+								<div class="contact-details">
+									<h5>00 (880) 9865 562</h5>
+									<p>Mon to Fri 9am to 6 pm</p>
+								</div>
+							</div>
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-envelope"></span>
+								</div>
+								<div class="contact-details">
+									<h5>support@codethemes.com</h5>
+									<p>Send us your query anytime!</p>
+								</div>
+							</div>														
 						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-license"></span>Un Servicio Profesional</h4>
-								<p>
-									Profesionales en el campo de renta,venta y mantenimiento de vehiculos ven buscanos.
-								</p>								
-							</div>
+						<div class="col-lg-8">
+							<form class="form-area " id="myForm" action="mail.php" method="post" class="contact-form text-right">
+								<div class="row">	
+									<div class="col-lg-6 form-group">
+										<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+									
+										<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
+
+										<input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
+										<div class="mt-20 alert-msg" style="text-align: left;"></div>
+									</div>
+									<div class="col-lg-6 form-group">
+										<textarea class="common-textarea form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+										<button class="primary-btn mt-20 text-white" style="float: right;">Send Message</button>
+																				
+									</div>
+								</div>
+							</form>	
 						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-phone"></span>El Mejor Mantenimiento</h4>
-								<p>
-									Nos especializamos en el mejor servicio de mantenimiento a nivel nacional ven buscanos.
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-rocket"></span>Repuestos</h4>
-								<p>
-									Ofrecemos la mejor calidad de Repuestos las mejores marcas porque pensamos en tu seguridad.
-								</p>				
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-diamond"></span>Renta</h4>
-								<p>
-									Mejores autos tenemos a a renta solo a gama mas alta del mercado de automoviles rentcar te lo presenta.
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-bubble"></span>Venta</h4>
-								<p>
-									Tambien Somos especializados en la venta de vehiculos tenemos la mas ata gama de vehiculos .
-								</p>									
-							</div>
-						</div>						
 					</div>
 				</div>	
 			</section>
-			
-
-			
-
+			<!-- End contact-page Area -->
 
 			<!-- start footer Area -->		
-			/*<!--footer class="footer-area section-gap">
+			<footer class="footer-area section-gap">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-2 col-md-6 col-sm-6">
@@ -237,11 +221,13 @@
 							</div>
 						</div>	
 						<p class="mt-50 mx-auto footer-text col-lg-12">
-						
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</p>											
 					</div>
 				</div>
-			</footer-->	
+			</footer>	
 			<!-- End footer Area -->		
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
@@ -264,6 +250,5 @@
 			<script src="js/main.js"></script>	
 		</body>
 	</html>
-
 
 

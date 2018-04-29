@@ -82,9 +82,7 @@
                                     <li class="dropdown">
                                         <a href="#">Mantenimiento</a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="about.html">Servicios</a></li>
-                                            <li><a href="pricingtable.html">Repuestos</a></li>
-
+                                            <li><a href="SolicitudMantenimiento.php">Solicitud</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown active">
@@ -151,8 +149,7 @@
 
                             <form action="" id="Form_InsertarFactura" name="Form_InsertarFactura method="post" role="form" class="contactForm">
                                 <div class="row">
-                                    <div class="span4 form-group">
-                                         <div class="span4 form-group">
+                                   
                                                                  
 
   
@@ -162,7 +159,7 @@
                               </div>
                               
                                   </div>
-                                     <div class="span4 form-group">
+                                     
                                   <p>
                                   <h3>Mantenimiento</h3>
                                   <div class="dotted_line"></div>
@@ -172,6 +169,7 @@
                                   <option value='0'>Seleccione Mantenimiento</option>
                                  
                                 </select>
+                              </div>
 
                 <div class="span8 form-group">
                                     <div class="text-center">

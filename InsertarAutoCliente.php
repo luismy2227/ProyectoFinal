@@ -135,7 +135,7 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">Facturacion</a>
+                                        <a href="#">Facturación</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="InsertarFacturaRenta.php">Renta</a></li>
                                             <li><a href="InsertarFacturaVenta.php">Venta</a></li>
@@ -272,13 +272,13 @@
                                     </div>
 
                                     <div class="span4 form-group">
-                                        <input required type="text" class="form-control" name="text_Color" id="text_Color" placeholder="Color" data-rule="minlen:4" data-msg="Campo requerido: Color" />
+                                        <input required type="color" class="form-control" name="text_Color" id="text_Color" placeholder="Color" data-rule="minlen:4" data-msg="Campo requerido: Color" />
                                         <div class="validation"></div>
 
                                         <input required type="text" class="form-control" name="text_Placa" id="text_Placa" placeholder="Placa" data-rule="minlen:4" data-msg="Campo requerido: Placa" />
                                         <div class="validation"></div>
 
-                                        <input required type="text" class="form-control" name="text_Anio" id="text_Anio" placeholder="Año (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Año" />
+                                        <input required type="date" class="form-control" name="text_Anio" id="text_Anio" placeholder="Año " data-rule="minlen:4" data-msg="Campo requerido: Año" />
                                         <div class="validation"></div>
 
                                         <input required type="text" class="form-control" name="text_Generacion" id="text_Generacion" placeholder="Generación" data-rule="minlen:4" data-msg="Campo requerido: Generacion" />
@@ -287,8 +287,11 @@
                                         <input required type="text" class="form-control" name="text_Serie" id="text_Serie" placeholder="Número de Serie" data-rule="minlen:4" data-msg="Campo requerido: Serie" />
                                         <div class="validation"></div>
 
-                                        <input required type="text" class="form-control" name="text_TipoMotor" id="text_TipoMotor" placeholder="Tipo de motor" data-rule="minlen:4" data-msg="Campo requerido: Tipo de Motor" />
+                                        <input required type="number" class="form-control" name="text_TipoMotor" id="text_TipoMotor" placeholder="Tipo de motor" data-rule="minlen:4" data-msg="Campo requerido: Tipo de Motor" />
                                         <div class="validation"></div>
+
+                                        <input required type="text" class="form-control" name="text_Foto" id="text_Foto" placeholder= "Ruta de la foto" data-rule="minlen:4" data-msg="Campo requerido: Ruta de la foto" value="uploaded\"/>
+                                            <div class="validation"></div>
 
                                     </div>
 

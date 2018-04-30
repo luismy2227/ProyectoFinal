@@ -16,6 +16,8 @@
 
 		IN pn_clientePertence	INTEGER,
 
+		IN pc_rutaFoto			VARCHAR(100),
+
 		OUT pbOcurreErrorCliente 		BOOLEAN,
 		OUT pcMensajeCliente			VARCHAR(2000)
 	)
@@ -28,6 +30,7 @@
 			auxiliarVehiculo2   	INTEGER DEFAULT 0;
 			vb_OcurreErrorVehiculo	BOOLEAN;
 			vc_MensajeVehiculo		VARCHAR(2000);
+			auxiliarFoto			INTEGER DEFAULT 0;
 		BEGIN
 			pbOcurreErrorCliente:=TRUE;
 			temMensaje := '';
@@ -36,6 +39,12 @@
 			IF pn_clientePertence IS NULL THEN
 				RAISE NOTICE 'id cliente no puede ser un campo vacío';
 				temMensaje := CONCAT(temMensaje,'idCliente, ');
+			END IF;
+
+			--Comprobando que la rutaFoto no sea null:
+			IF pc_rutaFoto IS NULL OR pc_rutaFoto ='' THEN
+				RAISE NOTICE 'La foto no puede ser un campo vacío';
+				temMensaje := CONCAT(temMensaje,'rutaFoto, ');
 			END IF;
 
 			IF temMensaje<>'' THEN
@@ -54,8 +63,16 @@
 			END IF;
 
 			-- Insertando:
+
+
+
 			SELECT MAX(idVehiculoCliente) INTO auxiliarVehiculo FROM tbl_VehiculoCliente; -- Obteniendo el idVehiculoCliente
 			SELECT idVehiculo INTO auxiliarVehiculo2 FROM tbl_Vehiculo WHERE placa = pc_placa; --Obteniendo el idVehiculo
+
+			SELECT MAX(idFoto) INTO auxiliarFoto FROM tbl_Foto;
+			INSERT INTO tbl_Foto(idFoto, rutaFoto, idVehiculo)
+			VALUES(auxiliarFoto+1, pc_rutaFoto, auxiliarVehiculo2);
+
 			INSERT INTO tbl_VehiculoCliente(idVehiculoCliente, fechaRegistro, idVehiculo, idClientePertenece)
 			VALUES(auxiliarVehiculo+1, CURRENT_DATE, auxiliarVehiculo2,pn_clientePertence);
 

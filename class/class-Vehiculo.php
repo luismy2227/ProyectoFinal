@@ -153,7 +153,8 @@
 			INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
 			INNER JOIN tbl_Marca ON tbl_Vehiculo.idMarca = tbl_Marca.idMarca
 			INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
-			INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo;";
+			INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo
+			WHERE tbl_VehiculoEmpresa.idVehiculoEmpresa <>46;";
 			$vehiculos = $conexion -> ejecutarConsulta($query);
 			$carros = array();
 
@@ -170,7 +171,8 @@
 			INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
 			INNER JOIN tbl_Marca ON tbl_Vehiculo.idMarca = tbl_Marca.idMarca
 			INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
-			INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo;";
+			INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo
+			WHERE tbl_VehiculoEmpresa.idVehiculoEmpresa <>46;";
 			$vehiculos = $conexion -> ejecutarConsulta($query);
 			$carros = array();
 
@@ -188,7 +190,7 @@
 			INNER JOIN tbl_Marca ON tbl_Vehiculo.idMarca = tbl_Marca.idMarca
 			INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
 			INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo
-			WHERE tbl_VehiculoEmpresa.seRenta = TRUE;";
+			WHERE tbl_VehiculoEmpresa.seRenta = TRUE AND tbl_VehiculoEmpresa.idVehiculoEmpresa <>46;";
 			$vehiculos = $conexion -> ejecutarConsulta($query);
 			$carros = array();
 
@@ -212,7 +214,7 @@
 			INNER JOIN tbl_Cilindraje ON tbl_Cilindraje.idCilindraje = tbl_Vehiculo.idCilindraje
 			INNER JOIN tbl_Estado ON tbl_Estado.idEstado = tbl_VehiculoEmpresa.idEstado
 			INNER JOIN tbl_TipoGasolina ON tbl_TipoGasolina.idTipoGasolina = tbl_Vehiculo.idTipoGasolina
-			WHERE tbl_VehiculoEmpresa.idVehiculoEmpresa = $idVehiculo;";
+			WHERE tbl_VehiculoEmpresa.idVehiculoEmpresa = $idVehiculo AND tbl_VehiculoEmpresa.idVehiculoEmpresa <>46;";
 			$vehiculos = $conexion -> ejecutarConsulta($query);
 			$respuesta=$conexion->obtenerFilas($vehiculos);
                 

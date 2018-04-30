@@ -402,7 +402,6 @@
         /*Tabla Mantenimiento*/
           CREATE TABLE tbl_Mantenimiento(
             idMantenimiento INTEGER NOT NULL,
-            descripcion VARCHAR(45) NOT NULL,
             fechaIngreso DATE NOT NULL,
             fechaSalida DATE NULL,
             estado VARCHAR(1) NOT NULL,

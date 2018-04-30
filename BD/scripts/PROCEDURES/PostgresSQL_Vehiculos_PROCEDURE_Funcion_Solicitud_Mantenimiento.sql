@@ -21,11 +21,11 @@ AS $BODY$
 			temMensaje := '';
 
 			--Comprobando que el rtn  no sea null:
-			IF  pn_Vehiculo IS NULL THEN
+			IF  pn_vehiculo IS NULL THEN
 				RAISE NOTICE 'El Vehiculo np puede ser un campo vacío';
 				temMensaje := CONCAT(temMensaje, 'Vehiculo, ');
 			END IF;
-            IF  pn_Empleado IS NULL THEN
+            IF  pn_empleado IS NULL THEN
 				RAISE NOTICE 'El Empleado  no puede ser un campo vacío';
 				temMensaje := CONCAT(temMensaje, 'Vehiculo, ');
 			END IF;
@@ -60,6 +60,8 @@ RETURN;
 		END;
 	
 $BODY$;
+LANGUAGE plpgsql VOLATILE
+	COST 100;
 
 
 

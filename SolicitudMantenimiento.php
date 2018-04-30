@@ -153,7 +153,7 @@
                         <div class="span8">
                             <div class="spacer30"></div>
 
-                            <form action="" id="Form_InsertarAutoCliente" name="Form_InsertarAutoCliente" method="post" role="form" class="contactForm">
+                            <form action="" id="Form_Mantenimiento" name="Form_Mantenimiento" method="post" role="form" class="contactForm">
                                 <div class="row">
                                     <div class="span4 form-group">
  <div> 
@@ -203,8 +203,7 @@
                                           <input required type="Date" class="form-control" name="text_FechaSalida" id="text_FechaSalida" placeholder="Fecha Salida(YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha" />
                                         <div class="validation"></div>
                                              
-                                                <input required type="textarea" class="form-control" name="text_Descripcion" id="text_Descripcion" placeholder="Descripcion" data-rule="minlen:4" data-msg="Campo requerido: Descripcion" />
-                                        <div class="validation"></div>
+                                                
 
                                      
                                      
@@ -353,7 +352,7 @@
 <script src="assets/js/custom.js"></script>
 
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/insertarAutoCliente.js"></script>
+<script src="js/insertarSolicitudMantenimiento.js"></script>
 
 <!--Combobox dependientes-->
 <script language="javascript">

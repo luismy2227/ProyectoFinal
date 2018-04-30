@@ -3,15 +3,14 @@
 		
 		IN pc_FechaSalida			    DATE,
 		IN pc_FechaEntrada			    DATE,
-		IN pn_idTipoMantenimiento	    INTEGER,
-		IN pn_vehiculo                  integer,
-	    IN pn_empleado                  integer,
-	    IN pn_idtaller                  integer,
-	    IN pn_idrepuesto                integer,
-		
+		IN pn_TipoMantenimiento	        INTEGER,
+		IN pn_vehiculo                  INTEGER,
+	    IN pn_empleado                  INTEGER,
+	    IN pn_Taller                    INTEGER,
+		In pn_Repuesto                  INTEGER,
 
-		OUT pbOcurreErrorCliente 		BOOLEAN,
-		OUT pcMensajeCliente			VARCHAR(2000)
+		OUT pbOcurreErrorMantenimiento 	BOOLEAN,
+		OUT pcMensajeMantenimiento			VARCHAR(2000)
 	)
 	RETURNS RECORD AS
 	$BODY$
@@ -22,38 +21,60 @@
 			vc_MensajeMantenimiento		VARCHAR(2000);
 			auxiliarMantenimiento       INTEGER DEFAULT 0;
 			auxiliarMantenimiento2   	INTEGER DEFAULT 0;
+			codigoempleado              INTEGER DEFAULT 0;
 		BEGIN
-			pbOcurreErrorCliente:=TRUE;
+			pbOcurreErrorMantenimiento:=TRUE;
 			temMensaje := '';
 
 			--Comprobando que la pn_clientePertence no sea null:
 			IF pn_empleado IS NULL THEN
 				RAISE NOTICE 'id cliente no puede ser un campo vacío';
-				temMensaje := CONCAT(temMensaje,'idCliente, ');
+				temMensaje := CONCAT(temMensaje,'idEmpleado, ');
+			END IF;
+
+			IF pc_FechaSalida IS NULL  THEN
+				RAISE NOTICE 'La Fecha Salida no puede ser un campo vacío';
+				temMensaje := CONCAT(temMensaje,'Fecha Salida, ');
+			END IF;
+			IF pc_FechaEntrada IS NULL  THEN
+				RAISE NOTICE 'La Fecha Entrada no puede ser un campo vacío';
+				temMensaje := CONCAT(temMensaje,'Fecha Entrada, ');
+			END IF;
+			IF pn_Taller IS NULL THEN
+				RAISE NOTICE 'id Taller no puede ser un campo vacío';
+				temMensaje := CONCAT(temMensaje,'idTaller, ');
+			END IF;
+			IF pn_Repuesto IS NULL THEN
+				RAISE NOTICE 'id Repuesto no puede ser un campo vacío';
+				temMensaje := CONCAT(temMensaje,'idRepuesto, ');
 			END IF;
 
 			IF temMensaje<>'' THEN
-				pcMensajeCliente := CONCAT('Campos requeridos para poder realizar el Mantenimiento: ',temMensaje);
+				pcMensajeMantenimiento := CONCAT('Campos requeridos para poder realizar el Mantenimiento: ',temMensaje);
 				RETURN;
 			END IF;
 
-			SELECT pbOcurreError,pcMensaje INTO vb_OcurreErrorMantenimiento, vc_MensajeMantenimiento
-			FROM Funcion_Solicitud_Mantenimiento(pc_FechaEntrada,pc_FechaSalida,pn_idTipoMantenimiento,pn_vehiculo,pn_empleado,pn_idtaller);
+            SELECT e.idempleado INTO codigoempleado FROM tbl_empleado e
+            INNER JOIN tbl_Usuario u on e.idusuario=u.idusuario
+            WHERE u.idusuario=pn_empleado;
+
+			SELECT pbOcurreErrorMantenimiento,pcMensaje INTO vb_OcurreErrorMantenimiento, vc_MensajeMantenimiento
+			FROM Funcion_Solicitud_Mantenimiento(pn_vehiculo, codigoempleado);
 			
 			-- Verificando que el proceso Agregar Vehiculo haya sido exitoso
 			IF vb_OcurreErrorMantenimiento = TRUE THEN
-				pcMensajeCliente := vc_MensajeMantenimiento;
+				pcMensajeMantenimiento := vc_MensajeMantenimiento;
 				RETURN;
 			END IF;
 
 			-- Insertando:
 			SELECT MAX(idMantenimiento) INTO auxiliarMantenimiento FROM tbl_Mantenimiento; 
-			SELECT idMantenimiento INTO auxiliarMantenimiento2 FROM tbl_SolicitudMantenimiento WHERE idSolicitudMantenimiento = pn_idTipoMantenimiento; --Obteniendo el idVehiculo
-			INSERT INTO tbl_Mantenimiento(idVehiculoMantenimiento,descripcion,fechaIngreso, fechaSalida, estado, idSolicitudMantenimiento,idEmpleado,idTipoMantenimiento,idrepuesto,idtaller);
-			VALUES(auxiliarVehiculo+1,'Falla Mecanica', CURRENT_DATE,CURRENT_DATE,'E',pn_idTipoMantenimiento,pn_empleado,pn_idTipoMantenimiento,pn_idrepuesto,pn_idtaller);
+			SELECT idMantenimiento INTO auxiliarMantenimiento2 FROM tbl_SolicitudMantenimiento WHERE idSolicitudMantenimiento = pn_vehiculo; --Obteniendo el idVehiculo
+			INSERT INTO tbl_Mantenimiento(idVehiculoMantenimiento,descripcion,fechaIngreso, fechaSalida, estado, idSolicitudMantenimiento,idEmpleado,idTipoMantenimiento,idtaller)
+			VALUES(auxiliarVehiculo+1,'Falla Mecanica', CURRENT_DATE,CURRENT_DATE,'E',pn_idTipoMantenimiento,codigoempleado,pn_idTipoMantenimiento,pn_idtaller);
 
-			pcMensajeCliente := 'Mantenimiento insertado con éxito';
-			pbOcurreErrorCliente := FALSE;
+			pcMensajeMantenimiento := 'Mantenimiento insertado con éxito';
+			pbOcurreErrorMantenimiento := FALSE;
 			--COMMIT;
 			RETURN;
 		END;

@@ -133,7 +133,7 @@
                                   <option value='0'>Seleccione Vehiculo
                                  
                                 </select>
-                                <select required type="text" id="cbx_TipoMantenimiento" name="cbx_TipoMantenimiento" class="form-control" placeholder="Seleccione Tipo Mantenimiento"  data-rule="minlen:4" data-msg="Seleccione Mantenimiento"/>
+                                <select required type="text" id="cbx_TipoMantenimiento" name="cbx_TipoMantenimiento" class="form-control" placeholder="Seleccione Tipo Mantenimiento"  data-rule="minlen:4" data-msg="Seleccione Tipo Mantenimiento"/>
                                   <option value='0'>Seleccione Mantenimiento</option>
                                         <div> 
                                             </select>
@@ -152,9 +152,11 @@
                                              <input required type="text" class="form-control" name="text_Descripcion" id="text_Descripcion" placeholder="Descripcion" data-rule="minlen:4" data-msg="Campo requerido: Descripcion" />
                                         <div class="validation"></div>
 
+                                       <input required type="Date" class="form-control" name="text_FechaEntrada" id="text_FechaEntrada" placeholder="Fecha Entrada" data-rule="minlen:4" data-msg="Campo requerido: Fecha" />
+                                        <div class="validation"></div>
                                         
                                             
-                                          <input required type="text" class="form-control" name="text_FechaSalida" id="text_FechaSalida" placeholder="Fecha Salida(YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido: Estado" />
+                                          <input required type="Date" class="form-control" name="text_FechaSalida" id="text_FechaSalida" placeholder="Fecha Salida(YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha" />
                                         <div class="validation"></div>
 
 

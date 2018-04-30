@@ -7,6 +7,7 @@
 		IN pn_vehiculo                  integer,
 	    IN pn_empleado                  integer,
 	    IN pn_idtaller                  integer,
+	    IN pn_idrepuesto                integer,
 		
 
 		OUT pbOcurreErrorCliente 		BOOLEAN,
@@ -47,9 +48,9 @@
 
 			-- Insertando:
 			SELECT MAX(idMantenimiento) INTO auxiliarMantenimiento FROM tbl_Mantenimiento; 
-			SELECT idMantenimiento INTO auxiliarMantenimiento2 FROM tbl_SolicitudMantenimiento WHERE idSolicitudMantenimiento = pn_vehiculo; --Obteniendo el idVehiculo
-			INSERT INTO tbl_Mantenimiento(idVehiculoMantenimiento,descripcion,fechaIngreso, fechaSalida, estado, idSolicitudMantenimiento,idEmpleado,idTipoMantenimiento,idtaller)
-			VALUES(auxiliarVehiculo+1,'Falla Mecanica', CURRENT_DATE,CURRENT_DATE,'E',pn_idTipoMantenimiento,pn_empleado,pn_idTipoMantenimiento,pn_idtaller);
+			SELECT idMantenimiento INTO auxiliarMantenimiento2 FROM tbl_SolicitudMantenimiento WHERE idSolicitudMantenimiento = pn_idTipoMantenimiento; --Obteniendo el idVehiculo
+			INSERT INTO tbl_Mantenimiento(idVehiculoMantenimiento,descripcion,fechaIngreso, fechaSalida, estado, idSolicitudMantenimiento,idEmpleado,idTipoMantenimiento,idrepuesto,idtaller);
+			VALUES(auxiliarVehiculo+1,'Falla Mecanica', CURRENT_DATE,CURRENT_DATE,'E',pn_idTipoMantenimiento,pn_empleado,pn_idTipoMantenimiento,pn_idrepuesto,pn_idtaller);
 
 			pcMensajeCliente := 'Mantenimiento insertado con éxito';
 			pbOcurreErrorCliente := FALSE;

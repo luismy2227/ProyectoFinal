@@ -43,7 +43,7 @@ function seleccionarCarro(){
                                 '<ul><h5>IdVehiculo: '+carros.idvehiculo+'<br>Placa: '+carros.placa+'</h5>';
                                 if (carros.sevende=='t'){
                                     fila = fila +'<span class="info-name">Precio de venta: </span>'+
-                                                '<span class="info-value" >Lps. '+carros.precioventa+'</span>';
+                                                '<span class="info-value" >Lps. '+carros.precioventa+'</span><br>';
                                 }
                                 if (carros.serenta=='t'){
                                     fila = fila +'<br><span class="info-name">Precio de renta por hora: </span>'+

@@ -136,7 +136,7 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">Facturacion</a>
+                                        <a href="#">Facturación</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="InsertarFacturaRenta.php">Renta</a></li>
                                             <li><a href="InsertarFacturaVenta.php">Venta</a></li>
@@ -264,7 +264,7 @@
                                                 <option value='2'>No</option>
                                             </select>
 
-                                            <input required type="text" class="form-control" name="text_PrecioVenta" id="text_PrecioVenta" placeholder="Precio de venta" data-rule="minlen:4" data-msg="Precio de venta" />
+                                            <input required type="number" class="form-control" name="text_PrecioVenta" id="text_PrecioVenta" placeholder="Precio de venta" data-rule="minlen:4" data-msg="Precio de venta" value="0"/>
 
                                             <!-- Combobox de si se renta-->
                                             <select id="cbx_SeRenta" name="cbx_SeRenta" required>
@@ -273,7 +273,7 @@
                                                 <option value='2'>No</option>
                                             </select>
 
-                                            <input required type="text" class="form-control" name="text_PrecioRenta" id="text_PrecioRenta" placeholder="Precio de renta por hora" data-rule="minlen:4" data-msg="Precio de renta" />
+                                            <input required type="number" class="form-control" name="text_PrecioRenta" id="text_PrecioRenta" placeholder="Precio de renta por hora" data-rule="minlen:4" data-msg="Precio de renta" value="0"/>
                                         </div>
 
                                         <!-- Combobox de estado de matrícula-->
@@ -283,12 +283,12 @@
                                             <option value='2'>No pagada</option>
                                         </select>
 
-                                        <input required type="text" class="form-control" name="text_MontoMatricula" id="text_MontoMatricula" placeholder="Monto de matrícula" data-rule="minlen:4" data-msg="Monto de matrícula" />
+                                        <input required type="number" class="form-control" name="text_MontoMatricula" id="text_MontoMatricula" placeholder="Monto de matrícula" data-rule="minlen:4" data-msg="Monto de matrícula" value="0"/>
 
                                     </div>
 
                                     <div class="span4 form-group">
-                                        <input required type="text" class="form-control" name="text_Color" id="text_Color" placeholder="Color" data-rule="minlen:4" data-msg="Campo requerido: Color" />
+                                        <input required type="color" class="form-control" name="text_Color" id="text_Color" placeholder="Color" data-rule="minlen:4" data-msg="Campo requerido: Color" />
                                         <div class="validation"></div>
                                     </div>
 
@@ -298,7 +298,7 @@
                                     </div>
 
                                     <div class="span4 form-group">
-                                        <input required type="text" class="form-control" name="text_Anio" id="text_Anio" placeholder="Año (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Año" />
+                                        <input required type="date" class="form-control" name="text_Anio" id="text_Anio" placeholder="Año " data-rule="minlen:4" data-msg="Campo requerido: Año" />
                                         <div class="validation"></div>
                                     </div>
                                     <div class="span4 form-group">
@@ -310,15 +310,18 @@
                                         <div class="validation"></div>
                                     </div>
                                     <div class="span4 form-group">
-                                        <input required type="text" class="form-control" name="text_TipoMotor" id="text_TipoMotor" placeholder="Tipo de motor" data-rule="minlen:4" data-msg="Campo requerido: Tipo de Motor" />
+                                        <input value="0" required type="number" class="form-control" name="text_TipoMotor" id="text_TipoMotor" placeholder="Tipo de motor" data-rule="minlen:4" data-msg="Campo requerido: Tipo de Motor" />
                                         <div class="validation"></div>
                                     </div>
                                     <div class="container">
                                         <div class="span4 form-group">
-                                            <input required type="text" class="form-control" name="text_FechaAdquisicion" id="text_FechaAdquisicion" placeholder= "Fecha de Adquisicion (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha de adquisición" />
+                                            <input required type="date" class="form-control" name="text_FechaAdquisicion" id="text_FechaAdquisicion" placeholder= "Fecha de Adquisicion (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha de adquisición" />
                                             <div class="validation"></div>
 
-                                            <input required type="text" class="form-control" name="text_Seguro" id="text_Seguro" placeholder= "Monto Asegurado" data-rule="minlen:4" data-msg="Campo requerido: Monto asegurado" />
+                                            <input required type="number" class="form-control" name="text_Seguro" id="text_Seguro" placeholder= "Monto Asegurado" data-rule="minlen:4" data-msg="Campo requerido: Monto asegurado" />
+                                            <div class="validation"></div>
+
+                                            <input required type="text" class="form-control" name="text_Foto" id="text_Foto" placeholder= "Ruta de la foto" data-rule="minlen:4" data-msg="Campo requerido: Ruta de la foto" value="uploaded\"/>
                                             <div class="validation"></div>
 
                                             <!-- Combobox de sucursales-->

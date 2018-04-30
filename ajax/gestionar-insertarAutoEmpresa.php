@@ -110,6 +110,9 @@
     $garage=$_POST["cbx_Garage"];
     $garage=(int)$garage;
   }
+  if(isset($_POST["text_Foto"])){
+    $rutaFoto=$_POST["text_Foto"];
+  }
 
   $respuesta="";
 
@@ -192,7 +195,9 @@
     else{
       $aux2="D";
     }
-    $query="SELECT  * FROM Funcion_Agregar_Vehiculo_Empresa('$color', '$placa','$anio','$generacion','$serie',$tipoMotor,$marca,$transmision,$gasolina,$garage,$cilindraje,$modelo,$version,'$fechaAdquisicion',$seguro,$estado,$precioVenta,$precioRenta,'$aux','$aux1', '$aux2',$montoMatricula);";  
+    $query="SELECT  * FROM Funcion_Agregar_Vehiculo_Empresa('$color', '$placa','$anio','$generacion',
+    '$serie',$tipoMotor,$marca,$transmision,$gasolina,$garage,$cilindraje,$modelo,$version,
+    '$fechaAdquisicion',$seguro,$estado,$precioVenta,$precioRenta,'$aux','$aux1', '$aux2',$montoMatricula, '$rutaFoto');";  
     $resultados=$conexion->ejecutarConsulta($query);
     $respuesta=$conexion->obtenerFila($resultados);
     $respuesta=$respuesta[1];

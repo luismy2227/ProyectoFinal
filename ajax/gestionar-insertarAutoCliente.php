@@ -71,6 +71,9 @@
     $clientePertenece=$_POST["cbx_ClientePertenece"];
     $clientePertenece=(int)$clientePertenece;
   }
+  if(isset($_POST["text_Foto"])){
+    $rutaFoto=$_POST["text_Foto"];
+  }
 
   $respuesta="";
 
@@ -113,7 +116,7 @@
   else{
     $query="SELECT  * FROM Funcion_Agregar_Vehiculo_Cliente('$color', 
     '$placa','$anio','$generacion','$serie',$tipoMotor,$marca,$transmision,
-    $gasolina,$garage,$cilindraje,$modelo,$version,$clientePertenece);";  
+    $gasolina,$garage,$cilindraje,$modelo,$version,$clientePertenece, '$rutaFoto');";  
     $resultados=$conexion->ejecutarConsulta($query);
     $respuesta=$conexion->obtenerFila($resultados);
     $respuesta=$respuesta[1];

@@ -24,6 +24,8 @@
 		IN pc_estadoMatricula	VARCHAR(1),
 		IN pn_montoMatricula	DECIMAL(10,2),
 
+		IN pc_rutaFoto			VARCHAR(100),
+
 		OUT pbOcurreErrorEmpresa 		BOOLEAN,
 		OUT pcMensajeEmpresa			VARCHAR(2000)
 	)
@@ -37,6 +39,7 @@
 			vb_OcurreErrorVehiculo	BOOLEAN;
 			vc_MensajeVehiculo		VARCHAR(2000);
 			auxiliarSeguro		INTEGER DEFAULT 0;
+			auxiliarFoto			INTEGER DEFAULT 0;
 		BEGIN
 			pbOcurreErrorEmpresa:=TRUE;
 			temMensaje := '';
@@ -95,6 +98,12 @@
 				temMensaje := CONCAT(temMensaje,'montoMatricula, ');
 			END IF;
 
+			--Comprobando que la rutaFoto no sea null:
+			IF pc_rutaFoto IS NULL OR pc_rutaFoto ='' THEN
+				RAISE NOTICE 'La foto no puede ser un campo vacío';
+				temMensaje := CONCAT(temMensaje,'rutaFoto, ');
+			END IF;
+
 			IF temMensaje<>'' THEN
 				pcMensajeEmpresa := CONCAT('Campos requeridos para poder realizar la matrícula:',temMensaje);
 				RETURN;
@@ -115,8 +124,13 @@
 			INSERT INTO tbl_Seguro (idSeguro, estado, descripcion, montoAsegurado, fechaInicio, fechaFin)
 			VALUES(auxiliarSeguro+1, 'A', 'Seguro Completo', pn_montoAsegurado, '2017/01/01', '2020/01/01');
 
-			SELECT MAX(idVehiculoEmpresa) INTO auxiliarVehiculo FROM tbl_VehiculoEmpresa; -- Obteniendo el idVehiculo
-			SELECT idVehiculo INTO auxiliarVehiculo2 FROM tbl_Vehiculo WHERE placa = pc_placa;
+			SELECT MAX(idVehiculoEmpresa) INTO auxiliarVehiculo FROM tbl_VehiculoEmpresa; -- Obteniendo el idVehiculoEmpresa
+			SELECT idVehiculo INTO auxiliarVehiculo2 FROM tbl_Vehiculo WHERE placa = pc_placa; --Obteniendo el idVehiculo
+
+			SELECT MAX(idFoto) INTO auxiliarFoto FROM tbl_Foto;
+			INSERT INTO tbl_Foto(idFoto, rutaFoto, idVehiculo)
+			VALUES(auxiliarFoto+1, pc_rutaFoto, auxiliarVehiculo2);
+
 			INSERT INTO tbl_VehiculoEmpresa(idVehiculoEmpresa, fechaAdquisicion, idVehiculo, idSeguro, idEstado, 
 			precioVenta, precioRentaHora, seVende, seRenta, estadoMatricula, montoMatricula)
 			VALUES(auxiliarVehiculo+1, pd_fechaAdquisicion, auxiliarVehiculo2,auxiliarSeguro+1, pn_idEstado, 

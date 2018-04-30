@@ -38,7 +38,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>RENTCAR</title>
+        <title>Solicitud De Mantenimiento</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -73,39 +73,59 @@
                         <div class="navigation">
                             <nav>
                                 <ul class="nav topnav">
+                                    <li class="dropdown">
 
+                                        <a href="index.php">Inicio</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Vehículos</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="verAutos.php">Ver Todo</a></li>
+                                            <li><a href="verAutosRenta.php">Renta</a></li>
+                                            <li><a href="verAutosVenta.php">Venta</a></li>
+                                            <li class="dropdown"><a href="#">Agregar</a>
+                                                <ul class="dropdown-menu sub-menu">
+                                                    <li><a href="InsertarAutoCliente.php">Agregar Auto Cliente</a></li>
+                                                    <li><a href="InsertarAutoEmpresa.php">Agregar Auto Empresa</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Personas</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="verPerfil.php">Perfil</a></li>
+                                            <li class="dropdown"><a href="#">Clientes</a>
+                                                <ul class="dropdown-menu sub-menu">
+                                                    <li><a href="InsertarCliente.php">Agregar Cliente</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown"><a href="#">Empleados</a>
+                                                <ul class="dropdown-menu sub-menu">
+                                                    <li><a href="InsertarEmpleado.php">Agregar Empleado</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     <li class="dropdown active">
-                                        <a href="index.<?php  ?>">Inicio</a>
-                                       </li>
-                <li class="dropdown">
-                  <a href="#">Vehículos</a>
-                  <ul class="dropdown-menu">
-                 <li><a href="VerAutos.php">Ver Todo</a></li>
-                    <li><a href="VerAutosRenta.php">Renta</a></li>
-                    <li><a href="VerAutosVenta.php">Venta</a></li>
-                    <li><a href="VerAutosSeleccionado.php">Seleccionado</a></li>
-                    
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#">Mantenimiento</a>
-                  <ul class="dropdown-menu">
-                    <li><a href="about.html">Servicios</a></li>
-                    <li><a href="pricingtable.html">Repuestos</a></li>
-                  
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#">Sucursales</a>
-                 
-                </li>
-                <li class="dropdown">
-                  <a href="contact.html">Contactenos</a>
-                 
-                </li>
-                
-            
-          
+                                      <a href="#">Mantenimiento</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="SolicitudMantenimiento.php">Solicitud</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Facturación</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="InsertarFacturaRenta.php">Renta</a></li>
+                                            <li><a href="InsertarFacturaVenta.php">Venta</a></li>
+                                            <li><a href="InsertarFacturaMantenimiento.php">Mantenimiento</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="Sucursales.php">Sucursales</a>
+
+                                    </li>
 
                                     <?php
                                     if(isset($_SESSION["status"])==true){
@@ -121,7 +141,6 @@
                                 </ul>
                             </nav>
                         </div>
-
                         <!-- end menu -->
                     </div>
                 </div>

@@ -151,7 +151,9 @@ else if ($numerocasa==null or $numerocasa==""){
 
 }
   else{
-    $query="SELECT  * FROM Funcion_Agregar_Usuario_Cliente('$identidad','$primernombre', '$segundonombre','$primerapellido','$segundoapellido','$telefono','$correo','$departamento','$municipio','$colonia','$sector','$numerocasa',$genero,'$nombreusuario','$userpassword','$imagenruta','$rtn');";  
+    $query="SELECT  * FROM Funcion_Agregar_Usuario_Cliente('$identidad','$primernombre', '$segundonombre',
+    '$primerapellido','$segundoapellido','$telefono','$correo','$departamento','$municipio','$colonia','$sector',
+    '$numerocasa',$genero,'$nombreusuario','$userpassword','$imagenruta','$rtn');";  
     $resultados=$conexion->ejecutarConsulta($query);
     $respuesta=$conexion->obtenerFila($resultados);
     $respuesta=$respuesta[0];

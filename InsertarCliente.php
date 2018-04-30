@@ -9,7 +9,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>RENTCAR</title>
+        <title>Insertar Cliente</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -159,7 +159,7 @@
                                             <div class="validation"></div>
                                             <input required type="text" class="form-control" name="text_Rtn" id="text_Rtn" placeholder="Ingrese el RTN"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
                                             <div class="validation"></div>
-                                            <input required type="text" class="form-control" name="text_Imagenruta" id="text_Imagenruta" placeholder="Ingrese la imagen"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
+                                            <input required type="file" class="form-control" name="text_Imagenruta" id="text_Imagenruta" placeholder="Ingrese la imagen"  data-rule="minlen:4" data-msg="Porfavor ingrese la imagen"accept="image/*" />
                                             <div class="validation"></div>
                                             <input required type="text" class="form-control" name="text_Correo" id="text_Correo" placeholder="Ingrese Correo" data-rule="minlen:4" data-msg="Porfavor ingrese Correo"/>
                                             <div class="validation"></div>

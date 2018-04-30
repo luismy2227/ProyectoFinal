@@ -4,6 +4,19 @@
     session_destroy();
     header("Location: login.php");
   }
+  include("class/class-conexion.php");
+    $conexion = new Conexion();
+  //Obteniendo los vehículos
+    $query = "SELECT tbl_SolicitudMantenimiento.idSolicitudMantenimiento, tbl_Marca.descripcion, 
+    tbl_Modelo.descripcion, EXTRACT(YEAR FROM tbl_Vehiculo.anio) FROM tbl_VehiculoCliente
+    INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoCliente.idVehiculo
+    INNER JOIN tbl_Marca ON tbl_Marca.idMarca = tbl_Vehiculo.idMarca
+    INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
+    INNER JOIN tbl_SolicitudMantenimiento ON tbl_SolicitudMantenimiento.idVehiculoCliente = tbl_VehiculoCliente.idVehiculoCliente
+    INNER JOIN tbl_Mantenimiento ON tbl_Mantenimiento.idSolicitudMantenimiento = tbl_SolicitudMantenimiento.idSolicitudMantenimiento
+    WHERE tbl_SolicitudMantenimiento.idSolicitudMantenimiento <> 31
+    ORDER BY tbl_SolicitudMantenimiento.idSolicitudMantenimiento;";
+    $resVehiculos = $conexion->ejecutarConsulta($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,15 +47,13 @@
     </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
          <header>
-            <!-- Navbar
-            ================================================== -->
+            
             <div class="navbar navbar-fixed-top">
                 <div class="navbar-inner">
                     <div class="container">
-                        <!-- logo -->
+
                         <a class="brand logo" href="index.php"><img src="assets/img/logo.png" alt=""></a>
-                        <!-- end logo -->
-                        <!-- top menu -->
+
                         <div class="navigation">
                             <nav>
                                 <ul class="nav topnav">
@@ -86,11 +97,11 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown active">
-                                        <a href="#">Facturacion</a>
+                                        <a href="#">Facturación</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="InsertarFacturaRenta.php">Renta</a></li>
                                             <li><a href="InsertarFacturaVenta.php">Venta</a></li>
-                                            <li><a href="InsertarFacturaMantenimiento.php">Mantenimienro</a></li>
+                                            <li><a href="InsertarFacturaMantenimiento.php">Mantenimiento</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown">
@@ -112,7 +123,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        <!-- end menu -->
+
                     </div>
                 </div>
             </div>
@@ -138,57 +149,45 @@
 
                                         
 
-        <section id="maincontent">
-            <div class="container">
-                <div class="row">
-                    <div class="span4">
-                        <div class="span8">
-                            <div class="spacer30"></div>
-                                
-
-
-                            <form action="" id="Form_InsertarFactura" name="Form_InsertarFactura method="post" role="form" class="contactForm">
-                                <div class="row">
-                                   
-                                                                 
-
-  
-               
-               
-              
-                              </div>
-                              
-                                  </div>
-                                     
-                                  <p>
-                                  <h3>Mantenimiento</h3>
-                                  <div class="dotted_line"></div>
-                                </p>
-                                 <div class="span4 form-group">
- <select required type="text" id="cbx_SeleccioneMantenimiento" name="cbx_SeleccioneMantenimiento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione Mantenimiento">
-                                  <option value='0'>Seleccione Mantenimiento</option>
-                                 
-                                </select>
-                              </div>
-
-                <div class="span8 form-group">
-                                    <div class="text-center">
-                                        <button class="btn btn-color btn-rounded" id="btn_Guardar" name="btn_Guardar" type="submit">Guardar</button>
-                                        <button class="btn btn-color btn-rounded" id="btn_Cancelar" name="btn_Cancelar" type="cancel" onclick="javascript:window.location = 'index.php';">Cancelar</button>
+<section id="maincontent">
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <div class="span8">
+                    <div class="spacer30"></div>
+                        <form action="" id="Form_Mantenimiento" name="Form_Mantenimiento" method="post" role="form" class="contactForm">
+                            <div class="row">
+                                <div class="span4 form-group">
+                                    <div class="span4 form-group"></div>
+                                    <div class="span4 form-group">
+                                        <p><h3> Mantenimiento</h3></p>
+                                        <div class="dotted_line"></div>
+                                            <div class="span4 form-group">
+                                                <select required type="text" id="cbx_VehiculoEmpresa" name="cbx_VehiculoEmpresa" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
+                                                    <option value='0'>Seleccione un vehículo en mantenimiento</option>
+                                                    <?php while($rowVehiculo = pg_fetch_array($resVehiculos)) { ?>
+                                                            <option value="<?php echo $rowVehiculo[0]; ?>" >
+                                                                <?php echo $rowVehiculo[0]." | ". $rowVehiculo[1]." | ".$rowVehiculo[2]." | ".$rowVehiculo[3]; ?> 
+                                                            </option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="span8 form-group">
+                                            <div class="text-center">
+                                                <button class="btn btn-color btn-rounded" id="btn_Guardar" name="btn_Guardar" type="submit">Guardar</button>
+                                                <button class="btn btn-color btn-rounded" href="index.php">Cancelar</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                    </div>
-                                </div>
-
-                                
+                            </div>
                         </div>
                     </div>
-                </div>
                 </form>
             </div>
         </div>
     </div>
-</div>
 </section>
 <footer class="footer">
     <div class="container">

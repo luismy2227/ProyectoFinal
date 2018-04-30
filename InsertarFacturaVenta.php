@@ -4,6 +4,24 @@
     session_destroy();
     header("Location: login.php");
   }
+    include("class/class-conexion.php");
+    $conexion = new Conexion();
+  //Obteniendo los vehículos
+    $query = "SELECT tbl_VehiculoEmpresa.idVehiculoEmpresa, tbl_Marca.descripcion, 
+    tbl_Modelo.descripcion, EXTRACT(YEAR FROM tbl_Vehiculo.anio) FROM tbl_VehiculoEmpresa
+    INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
+    INNER JOIN tbl_Marca ON tbl_Marca.idMarca = tbl_Vehiculo.idMarca
+    INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
+    WHERE tbl_VehiculoEmpresa.seVende = TRUE 
+    ORDER BY tbl_VehiculoEmpresa.idVehiculoEmpresa;";
+    $resVehiculos = $conexion->ejecutarConsulta($query);
+
+    //Obteniendo los clientes
+    $query = "SELECT tbl_Cliente.idCliente, tbl_Persona.primerNombre, tbl_Persona.primerApellido FROM tbl_Cliente
+    INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Cliente.idPersona
+    WHERE tbl_Cliente.idCliente <> 16
+    ORDER BY tbl_Cliente.idCliente;";
+    $resClientes = $conexion->ejecutarConsulta($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +104,7 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown active">
-                                        <a href="#">Facturacion</a>
+                                        <a href="#">Facturación</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="InsertarFacturaRenta.php">Renta</a></li>
                                             <li><a href="InsertarFacturaVenta.php">Venta</a></li>
@@ -124,7 +142,7 @@
                     <div class="row">
                         <div class="span12">
                             <div class="centered">
-                                <h3>Modulo Factura</h3>
+                                <h3>Módulo De Factura</h3>
                                 <p>
                                     Llena la información solicitada 
                                 </p>
@@ -147,30 +165,33 @@
                                 
 
 
-                            <form action="" id="Form_InsertarFactura" name="Form_InsertarFactura method="post" role="form" class="contactForm">
+                            <form action="" id="Form_Venta" name="Form_Venta" method="post" role="form" class="contactForm">
                                 <div class="row">
                                     <div class="span4 form-group">
-                                         <div class="span4 form-group">
-                                                                 
-
-  
-               
-               
-              
-                              </div>
-                             
-                                <div class="span4 form-group">
-                                  <p>
-                                  <h3> Venta</h3>
-                                </p>
-                                <div class="dotted_line"></div>
-                                 <div class="span4 form-group">
- <select required type="text" id="cbx_SeleccioneDescuento" name="cbx_SeleccioneDescuento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
-                                  <option value='0'>Seleccione un Vehículo</option>
-                                 
-                                </select>
+                                        <div class="span4 form-group">              
+                                        </div>
+                                    <div class="span4 form-group">
+                                        <p><h3> Venta</h3></p>
+                                        <div class="dotted_line"></div>
+                                            <div class="span4 form-group">
+                                            <select required type="text" id="cbx_VehiculoEmpresa" name="cbx_VehiculoEmpresa" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
+                                                <option value='0'>Seleccione un Vehículo</option>
+                                                <?php while($rowVehiculo = pg_fetch_array($resVehiculos)) { ?>
+                                                        <option value="<?php echo $rowVehiculo[0]; ?>" >
+                                                            <?php echo $rowVehiculo[0]." | ". $rowVehiculo[1]." | ".$rowVehiculo[2]." | ".$rowVehiculo[3]; ?> 
+                                                        </option>
+                                                <?php } ?>
+                                            </select>
+                                            <select required type="text" id="cbx_Clientes" name="cbx_Clientes" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
+                                                <option value='0'>Seleccione un Cliente</option>
+                                                <?php while($rowCliente = pg_fetch_array($resClientes)) { ?>
+                                                        <option value="<?php echo $rowCliente[0]; ?>" >
+                                                            <?php echo $rowCliente[0]." | ". $rowCliente[1]." ".$rowCliente[2]; ?> 
+                                                        </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
                                     </div>
-                                  </div>
                                      
 
                 <div class="span8 form-group">

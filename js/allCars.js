@@ -29,7 +29,7 @@ function allCars(){
                                 /*'                   <p class="card-text">Precio de venta: </p>'+
                                 '                   <p class="card-text">'+carros.precioventa+'</p>'+*/
                                 '                   <img src="'+carros.foto+'" alt="" width="320" height="300">'+
-                                '                   <p><a class="btn btn-primary" href="#" role="button" onClick="seleccionar('+carros.idvehiculo+')">Ver Vehículo &raquo;</a></p>'+
+                                '                   <p><a class="btn btn-primary" href="verAutoSeleccionado.php?id='+carros.idvehiculo+'" role="button" >Ver Vehículo &raquo;</a></p>'+
                                 '           </div>'+
                                 '       </div>'+
                                 '       </div>'+
@@ -41,8 +41,4 @@ function allCars(){
                 console.log(e);
             }
     });
-}
-
-function seleccionar(idvehiculo){
-    alert(idvehiculo);
 }

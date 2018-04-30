@@ -4,6 +4,24 @@
     session_destroy();
     header("Location: login.php");
   }
+    include("class/class-conexion.php");
+    $conexion = new Conexion();
+    //Obteniendo los vehículos
+    $query = "SELECT tbl_VehiculoEmpresa.idVehiculoEmpresa, tbl_Marca.descripcion, 
+    tbl_Modelo.descripcion, EXTRACT(YEAR FROM tbl_Vehiculo.anio) FROM tbl_VehiculoEmpresa
+    INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
+    INNER JOIN tbl_Marca ON tbl_Marca.idMarca = tbl_Vehiculo.idMarca
+    INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
+    WHERE tbl_VehiculoEmpresa.seRenta = TRUE 
+    ORDER BY tbl_VehiculoEmpresa.idVehiculoEmpresa;";
+    $resVehiculos = $conexion->ejecutarConsulta($query);
+
+    //Obteniendo los clientes
+    $query = "SELECT tbl_Cliente.idCliente, tbl_Persona.primerNombre, tbl_Persona.primerApellido FROM tbl_Cliente
+    INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Cliente.idPersona
+    WHERE tbl_Cliente.idCliente <> 16
+    ORDER BY tbl_Cliente.idCliente;";
+    $resClientes = $conexion->ejecutarConsulta($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,15 +40,12 @@
         <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/color/default.css" rel="stylesheet">
-        <link rel="shortcut icon" href="assets/ico/favicon.ico">
+        <link rel="shortcut icon" href="vehiculo.ico">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-
-
     </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
          <header>
@@ -87,7 +102,7 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown active">
-                                        <a href="#">Facturacion</a>
+                                        <a href="#">Facturación</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="InsertarFacturaRenta.php">Renta</a></li>
                                             <li><a href="InsertarFacturaVenta.php">Venta</a></li>
@@ -125,7 +140,7 @@
                     <div class="row">
                         <div class="span12">
                             <div class="centered">
-                                <h3>Modulo Factura</h3>
+                                <h3>Módulo De Factura</h3>
                                 <p>
                                     Llena la información solicitada 
                                 </p>
@@ -151,76 +166,59 @@
                                 </p>
 
 
-                            <form action="" id="Form_InsertarFactura" name="Form_InsertarFactura method="post" role="form" class="contactForm">
+                            <form action="" id="Form_Renta" name="Form_Renta" method="post" role="form" class="contactForm">
                                 <div class="row">
                                     <div class="span4 form-group">
                                          <div class="span4 form-group">
-                                                                 
-
-  
-               
-               
-              
-                              </div>
-                              <div class="span4 form-group">
-                              
-                             
-
-                <input required type="text" class="form-control" name="text_FechaEntrega" id="text_FechaEntrega" placeholder="Ingrese la Fecha Entrega" data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Entrega" />
-
-             
-                <div class="validation"></div>
-                   <input required type="text" class="form-control" name="text_FechaDevolucion" id="text_FechaDevolucion" placeholder="Ingrese la Fecha Devolucion" data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Devolucion" />
-                <div class="validation"></div>
-                 <select required type="text" id="cbx_SeleccioneDescuento" name="cbx_SeleccioneDescuento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
-                                  <option value='0'>Seleccione un Vehículo</option>
-                                 
-                                </select>
-                              </div>
-                            
-                
-                                    </div>
-                         
+                                        </div>
                                     <div class="span4 form-group">
-                                      
-              <div class="span4 form-group">
-                              
-
-
-                                        <input required type="text" class="form-control" name="text_Anticipo" id="text_Anticipo" placeholder="Anticipo" data-rule="minlen:4" data-msg="Campo requerido: Anticipo" />
-                                        <div class="validation"></div>
-                                     
-                
-                              </div>
+                                    <input required type="date" class="form-control" name="text_FechaEntrega" id="text_FechaEntrega" placeholder="Fecha de entrega" data-rule="minlen:4" data-msg="Por favor ingrese Fecha Entrega" />
+                                    <div class="validation"></div>
+                                    <input required type="date" class="form-control" name="text_FechaDevolucion" id="text_FechaDevolucion" placeholder="Fecha de devolución" data-rule="minlen:4" data-msg="Por favor ingrese Fecha Devolucion" />
+                                    <div class="validation"></div>
+                                    <input required type="number" class="form-control" name="text_Anticipo" id="text_Anticipo" placeholder="Anticipo" data-rule="minlen:4" data-msg="Campo requerido: Anticipo" />
+                                    <div class="validation"></div>
+                                    <select required type="text" id="cbx_VehiculoEmpresa" name="cbx_VehiculoEmpresa" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
+                                        <option value='0'>Seleccione un Vehículo</option>
+                                        <?php while($rowVehiculo = pg_fetch_array($resVehiculos)) { ?>
+                                                <option value="<?php echo $rowVehiculo[0]; ?>" >
+                                                    <?php echo $rowVehiculo[0]." | ". $rowVehiculo[1]." | ".$rowVehiculo[2]." | ".$rowVehiculo[3]; ?> 
+                                                </option>
+                                        <?php } ?>
+                                    </select>
+                                    <select required type="text" id="cbx_Clientes" name="cbx_Clientes" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
+                                        <option value='0'>Seleccione un Cliente</option>
+                                        <?php while($rowCliente = pg_fetch_array($resClientes)) { ?>
+                                                <option value="<?php echo $rowCliente[0]; ?>" >
+                                                    <?php echo $rowCliente[0]." | ". $rowCliente[1]." ".$rowCliente[2]; ?> 
+                                                </option>
+                                        <?php } ?>
+                                    </select>
+                                    <div class="row" id="detalle" name="detalle"></div>
+                                </div>
                             </div>
                             <div class="span4 form-group">
-    <div class="span4 form-group">
-                
-
-              
-                <div class="validation"></div>
-                
-
-
-                                    </div>
-</div>
-</div>
+                                <div class="span4 form-group"></div>
+                            </div>
+                            <div class="span4 form-group">
+                                <div class="span4 form-group">
+                                    <div class="validation"></div>
                                 </div>
-                               
-                <div class="span8 form-group">
-                                    <div class="text-center">
-                                        <button class="btn btn-color btn-rounded" id="btn_Guardar" name="btn_Guardar" type="submit">Guardar</button>
-                                        <button class="btn btn-color btn-rounded" id="btn_Cancelar" name="btn_Cancelar" type="cancel" onclick="javascript:window.location = 'index.php';">Cancelar</button>
-                                    </div>
-                                </div>
-                                    </div>
-                                </div>
-
-                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span8 form-group">
+                        <div class="text-center">
+                            <button class="btn btn-color btn-rounded" id="btn_Guardar" name="btn_Guardar" type="submit">Guardar</button>
+                            <button class="btn btn-color btn-rounded" id="btn_Cancelar" name="btn_Cancelar" type="cancel" onclick="javascript:window.location = 'index.php';">Cancelar</button>
                         </div>
                     </div>
                 </div>
-                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
             </div>
         </div>
     </div>
@@ -300,45 +298,21 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/insertarCliente.js"></script>
 
-<!--Combobox dependientes-->
+<!--Combobox dependientes>
 <script language="javascript">
-                    //Combobox de modelos
-                    $(document).ready(function () {
-                        $("#cbx_Marca").change(function () {
-                            $('#cbx_Version').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-                            $("#cbx_Marca option:selected").each(function () {
-                                idMarca = $(this).val();
-                                $.post("includes/get-Modelos.php", {idMarca: idMarca}, function (data) {
-                                    $("#cbx_Modelo").html(data);
-                                });
-                            });
-                        })
-                    });
+    $(document).ready(function () {
+        $("#cbx_VehiculoEmpresa").change(function () {
+            $("#cbx_VehiculoEmpresa option:selected").each(function () {
+                var idVehiculo = $(this).val();
+                alert(idVehiculo);
+                $.post("includes/get-Detalle.php", {idVehiculo: idVehiculo}, function (data) {
+                    $("#detalle").append(data);
+                });alert(idVehiculo);
+            });
+        })
+    });
 
-                    //Combobox de versiones
-                    $(document).ready(function () {
-                        $("#cbx_Modelo").change(function () {
-                            $("#cbx_Modelo option:selected").each(function () {
-                                idModelo = $(this).val();
-                                $.post("includes/get-Versiones.php", {idModelo: idModelo}, function (data) {
-                                    $("#cbx_Version").html(data);
-                                });
-                            });
-                        })
-                    });
-
-                    //Combobox de garages
-                    $(document).ready(function () {
-                        $("#cbx_Sucursal").change(function () {
-                            $("#cbx_Sucursal option:selected").each(function () {
-                                idSucursal = $(this).val();
-                                $.post("includes/get-Sucursales.php", {idSucursal: idSucursal}, function (data) {
-                                    $("#cbx_Garage").html(data);
-                                });
-                            });
-                        })
-                    });
-</script>
+</script-->
 
 </body>
 </html>

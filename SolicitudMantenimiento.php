@@ -1,10 +1,38 @@
 <?php
-  session_start();
-  if(isset($_SESSION["status"])==false){
+    session_start();
+    if(isset($_SESSION["status"])==false){
     session_destroy();
     header("Location: login.php");
-  }
+    }
 ?>
+<!DOCTYPE html>
+<?php
+    include("class/class-conexion.php");
+    $conexion = new Conexion();
+    
+     $query = "SELECT tbl_VehiculoCliente.idVehiculoCliente, tbl_Marca.descripcion, 
+    tbl_Modelo.descripcion, EXTRACT(YEAR FROM tbl_Vehiculo.anio) FROM tbl_VehiculoCliente
+    INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoCliente.idVehiculo
+    INNER JOIN tbl_Marca ON tbl_Marca.idMarca = tbl_Vehiculo.idMarca
+    INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
+    WHERE tbl_VehiculoCliente.idVehiculoCliente <> 16;";
+    $resVehiculoCliente = $conexion->ejecutarConsulta($query);
+
+    //Obteniendo las transmisiones
+    $query = "SELECT idTipoMantenimiento, descripcion FROM tbl_TipoMantenimiento;";
+    $resTipoMantenimiento = $conexion->ejecutarConsulta($query);
+
+    //Obteniendo los tipos de gasolina
+    $query = "SELECT idRepuesto, descripcion FROM tbl_Repuesto ;";
+    $resRepuesto = $conexion->ejecutarConsulta($query);
+
+    //Obteniendo los tipos de cilindraje
+    $query = "SELECT idSucursal, descripcion FROM tbl_Sucursal ;";
+    $resSucursal = $conexion->ejecutarConsulta($query);
+
+    //Obteniendo las sucursales
+  
+    ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -128,29 +156,45 @@
                             <form action="" id="Form_InsertarAutoCliente" name="Form_InsertarAutoCliente" method="post" role="form" class="contactForm">
                                 <div class="row">
                                     <div class="span4 form-group">
-
-                                        <select required type="text" id="cbx_Vehiculo" name="cbx_Vehiculo" class="form-control" placeholder="Seleccione Vehiculo"minlen:4" data-msg="Seleccione Mantenimiento">
-                                  <option value='0'>Seleccione Vehiculo
-                                 
-                                </select>
-                                <select required type="text" id="cbx_TipoMantenimiento" name="cbx_TipoMantenimiento" class="form-control" placeholder="Seleccione Tipo Mantenimiento"  data-rule="minlen:4" data-msg="Seleccione Tipo Mantenimiento"/>
-                                  <option value='0'>Seleccione Mantenimiento</option>
-                                        <div> 
+ <div> 
+                                            <select id="cbx_VehiculoCliente" name="cbx_VehiculoCliente" required>
+                                                <option value='0'>Selecciona un Vehiculo</option>
+                                                <?php while($rowVehiculoCliente = pg_fetch_array($resVehiculoCliente)) { ?>
+                                                <option value="<?php echo $rowVehiculoCliente[0]; ?>" ><?php echo $rowVehiculoCliente[1]; ?> </option>
+                                                <?php } ?>
                                             </select>
-                             
- <select required type="text" id="cbx_Repuesto" name="cbx_Repuesto" class="form-control" placeholder="Seleccione Repuesto"  data-rule="minlen:4" data-msg="Seleccione Mantenimiento">
-                                  <option value='0'>Seleccione Repuesto</option>
-                                 
-                                </select>
-                            
+                                        </div>
+                                <div> 
+                                            <select id="cbx_TipoMantenimiento" name="cbx_TipoMantenimiento" required>
+                                                <option value='0'>Selecciona Tipo Mantenimiento</option>
+                                                <?php while($rowTipoMantenimiento = pg_fetch_array($resTipoMantenimiento)) { ?>
+                                                <option value="<?php echo $rowTipoMantenimiento[0]; ?>" ><?php echo $rowTipoMantenimiento[1]; ?> </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div> 
+                                          <div> 
+                                            <select id="cbx_Repuesto" name="cbx_Repuesto" required>
+                                                <option value='0'>Selecciona un Repuesto</option>
+                                                <?php while($rowRepuesto = pg_fetch_array($resRepuesto)) { ?>
+                                                <option value="<?php echo $rowRepuesto[0]; ?>" ><?php echo $rowRepuesto[1]; ?> </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
 
+                                 <div> 
+                                            <select id="cbx_Sucursal" name="cbx_Sucursal" required>
+                                                <option value='0'>Selecciona una sucursal</option>
+                                                <?php while($rowSucursal = pg_fetch_array($resSucursal)) { ?>
+                                                <option value="<?php echo $rowSucursal[0]; ?>" ><?php echo $rowSucursal[1]; ?> </option>
+                                                <?php } ?>
+                                            </select>
                                   
+                                             <select id="cbx_Taller" name="cbx_Taller" required></select>
+                                             
+                                        </div>                            
  
-
-                                 
- 
-                                             <input required type="text" class="form-control" name="text_Descripcion" id="text_Descripcion" placeholder="Descripcion" data-rule="minlen:4" data-msg="Campo requerido: Descripcion" />
-                                        <div class="validation"></div>
+                                          
 
                                        <input required type="Date" class="form-control" name="text_FechaEntrada" id="text_FechaEntrada" placeholder="Fecha Entrada" data-rule="minlen:4" data-msg="Campo requerido: Fecha" />
                                         <div class="validation"></div>
@@ -158,11 +202,11 @@
                                             
                                           <input required type="Date" class="form-control" name="text_FechaSalida" id="text_FechaSalida" placeholder="Fecha Salida(YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha" />
                                         <div class="validation"></div>
-
-
-                                        <input required type="text" class="form-control" name="text_FechaIngreso" id="text_FechaIngreso" placeholder="Fecha Solicitud (YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido:Fecha Ingreso"/>
+                                             
+                                                <input required type="textarea" class="form-control" name="text_Descripcion" id="text_Descripcion" placeholder="Descripcion" data-rule="minlen:4" data-msg="Campo requerido: Descripcion" />
                                         <div class="validation"></div>
 
+                                     
                                      
                                         
 
@@ -315,40 +359,17 @@
 <script language="javascript">
                     //Combobox de modelos
                     $(document).ready(function () {
-                        $("#cbx_Marca").change(function () {
-                            $('#cbx_Version').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-                            $("#cbx_Marca option:selected").each(function () {
-                                idMarca = $(this).val();
-                                $.post("includes/get-Modelos.php", {idMarca: idMarca}, function (data) {
-                                    $("#cbx_Modelo").html(data);
-                                });
-                            });
-                        })
-                    });
-
-                    //Combobox de versiones
-                    $(document).ready(function () {
-                        $("#cbx_Modelo").change(function () {
-                            $("#cbx_Modelo option:selected").each(function () {
-                                idModelo = $(this).val();
-                                $.post("includes/get-Versiones.php", {idModelo: idModelo}, function (data) {
-                                    $("#cbx_Version").html(data);
-                                });
-                            });
-                        })
-                    });
-
-                    //Combobox de garages
-                    $(document).ready(function () {
                         $("#cbx_Sucursal").change(function () {
                             $("#cbx_Sucursal option:selected").each(function () {
                                 idSucursal = $(this).val();
-                                $.post("includes/get-Sucursales.php", {idSucursal: idSucursal}, function (data) {
-                                    $("#cbx_Garage").html(data);
+                                $.post("includes/get-Talleres.php", {idSucursal: idSucursal}, function (data) {
+                                    $("#cbx_Taller").html(data);
                                 });
                             });
                         })
                     });
+
+         
 </script>
 
 </body>

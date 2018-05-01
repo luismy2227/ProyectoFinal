@@ -60,7 +60,7 @@
 
     </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
-        <header>
+         <header>
             <!-- Navbar
             ================================================== -->
             <div class="navbar navbar-fixed-top">
@@ -73,7 +73,7 @@
                         <div class="navigation">
                             <nav>
                                 <ul class="nav topnav">
-                                    <li class="dropdown">
+                                    <li class="dropdown ">
 
                                         <a href="index.php">Inicio</a>
                                     </li>
@@ -98,11 +98,13 @@
                                             <li class="dropdown"><a href="#">Clientes</a>
                                                 <ul class="dropdown-menu sub-menu">
                                                     <li><a href="InsertarCliente.php">Agregar Cliente</a></li>
+                                                    <li><a href="verClientes.php">Ver Todos</a></li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown"><a href="#">Empleados</a>
                                                 <ul class="dropdown-menu sub-menu">
                                                     <li><a href="InsertarEmpleado.php">Agregar Empleado</a></li>
+                                                    <li><a href="verEmpleados.php">Ver Todos</a></li>
                                                 </ul>
                                             </li>
                                         </ul>

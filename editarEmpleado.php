@@ -44,7 +44,7 @@
 
     </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
-        <header>
+          <header>
             <!-- Navbar
             ================================================== -->
             <div class="navbar navbar-fixed-top">
@@ -57,7 +57,7 @@
                         <div class="navigation">
                             <nav>
                                 <ul class="nav topnav">
-                                    <li class="dropdown">
+                                    <li class="dropdown active">
 
                                         <a href="index.php">Inicio</a>
                                     </li>
@@ -75,7 +75,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown active">
+                                    <li class="dropdown">
                                         <a href="#">Personas</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="verPerfil.php">Perfil</a></li>

@@ -45,7 +45,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
-         <header>
+           <header>
             <!-- Navbar
             ================================================== -->
             <div class="navbar navbar-fixed-top">
@@ -58,7 +58,7 @@
                         <div class="navigation">
                             <nav>
                                 <ul class="nav topnav">
-                                    <li class="dropdown">
+                                    <li class="dropdown active">
 
                                         <a href="index.php">Inicio</a>
                                     </li>
@@ -101,7 +101,7 @@
 
                                         </ul>
                                     </li>
-                                    <li class="dropdown active">
+                                    <li class="dropdown">
                                         <a href="#">Facturación</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="InsertarFacturaRenta.php">Renta</a></li>

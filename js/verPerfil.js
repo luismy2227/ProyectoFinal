@@ -44,8 +44,7 @@ function verPerfil(){
                                 '<br>Teléfono: '+usuario.telefono+
                                 '<br>Correo Electrónico: '+usuario.correoelectronico+
                                 '<br><br><br>'+
-                                '<button class="btn btn-color btn-rounded" id="btn_Editar" name="btn_Editar" type="submit" onclick="javascript:window.location = \'editarEmpleado.php\';">Editar</button>'
-                                ;                    
+                                '<button class="btn btn-color btn-rounded" id="btn_Editar" name="btn_Editar" type="submit" onclick="javascript:window.location = \'editarEmpleado.php\';">Editar</button>' ;                    
                     $("#PersonalInfo").append(html);
                 //}
             },

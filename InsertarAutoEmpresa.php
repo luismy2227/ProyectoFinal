@@ -180,6 +180,7 @@
 
                                         <!-- Combobox de marcas-->
                                         <div> 
+                                             <label>Marca:</label>
                                             <select id="cbx_Marca" name="cbx_Marca" required>
                                                 <option value='0'>Selecciona una marca</option>
                                                 <?php while($rowMarcas = pg_fetch_array($resMarcas)) { ?>
@@ -190,16 +191,19 @@
 
                                         <!-- Combobox de modelos-->
                                         <div>
+                                             <label>Modelo:</label>
                                             <select id="cbx_Modelo" name="cbx_Modelo" required></select>
                                         </div>
 
                                         <!-- Combobox de versiones-->
                                         <div>
+                                             <label>Año Versión:</label>
                                             <select id="cbx_Version" name="cbx_Version" required></select>
                                         </div>
 
                                         <!-- Combobox de transmisiones-->
                                         <div> 
+                                             <label>Transmision:</label>
                                             <select id="cbx_Transmisiones" name="cbx_Transmisiones" required>
                                                 <option value='0'>Transmisión</option>
                                                 <?php while($rowTransmision = pg_fetch_array($resTransmision)) { ?>
@@ -210,6 +214,7 @@
 
                                         <!-- Combobox de gasolinas-->
                                         <div> 
+                                             <label>Combustible:</label>
                                             <select id="cbx_Gasolinas" name="cbx_Gasolinas" required>
                                                 <option value='0'>Combustible</option>
                                                 <?php while($rowGasolina = pg_fetch_array($resGasolina)) { ?>
@@ -220,6 +225,7 @@
 
                                         <!-- Combobox de cilindrajes-->
                                         <div> 
+                                             <label>Cilindraje:</label>
                                             <select id="cbx_Cilindraje" name="cbx_Cilindraje" required>
                                                 <option value='0'>Número de cilindros</option>
                                                 <?php while($rowCilindros = pg_fetch_array($resCilindraje)) { ?>
@@ -230,6 +236,7 @@
 
                                         <!-- Combobox de estados-->
                                         <div> 
+                                             <label>Estado del Vehículo:</label>
                                             <select id="cbx_Estado" name="cbx_Estado" required>
                                                 <option value='0'>Estado</option>
                                                 <?php while($rowEstado = pg_fetch_array($resEstado)) { ?>
@@ -240,70 +247,82 @@
 
                                         <div> 
                                             <!-- Combobox de si se vende-->
+                                             <label>Añadir a Venta:</label>
                                             <select id="cbx_SeVende" name="cbx_SeVende" required>
                                                 <option value='0'>Venta</option>
                                                 <option value='1'>Si</option>
                                                 <option value='2'>No</option>
                                             </select>
-
+                                              <label>Precio de Venta:</label>
                                             <input required type="number" class="form-control" name="text_PrecioVenta" id="text_PrecioVenta" placeholder="Precio de venta" data-rule="minlen:4" data-msg="Precio de venta" value="0"/>
 
                                             <!-- Combobox de si se renta-->
+                                             <label>Añadir a Renta:</label>
                                             <select id="cbx_SeRenta" name="cbx_SeRenta" required>
                                                 <option value='0'>Renta</option>
                                                 <option value='1'>Si</option>
                                                 <option value='2'>No</option>
                                             </select>
 
+                                              <label>Precio de Renta:</label>
                                             <input required type="number" class="form-control" name="text_PrecioRenta" id="text_PrecioRenta" placeholder="Precio de renta por hora" data-rule="minlen:4" data-msg="Precio de renta" value="0"/>
                                         </div>
 
                                         <!-- Combobox de estado de matrícula-->
+                                          <label>Estado  de la Matricula:</label>
                                         <select id="cbx_EstadoMatricula" name="cbx_EstadoMatricula" required>
                                             <option value='0'>Estado de matrícula</option>
                                             <option value='1'>Pagada</option>
                                             <option value='2'>No pagada</option>
                                         </select>
-
+                                          <label>Monto  de la Matricula:</label>
                                         <input required type="number" class="form-control" name="text_MontoMatricula" id="text_MontoMatricula" placeholder="Monto de matrícula" data-rule="minlen:4" data-msg="Monto de matrícula" value="0"/>
 
                                     </div>
 
                                     <div class="span4 form-group">
+                                          <label>Color:</label>
                                         <input required type="color" class="form-control" name="text_Color" id="text_Color" placeholder="Color" data-rule="minlen:4" data-msg="Campo requerido: Color" />
                                         <div class="validation"></div>
                                     </div>
 
                                     <div class="span4 form-group">
+                                          <label>Placa:</label>
                                         <input required type="text" class="form-control" name="text_Placa" id="text_Placa" placeholder="Placa" data-rule="minlen:4" data-msg="Campo requerido: Placa" />
                                         <div class="validation"></div>
                                     </div>
 
                                     <div class="span4 form-group">
+                                          <label>Año:</label>
                                         <input required type="date" class="form-control" name="text_Anio" id="text_Anio" placeholder="Año " data-rule="minlen:4" data-msg="Campo requerido: Año" />
                                         <div class="validation"></div>
                                     </div>
                                     <div class="span4 form-group">
+                                          <label>Generación:</label>
                                         <input type="text" class="form-control" name="text_Generacion" id="text_Generacion" placeholder="Generación" data-rule="minlen:4" data-msg="Campo requerido: Generacion" />
                                         <div class="validation"></div>
                                     </div>
                                     <div class="span4 form-group">
+                                          <label>Serie:</label>
                                         <input required type="text" class="form-control" name="text_Serie" id="text_Serie" placeholder="Número de Serie" data-rule="minlen:4" data-msg="Campo requerido: Serie" />
                                         <div class="validation"></div>
                                     </div>
                                     <div class="span4 form-group">
+                                          <label>Tipo de Motor:</label>
                                         <input value="0" required type="number" class="form-control" name="text_TipoMotor" id="text_TipoMotor" placeholder="Tipo de motor" data-rule="minlen:4" data-msg="Campo requerido: Tipo de Motor" />
                                         <div class="validation"></div>
                                     </div>
                                     <div class="container">
                                         <div class="span4 form-group">
-                                            <input required type="date" class="form-control" name="text_FechaAdquisicion" id="text_FechaAdquisicion" placeholder= "Fecha de Adquisicion (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha de adquisición" />
+                                              <label>Fecha de Adquisición:</label>
+                                            <input required type="date" class="form-control" name="text_FechaAdquisicion" id="text_FechaAdquisicion" placeholder= "Fecha de Adquisición (YYYY/MM/DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha de adquisición" />
                                             <div class="validation"></div>
-
+                                              <label>Seguro:</label>
                                             <input required type="number" class="form-control" name="text_Seguro" id="text_Seguro" placeholder= "Monto Asegurado" data-rule="minlen:4" data-msg="Campo requerido: Monto asegurado" />
                                             <div class="validation"></div>
 
                                             <div class="form-group">
+
                                             <input type="hidden" id="text_Imagenruta" name="text_Imagenruta">
                                             <label for="File-Image">Ingrese su imagen</label>
                                             <input type="file" class="form-control-file" id="File-Image" name="file" >
@@ -311,6 +330,7 @@
 
                                             <!-- Combobox de sucursales-->
                                             <div> 
+                                                  <label>Sucursal:</label>
                                                 <select id="cbx_Sucursal" name="cbx_Sucursal" required>
                                                     <option value='0'>Selecciona una sucursal</option>
                                                     <?php while($rowSucursal = pg_fetch_array($resSucursal)) { ?>
@@ -321,6 +341,7 @@
 
                                             <!-- Combobox de garages-->
                                             <div>
+                                                  <label>Garage:</label>
                                                 <select id="cbx_Garage" name="cbx_Garage" required></select>
                                             </div>
                                         </div>

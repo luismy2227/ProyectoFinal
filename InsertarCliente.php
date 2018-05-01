@@ -164,13 +164,19 @@
                                         <div class="span4 form-group">
                                             <p><h3>Persona</h3><div class="dotted_line"></div></p>
                                                 <div class="span4 form-group">
+                                                      <label>Primer Nombre:</label>
                                                     <input required type="text" class="form-control" name="text_PrimerNombre" id="text_PrimerNombre"  data-rule="minlen:4" placeholder="Primer Nombre" data-msg="PrimerNombre" />
+                                                      <label>Segundo Nombre:</label>
                                                     <input required type="text" class="form-control" name="text_SegundoNombre" id="text_SegundoNombre"  data-rule="minlen:4" placeholder="Segundo Nombre" data-msg="SegundoNombre" />
+                                                      <label>Primer Apellido:</label>
                                                     <input required type="text" class="form-control" name="text_PrimerApellido" id="text_PrimerApellido" placeholder="Primer Apellido" data-rule="minlen:4" data-msg="PrimerApellido" />
+                                                      <label>Segundo Apellido:</label>
                                                     <input required type="text" class="form-control" name="text_SegundoApellido" id="text_SegundoApellido" placeholder="Segundo Apellido" data-rule="minlen:4" data-msg="SegundoApellido" />
-                                                    <input required type="text" class="form-control" name="text_Identidad" id="text_Identidad" placeholder="Ingrese el Identidad"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
+                                                      <label>No. Identidad:</label>
+                                                    <input required type="text" class="form-control" name="text_Identidad" id="text_Identidad" placeholder="Identidad"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
                                                     <div class="validation"></div>
-                                                    <input required type="text" class="form-control" name="text_Rtn" id="text_Rtn" placeholder="Ingrese el RTN"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
+                                                      <label>RTN:</label>
+                                                    <input required type="text" class="form-control" name="text_Rtn" id="text_Rtn" placeholder=" RTN"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
                                                     <div class="validation"></div>
 
                                                     <div class="form-group">
@@ -180,11 +186,13 @@
                                                     </div>
 
                                                      <div class="validation"></div>
-                                            <input required type="text" class="form-control" name="text_Correo" id="text_Correo" placeholder="Ingrese Correo" data-rule="minlen:4" data-msg="Porfavor ingrese Correo"/>
+                                                       <label>Correo:</label>
+                                            <input required type="text" class="form-control" name="text_Correo" id="text_Correo" placeholder="Ingrese Correo" data-rule="minlen:4" data-msg="Correo"/>
                                             <div class="validation"></div>
-
-                                            <input required type="text" class="form-control" name="text_Telefono" id="text_Telefono" placeholder="Ingrese Telefono" data-rule="minlen:4" data-msg="Porfavor ingrese Telefono" />
+                                              <label>Teléfono:</label>
+                                            <input required type="text" class="form-control" name="text_Telefono" id="text_Telefono" placeholder="Teléfono" data-rule="minlen:4" data-msg="Porfavor ingrese Telefono" />
                                             <div class="validation"></div>
+                                              <label>Genero:</label>
                                               <select required type="text" id="cbx_SeleccioneGenero" name="cbx_SeleccioneGenero" class="form-control" placeholder="Seleccione Genero"  data-rule="minlen:4" data-msg="Seleccione un Genero">
                                                 <option value='0'>Seleccione un Genero</option>
                                                 <option value='1'>Femenino</option>
@@ -195,9 +203,11 @@
                                              <div class="dotted_line"></div>
                                               </p>
                                         <div class="span4 form-group">
-                                            <input required type="text" class="form-control" name="text_NombreUsuario" id="text_NombreUsuario" placeholder="Ingrese el Usuario"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
+                                              <label>Usuario:</label>
+                                            <input required type="text" class="form-control" name="text_NombreUsuario" id="text_NombreUsuario" placeholder="Usuario"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
                                             <div class="validation"></div>
-                                            <input required type="password" class="form-control" name="text_UserPassword" id="text_UserPassword" placeholder="Ingrese el Password"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
+                                              <label>Contraseña:</label>
+                                            <input required type="password" class="form-control" name="text_UserPassword" id="text_UserPassword" placeholder="Contraseña"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
                                             <p>
                                         </div>
                                             
@@ -214,19 +224,20 @@
                                                <h3>Direccion</h3>
                                              <div class="dotted_line"></div>
                                               </p>
-                                            <input required type="text" class="form-control" name="text_Departamento" id="text_Departamento" placeholder="Ingrese el Departamento"  data-rule="minlen:4" data-msg="Porfavor ingrese Departamento" />
+                                                <label>Departamento:</label>
+                                            <input required type="text" class="form-control" name="text_Departamento" id="text_Departamento" placeholder="Departamento"  data-rule="minlen:4" data-msg="Porfavor ingrese Departamento" />
                                             <div class="validation"></div>
-
-                                            <input required type="text" class="form-control" name="text_Municipio" id="text_Municipio" placeholder="Ingrese el Municipio" data-rule="minlen:4" data-msg="Porfavor ingrese Municipio" />
+                                              <label>Municipio:</label>
+                                            <input required type="text" class="form-control" name="text_Municipio" id="text_Municipio" placeholder="Municipio" data-rule="minlen:4" data-msg="Porfavor ingrese Municipio" />
                                             <div class="validation"></div>
-                                        
-                                            <input required type="text" class="form-control" name="text_Colonia" id="text_Colonia" placeholder="Ingrese la Colonia" data-rule="minlen:4" data-msg="Porfavor ingrese Telefono" />
+                                              <label>Colonia:</label>
+                                            <input required type="text" class="form-control" name="text_Colonia" id="text_Colonia" placeholder="Colonia" data-rule="minlen:4" data-msg="Porfavor ingrese Telefono" />
                                             <div class="validation"></div>
-
-                                            <input required type="text" class="form-control" name="text_Sector" id="text_Sector" placeholder="Ingrese el Sector"  data-rule="minlen:4" data-msg="Porfavor ingrese Telefono" />
+                                               <label>Sector:</label>
+                                            <input required type="text" class="form-control" name="text_Sector" id="text_Sector" placeholder="Sector"  data-rule="minlen:4" data-msg="Porfavor ingrese Telefono" />
                                             <div class="validation"></div>
-
-                                            <input required type="text" class="form-control" name="text_NumeroCasa" id="text_NumeroCasa"  placeholder="Ingrese numero de Vivienda" data-rule="minlen:4" data-msg="Porfavor ingrese Telefono" />
+                                              <label>No.Casa:</label>
+                                            <input required type="text" class="form-control" name="text_NumeroCasa" id="text_NumeroCasa"  placeholder="Numero de Casa" data-rule="minlen:4" data-msg="Porfavor ingrese Telefono" />
                                             <div class="validation"></div>
                                         </div>
                                     </div>

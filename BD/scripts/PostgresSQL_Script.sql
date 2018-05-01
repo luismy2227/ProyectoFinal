@@ -3073,9 +3073,9 @@ Probando la función:
 
       SELECT MAX(idMantenimiento) INTO auxiliarMantenimiento FROM tbl_Mantenimiento;
       auxiliarMantenimiento:= auxiliarMantenimiento+1;
-      INSERT INTO tbl_Mantenimiento(idMantenimiento, descripcion,fechaIngreso,fechaSalida,estado,
+      INSERT INTO tbl_Mantenimiento(idMantenimiento,fechaIngreso,fechaSalida,estado,
                 idSolicitudMantenimiento,idEmpleado,idTipoMantenimiento, idRepuesto, idTaller)
-      VALUES(auxiliarMantenimiento, 'Ninguna','2018-01-12','2018-01-12','E',31,1,16,1,16);
+      VALUES(auxiliarMantenimiento,'2018-01-12','2018-01-12','E',31,1,16,1,16);
 
       INSERT INTO tbl_FacturaPorMantenimiento(idFactura, idMantenimiento)
       VALUES(pn_idFactura, auxiliarMantenimiento);
@@ -4451,8 +4451,8 @@ Probando la función:
       SELECT MAX(idSolicitudMantenimiento) INTO auxiliarMantenimiento2 
       FROM tbl_SolicitudMantenimiento ; --Obteniendo el idSolicitudMantenimiento
 
-      INSERT INTO tbl_Mantenimiento(idMantenimiento,descripcion,fechaIngreso, fechaSalida, estado, idSolicitudMantenimiento,idEmpleado,idTipoMantenimiento,idRepuesto,idtaller)
-      VALUES(auxiliarMantenimiento+1,'Falla Mecanica', pc_FechaEntrada,pc_FechaSalida,'E',auxiliarMantenimiento2,codigoempleado,pn_TipoMantenimiento,pn_Repuesto,pn_taller);
+      INSERT INTO tbl_Mantenimiento(idMantenimiento,fechaIngreso, fechaSalida, estado, idSolicitudMantenimiento,idEmpleado,idTipoMantenimiento,idRepuesto,idtaller)
+      VALUES(auxiliarMantenimiento+1, pc_FechaEntrada,pc_FechaSalida,'E',auxiliarMantenimiento2,codigoempleado,pn_TipoMantenimiento,pn_Repuesto,pn_taller);
 
       pcMensaje := 'Mantenimiento insertado con éxito';
       pbOcurreError := FALSE;

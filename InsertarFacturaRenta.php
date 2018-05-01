@@ -188,6 +188,7 @@
 
 
                                     <div class="span4 form-group">
+                                          <label>Vehículo:</label>
                                         <select required type="text" id="cbx_VehiculoEmpresa" name="cbx_VehiculoEmpresa" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
                                         <option value='0'>Seleccione un Vehículo</option>
                                         <?php while($rowVehiculo = pg_fetch_array($resVehiculos)) { ?>
@@ -196,6 +197,7 @@
                                                 </option>
                                         <?php } ?>
                                     </select>
+                                      <label>Cliente:</label>
                                     <select required type="text" id="cbx_Clientes" name="cbx_Clientes" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
                                         <option value='0'>Seleccione un Cliente</option>
                                         <?php while($rowCliente = pg_fetch_array($resClientes)) { ?>
@@ -204,12 +206,16 @@
                                                 </option>
                                         <?php } ?>
                                     </select>
+                                      <label>Fecha Entrega:</label>
                                     <input required type="date" class="form-control" name="text_FechaEntrega" id="text_FechaEntrega" placeholder="Fecha de entrega" data-rule="minlen:4" data-msg="Por favor ingrese Fecha Entrega" />
                                     <div class="validation"></div>
+                                      <label>Fecha Devolución:</label>
                                     <input required type="date" class="form-control" name="text_FechaDevolucion" id="text_FechaDevolucion" placeholder="Fecha de devolución" data-rule="minlen:4" data-msg="Por favor ingrese Fecha Devolucion" />
                                     <div class="validation"></div>
+                                      <label>Horas:</label>
                                     <input required type="number" class="form-control" name="text_totalHoras" id="text_totalHoras" placeholder="Total horas" data-rule="minlen:4" data-msg="Campo requerido: Total horas" value="0"/>
                                     <div class="validation"></div>
+                                      <label>Forma Pago:</label>
                                     <select required type="text" id="cbx_FormaPago" name="cbx_FormaPago" class="form-control" placeholder="Seleccione forma de pago"  data-rule="minlen:4" data-msg="Seleccione una forma de pago">
                                         <option value='0'>Seleccione una forma de pago</option>
                                         <?php while($rowFormaPago = pg_fetch_array($resFormaPago)) { ?>
@@ -218,6 +224,7 @@
                                                 </option>
                                         <?php } ?>
                                     </select>
+                                      <label>Descuento:</label>
                                     <select required type="text" id="cbx_Descuento" name="cbx_Descuento" class="form-control" placeholder="Seleccione descuento"  data-rule="minlen:4" data-msg="Seleccione un descuento">
                                         <option value='0'>Seleccione un descuento</option>
                                         <?php while($rowDescuento = pg_fetch_array($resDescuentos)) { ?>

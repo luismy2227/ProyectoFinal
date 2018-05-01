@@ -177,7 +177,7 @@
                             <form action="" id="Form_Mantenimiento" name="Form_Mantenimiento" method="post" role="form" class="contactForm">
                                 <div class="row">
                                     <div class="span4 form-group">
- <div> 
+ <div>                                        <label>Vehículo:</label>
                                             <select id="cbx_VehiculoCliente" name="cbx_VehiculoCliente" required>
                                                 <option value='0'>Selecciona un Vehiculo</option>
                                                 <?php while($rowVehiculoCliente = pg_fetch_array($resVehiculoCliente)) { ?>
@@ -188,7 +188,7 @@
                                                 <?php } ?>
                                             </select>
                                         </div>
-                                <div> 
+                                <div>          <label>Tipo de Mantenimiento:</label>
                                             <select id="cbx_TipoMantenimiento" name="cbx_TipoMantenimiento" required>
                                                 <option value='0'>Selecciona Tipo Mantenimiento</option>
                                                 <?php while($rowTipoMantenimiento = pg_fetch_array($resTipoMantenimiento)) { ?>
@@ -198,6 +198,7 @@
                                         </div>
                                         <div> 
                                           <div> 
+                                              <label>Repuesto:</label>
                                             <select id="cbx_Repuesto" name="cbx_Repuesto" required>
                                                 <option value='0'>Selecciona un Repuesto</option>
                                                 <?php while($rowRepuesto = pg_fetch_array($resRepuesto)) { ?>
@@ -206,24 +207,24 @@
                                             </select>
                                         </div>
 
-                                 <div> 
+                                 <div>         <label>Sucursal:</label>
                                             <select id="cbx_Sucursal" name="cbx_Sucursal" required>
                                                 <option value='0'>Selecciona una sucursal</option>
                                                 <?php while($rowSucursal = pg_fetch_array($resSucursal)) { ?>
                                                 <option value="<?php echo $rowSucursal[0]; ?>" ><?php echo $rowSucursal[1]; ?> </option>
                                                 <?php } ?>
                                             </select>
-                                  
+                                              <label>Taller:</label>
                                              <select id="cbx_Taller" name="cbx_Taller" required></select>
                                              
                                         </div>                            
  
                                           
-
+                                         <label>Fecha Entrada:</label>
                                        <input required type="Date" class="form-control" name="text_FechaEntrada" id="text_FechaEntrada" placeholder="Fecha Entrada" data-rule="minlen:4" data-msg="Campo requerido: Fecha" />
                                         <div class="validation"></div>
                                         
-                                            
+                                              <label>Fecha Salida:</label>
                                           <input required type="Date" class="form-control" name="text_FechaSalida" id="text_FechaSalida" placeholder="Fecha Salida(YYYY MM DD)" data-rule="minlen:4" data-msg="Campo requerido: Fecha" />
                                         <div class="validation"></div>
                                              

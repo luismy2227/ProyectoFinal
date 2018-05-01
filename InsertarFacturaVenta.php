@@ -190,6 +190,7 @@
                                         <p><h3> Venta</h3></p>
                                         <div class="dotted_line"></div>
                                             <div class="span4 form-group">
+                                                  <label>Vehículo:</label>
                                             <select required type="text" id="cbx_VehiculoEmpresa" name="cbx_VehiculoEmpresa" class="form-control" placeholder="Seleccione vehículo"  data-rule="minlen:4" data-msg="Seleccione un vehículo">
                                                 <option value='0'>Seleccione un Vehículo</option>
                                                 <?php while($rowVehiculo = pg_fetch_array($resVehiculos)) { ?>
@@ -198,6 +199,7 @@
                                                         </option>
                                                 <?php } ?>
                                             </select>
+                                              <label>Clientes:</label>
                                             <select required type="text" id="cbx_Clientes" name="cbx_Clientes" class="form-control" placeholder="Seleccione cliente"  data-rule="minlen:4" data-msg="Seleccione un cliente">
                                                 <option value='0'>Seleccione un Cliente</option>
                                                 <?php while($rowCliente = pg_fetch_array($resClientes)) { ?>
@@ -206,6 +208,7 @@
                                                         </option>
                                                 <?php } ?>
                                             </select>
+                                              <label>Forma de Pago:</label>
                                             <select required type="text" id="cbx_FormaPago" name="cbx_FormaPago" class="form-control" placeholder="Seleccione forma de pago"  data-rule="minlen:4" data-msg="Seleccione una forma de pago">
                                                 <option value='0'>Seleccione una forma de pago</option>
                                                 <?php while($rowFormaPago = pg_fetch_array($resFormaPago)) { ?>
@@ -214,6 +217,7 @@
                                                         </option>
                                                 <?php } ?>
                                             </select>
+                                              <label>Descuento:</label>
                                             <select required type="text" id="cbx_Descuento" name="cbx_Descuento" class="form-control" placeholder="Seleccione descuento"  data-rule="minlen:4" data-msg="Seleccione un descuento">
                                                 <option value='0'>Seleccione un descuento</option>
                                                 <?php while($rowDescuento = pg_fetch_array($resDescuentos)) { ?>

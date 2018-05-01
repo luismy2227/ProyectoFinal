@@ -180,6 +180,7 @@
                                         <p><h3> Mantenimiento</h3></p>
                                         <div class="dotted_line"></div>
                                             <div class="span4 form-group">
+                                                  <label>Mantenimiento:</label>
                                                 <select required type="text" id="cbx_Mantenimiento" name="cbx_Mantenimiento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
                                                     <option value='0'>Seleccione un vehículo en mantenimiento</option>
                                                     <?php while($rowVehiculo = pg_fetch_array($resVehiculos)) { ?>
@@ -188,6 +189,7 @@
                                                             </option>
                                                     <?php } ?>
                                                 </select>
+                                                  <label>Forma Pago:</label>
                                                 <select required type="text" id="cbx_FormaPago" name="cbx_FormaPago" class="form-control" placeholder="Seleccione forma de pago"  data-rule="minlen:4" data-msg="Seleccione una forma de pago">
                                         <option value='0'>Seleccione una forma de pago</option>
                                         <?php while($rowFormaPago = pg_fetch_array($resFormaPago)) { ?>
@@ -196,6 +198,7 @@
                                                 </option>
                                         <?php } ?>
                                     </select>
+                                      <label>Descuento:</label>
                                     <select required type="text" id="cbx_Descuento" name="cbx_Descuento" class="form-control" placeholder="Seleccione descuento"  data-rule="minlen:4" data-msg="Seleccione un descuento">
                                         <option value='0'>Seleccione un descuento</option>
                                         <?php while($rowDescuento = pg_fetch_array($resDescuentos)) { ?>

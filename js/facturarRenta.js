@@ -1,5 +1,4 @@
 $(function () {
-//alert("Entre aqui");
 $(document).on("submit","#Form_Renta",function(event){
     event.preventDefault();
     //alert("Hola 2");

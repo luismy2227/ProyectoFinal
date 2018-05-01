@@ -26,7 +26,8 @@
     
   }
   if(isset($_POST["text_UserPassword"])){
-    $userpassword=$_POST["text_UserPassword"];
+    $userpassword1=$_POST["text_UserPassword"];
+    $userpassword=hash("sha512",$userpassword1);
     
   }
   if(isset($_POST["text_Imagenruta"])){

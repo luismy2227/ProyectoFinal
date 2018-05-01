@@ -64,6 +64,20 @@
             return $res;
 		}
 
+		public static function verPerfilesClientes($conexion, $idUsuario){
+			$query = "SELECT idUsuario, idCliente, primerNombre, segundoNombre, primerApellido,segundoApellido, 
+			rutaFoto, nombreUsuario, telefono, correoElectronico 
+			FROM vv_Informacion_Cliente
+			ORDER BY idCliente;";
+			$registro = $conexion -> ejecutarConsulta($query);
+			$res = array();
+
+			while($respuesta=$conexion->obtenerFilas($registro)){
+                $res[]=$respuesta;
+            }
+            return $res;
+		}
+
 		public static function cargarInfo($conexion, $idUsuario){
 			$query = "SELECT vv_Informacion_Empleado.idUsuario, vv_Informacion_Empleado.idEmpleado, tbl_Persona.identidad, vv_Informacion_Empleado.primerNombre, 
 			vv_Informacion_Empleado.segundoNombre, vv_Informacion_Empleado.primerApellido, vv_Informacion_Empleado.segundoApellido, 

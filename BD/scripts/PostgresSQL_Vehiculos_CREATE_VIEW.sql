@@ -181,3 +181,19 @@
           INNER JOIN tbl_Telefono ON tbl_Telefono.idPersona = tbl_Persona.idPersona
           INNER JOIN tbl_CorreoElectronico ON tbl_CorreoElectronico.idPersona = tbl_Persona.idPersona
         );
+    
+    /*Vista de cruce de clientes y datos personales*/
+      /*Descripción:*/
+        /*Lista información personal de los clientes*/
+
+      /*Script:*/
+        CREATE OR REPLACE VIEW vv_Informacion_Cliente (idUsuario, idCliente, primerNombre, segundoNombre, primerApellido, 
+          segundoApellido, rutaFoto, nombreUsuario, telefono, correoElectronico) AS(
+          SELECT tbl_Usuario.idUsuario usuario, tbl_Cliente.idCliente idCliente, tbl_Persona.primerNombre primerNombre, tbl_Persona.segundoNombre segundoNombre, 
+          tbl_Persona.primerApellido primerApellido, tbl_Persona.segundoApellido segundoApellido, tbl_Usuario.imagenRuta rutaFoto, tbl_Usuario.nombreUsuario nombreUsuario, 
+          tbl_Telefono.telefono telefono, tbl_CorreoElectronico.correoElectronico correoElectronico FROM tbl_Usuario
+          INNER JOIN tbl_Cliente ON tbl_Cliente.idUsuario = tbl_Usuario.idUsuario
+          INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Cliente.idPersona
+          INNER JOIN tbl_Telefono ON tbl_Telefono.idPersona = tbl_Persona.idPersona
+          INNER JOIN tbl_CorreoElectronico ON tbl_CorreoElectronico.idPersona = tbl_Persona.idPersona
+        );

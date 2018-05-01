@@ -7,7 +7,8 @@
     $usuario=$_POST["user"];
   }
   if(isset($_POST["password"])){
-    $contra=$_POST["password"];
+    $contra1=$_POST["password"];
+    $contra=hash("sha512",$contra1);
   }
   if(isset($_POST["accion"])){
     $accion=$_POST["accion"];

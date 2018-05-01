@@ -70,7 +70,7 @@
           CREATE TABLE tbl_Usuario(
             idUsuario INTEGER NOT NULL,
             nombreUsuario VARCHAR(45) NOT NULL UNIQUE,
-            userPassword VARCHAR(45) NOT NULL,
+            userPassword VARCHAR(128) NOT NULL,
             imagenRuta VARCHAR(100) NOT NULL,
             CONSTRAINT Pk_Usuario_idUsuario PRIMARY KEY (idUsuario)
           );

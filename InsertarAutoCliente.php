@@ -35,27 +35,6 @@
     WHERE  tbl_Cliente.idCliente<>16
     ORDER BY tbl_Cliente.idCliente;";
     $resPersonas = $conexion->ejecutarConsulta($query);
-
-    /*$msg="";
-    $idVehiculo =0;
-    $idFoto =0;
-    if(isset($_POST['upload'])){
-    $target = "uploaded/".basename($_FILES['image']['name']);
-    $image = $_FILES['image']['name'];
-
-    $query ="SELECT MAX(idVehiculo) FROM tbl_Vehiculo;";
-    $idVehiculo = ($conexion -> ejecutarConsulta($query)) + 1;
-    $query ="SELECT MAX(idFoto) FROM tbl_Foto;";
-    $idFoto = ($conexion -> ejecutarConsulta($query)) + 1;
-
-    if(move_uploaded_file(($_FILES['image']['tmp_name']), $target)){
-    $msg = "Se subió exitosamente la imagen";
-    }else{
-    $msg="Se produjo un error al subir la imagen";
-    }
-    $query = "INSERT INTO tbl_Foto (idFoto, rutaFoto, idVehiculo) VALUES('$idFoto', '$target', '$idVehiculo');";
-    $conexion->ejecutarConsulta($query);
-    }*/
 ?>
 
 <html lang="en">
@@ -290,8 +269,11 @@
                                         <input required type="number" class="form-control" name="text_TipoMotor" id="text_TipoMotor" placeholder="Tipo de motor" data-rule="minlen:4" data-msg="Campo requerido: Tipo de Motor" />
                                         <div class="validation"></div>
 
-                                        <input required type="text" class="form-control" name="text_Foto" id="text_Foto" placeholder= "Ruta de la foto" data-rule="minlen:4" data-msg="Campo requerido: Ruta de la foto" value="uploaded\"/>
-                                            <div class="validation"></div>
+                                        <div class="form-group">
+                                            <input type="hidden" id="text_Imagenruta" name="text_Imagenruta">
+                                            <label for="File-Image">Ingrese su imagen</label>
+                                            <input type="file" class="form-control-file" id="File-Image" name="file" >
+                                        </div>
 
                                     </div>
 
@@ -429,6 +411,33 @@
             });
         })
     });
+</script>
+<script language="javascript">   
+    //Imagen
+    $("#File-Image").change(function(){
+    var form = $("#Form_InsertarAutoCliente")[0];
+    var formData = new FormData(form);
+    $.ajax({
+        url:"ajax/gestionar-imagenVehiculo.php",
+        type:"POST",
+        dataType:"JSON",
+        contentType: false,
+        processData: false,
+        data: formData,
+        success:function(respuesta){
+            if(respuesta.status){
+                $("#text_Imagenruta").val("uploaded/vehicle/"+respuesta.ruta);
+            }
+            else
+            {
+                alert(respuesta.mensaje);
+            }
+        },
+        error: function(error){
+            console.log(error);
+        }
+    });
+});
 </script>
 
 </body>

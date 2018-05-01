@@ -1,8 +1,8 @@
 $(function () {
  //alert("Entré aquí 1");
   $(document).on("submit","#Form_InsertarCliente",function(event){
+    //alert("Entré aquí 2");
     event.preventDefault();
-  //alert("Entré aquí 2");
     $.ajax({
         type:"POST",
         url:"ajax/gestionar-insertarCliente.php",
@@ -10,12 +10,16 @@ $(function () {
         data:$(this).serialize(),
         success:function(respuesta){
          //alert("Entré aquí 3");
-            alert(respuesta);
-            if(respuesta == 'Cliente insertado con éxito'){
+            
+            if(respuesta != 'Cliente insertado con éxito'){
+                alert(respuesta);
+                
+            }   else{
                 window.location='index.php';
-            }   
+            }
             /*console.log(respuesta[0]);*/
         }
     });
   });
 });
+

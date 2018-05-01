@@ -10,10 +10,13 @@ $(function () {
         data:$(this).serialize(),
         success:function(respuesta){
            //alert("Entré aquí 3");
-            alert(respuesta);
-            if(respuesta == 'Empleado insertado con éxito'){
-                window.location='index.php';
-            }   
+            
+            if(respuesta != 'Empleado insertado con éxito'){
+                alert(respuesta);
+                
+            }   else{
+              window.location='index.php';
+            }
             /*console.log(respuesta[0]);*/
         }
     });

@@ -1,9 +1,22 @@
 <?php
     session_start();
     if(isset($_SESSION["status"])==false){
-    session_destroy();
-    header("Location: login.php");
+        session_destroy();
+        header("Location: login.php");
     }
+
+    //Tratando de mover la imagen
+    /*if(isset($_POST['btn_Guardar'])){
+        $target = "uploaded/".basename($_FILES['image']['name']);
+        $image = $_FILES['image']['name'];
+
+        if(move_uploaded_file(($_FILES['image']['tmp_name']), $target)){
+            $msg = "Se subió exitosamente la imagen";
+        }
+        else{
+            $msg="Se produjo un error al subir la imagen";
+        }
+    }*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -146,21 +159,24 @@
                                 <div class="row">
                                     <div class="span4 form-group">
                                         <div class="span4 form-group">
-                                              <p>
-                                               <h3>Persona</h3>
-                                             <div class="dotted_line"></div>
-                                              </p>
+                                            <p><h3>Persona</h3><div class="dotted_line"></div></p>
                                                 <div class="span4 form-group">
                                                     <input required type="text" class="form-control" name="text_PrimerNombre" id="text_PrimerNombre"  data-rule="minlen:4" placeholder="Primer Nombre" data-msg="PrimerNombre" />
-                                            <input required type="text" class="form-control" name="text_SegundoNombre" id="text_SegundoNombre"  data-rule="minlen:4" placeholder="Segundo Nombre" data-msg="SegundoNombre" />
-                                            <input required type="text" class="form-control" name="text_PrimerApellido" id="text_PrimerApellido" placeholder="Primer Apellido" data-rule="minlen:4" data-msg="PrimerApellido" />
-                                            <input required type="text" class="form-control" name="text_SegundoApellido" id="text_SegundoApellido" placeholder="Segundo Apellido" data-rule="minlen:4" data-msg="SegundoApellido" />
-                                            <input required type="text" class="form-control" name="text_Identidad" id="text_Identidad" placeholder="Ingrese el Identidad"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
-                                            <div class="validation"></div>
-                                            <input required type="text" class="form-control" name="text_Rtn" id="text_Rtn" placeholder="Ingrese el RTN"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
-                                            <div class="validation"></div>
-                                            <input required type="file" class="form-control" name="text_Imagenruta" id="text_Imagenruta" placeholder="Ingrese la imagen"  data-rule="minlen:4" data-msg="Porfavor ingrese la imagen"accept="image/*" />
-                                            <div class="validation"></div>
+                                                    <input required type="text" class="form-control" name="text_SegundoNombre" id="text_SegundoNombre"  data-rule="minlen:4" placeholder="Segundo Nombre" data-msg="SegundoNombre" />
+                                                    <input required type="text" class="form-control" name="text_PrimerApellido" id="text_PrimerApellido" placeholder="Primer Apellido" data-rule="minlen:4" data-msg="PrimerApellido" />
+                                                    <input required type="text" class="form-control" name="text_SegundoApellido" id="text_SegundoApellido" placeholder="Segundo Apellido" data-rule="minlen:4" data-msg="SegundoApellido" />
+                                                    <input required type="text" class="form-control" name="text_Identidad" id="text_Identidad" placeholder="Ingrese el Identidad"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
+                                                    <div class="validation"></div>
+                                                    <input required type="text" class="form-control" name="text_Rtn" id="text_Rtn" placeholder="Ingrese el RTN"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
+                                                    <div class="validation"></div>
+
+                                                    <div class="form-group">
+                                                    <input type="hidden" id="text_Imagenruta" name="text_Imagenruta">
+                                                    <label for="File-Image">Ingrese su imagen</label>
+                                                    <input type="file" class="form-control-file" id="File-Image" name="file" >
+                                                    </div>
+
+                                                     <div class="validation"></div>
                                             <input required type="text" class="form-control" name="text_Correo" id="text_Correo" placeholder="Ingrese Correo" data-rule="minlen:4" data-msg="Porfavor ingrese Correo"/>
                                             <div class="validation"></div>
 
@@ -192,8 +208,6 @@
                                            <div class="span4 form-group">
                                     
                                         </div>
-
-                                       
                                                <h3>Direccion</h3>
                                              <div class="dotted_line"></div>
                                               </p>
@@ -203,8 +217,6 @@
                                             <input required type="text" class="form-control" name="text_Municipio" id="text_Municipio" placeholder="Ingrese el Municipio" data-rule="minlen:4" data-msg="Porfavor ingrese Municipio" />
                                             <div class="validation"></div>
                                         
-
-
                                             <input required type="text" class="form-control" name="text_Colonia" id="text_Colonia" placeholder="Ingrese la Colonia" data-rule="minlen:4" data-msg="Porfavor ingrese Telefono" />
                                             <div class="validation"></div>
 
@@ -226,6 +238,9 @@
                                 <button class="btn btn-color btn-rounded" id="btn_Guardar" name="btn_Guardar" type="submit">Guardar</button>
                                 <button class="btn btn-color btn-rounded" id="btn_Cancelar" name="btn_Cancelar" type="cancel" onclick="javascript:window.location = 'index.php';">Cancelar</button>
                             </div>
+
+                                            </form>
+                                           
                         </div>
                     </div>
                 </div>
@@ -311,43 +326,32 @@
 <script src="js/insertarCliente.js"></script>
 
 <!--Combobox dependientes-->
-<script language="javascript">
-    //Combobox de modelos
-    $(document).ready(function () {
-        $("#cbx_Marca").change(function () {
-            $('#cbx_Version').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-            $("#cbx_Marca option:selected").each(function () {
-                idMarca = $(this).val();
-                $.post("includes/get-Modelos.php", {idMarca: idMarca}, function (data) {
-                    $("#cbx_Modelo").html(data);
-                });
-            });
-        })
+<script language="javascript">   
+    //Imagen
+    $("#File-Image").change(function(){
+    var form = $("#Form_InsertarCliente")[0];
+    var formData = new FormData(form);
+    $.ajax({
+        url:"ajax/gestionar-imagen.php",
+        type:"POST",
+        dataType:"JSON",
+        contentType: false,
+        processData: false,
+        data: formData,
+        success:function(respuesta){
+            if(respuesta.status){
+                $("#text_Imagenruta").val("uploaded/profile/"+respuesta.ruta);
+            }
+            else
+            {
+                alert(respuesta.mensaje);
+            }
+        },
+        error: function(error){
+            console.log(error);
+        }
     });
-
-    //Combobox de versiones
-    $(document).ready(function () {
-        $("#cbx_Modelo").change(function () {
-            $("#cbx_Modelo option:selected").each(function () {
-                idModelo = $(this).val();
-                $.post("includes/get-Versiones.php", {idModelo: idModelo}, function (data) {
-                    $("#cbx_Version").html(data);
-                });
-            });
-        })
-    });
-
-    //Combobox de garages
-    $(document).ready(function () {
-        $("#cbx_Sucursal").change(function () {
-            $("#cbx_Sucursal option:selected").each(function () {
-                idSucursal = $(this).val();
-                $.post("includes/get-Sucursales.php", {idSucursal: idSucursal}, function (data) {
-                    $("#cbx_Garage").html(data);
-                });
-            });
-        })
-    });
+});
 </script>
 
 </body>

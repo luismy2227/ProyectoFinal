@@ -184,10 +184,12 @@ else if ($numerocasa==null or $numerocasa==""){
 
 }
   else{
-    $query="SELECT  * FROM funcion_agregar_usuario_empleado('$identidad','$primernombre','$segundonombre','$primerapellido','$segundoapellido','$telefono','$correo','$departamento','$municipio','$colonia','$sector','$numerocasa',$genero,'$nombreusuario','$userpassword','$imagenruta','$fechacontratacion',$cargo,$empleadosuperior,'$fechapromocion');";  
+    $query="SELECT  * FROM funcion_agregar_usuario_empleado('$identidad','$primernombre','$segundonombre','$primerapellido',
+    '$segundoapellido','$telefono','$correo','$departamento','$municipio','$colonia','$sector','$numerocasa',
+    $genero,'$nombreusuario','$userpassword','$imagenruta','$fechacontratacion',$cargo,$empleadosuperior,'$fechapromocion');";  
     $resultados=$conexion->ejecutarConsulta($query);
     $respuesta=$conexion->obtenerFila($resultados);
-    $respuesta=$respuesta[0];//
+    $respuesta=$respuesta[0];
   }
   $conexion->cerrarConexion();
   echo json_encode($respuesta); 

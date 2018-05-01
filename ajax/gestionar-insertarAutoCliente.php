@@ -71,8 +71,8 @@
     $clientePertenece=$_POST["cbx_ClientePertenece"];
     $clientePertenece=(int)$clientePertenece;
   }
-  if(isset($_POST["text_Foto"])){
-    $rutaFoto=$_POST["text_Foto"];
+  if(isset($_POST["text_Imagenruta"])){
+    $rutaFoto=$_POST["text_Imagenruta"];
   }
 
   $respuesta="";

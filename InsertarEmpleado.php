@@ -242,12 +242,18 @@
                                             <input required type="text" class="form-control" name="text_SegundoApellido" id="text_SegundoApellido" placeholder="Segundo Apellido" data-rule="minlen:4" data-msg="SegundoApellido" />
                                             <input required type="text" class="form-control" name="text_Identidad" id="text_Identidad" placeholder="Ingrese el Identidad"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
                                             <div class="validation"></div>
-                                            <input required type="text" class="form-control" name="text_FechaContratacion" id="text_FechaContratacion" placeholder="Ingrese Fecha Contratacion"  data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Contratacion" />
+                                            <input required type="date" class="form-control" name="text_FechaContratacion" id="text_FechaContratacion" placeholder="Ingrese Fecha Contratacion"  data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Contratacion" />
                                             <div class="validation"></div>
-                                            <input required type="text" class="form-control" name="text_FechaPromocion" id="text_FechaPromocion" placeholder="Ingrese Fecha Promocion"  data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Promocion" />
+                                            <input required type="date" class="form-control" name="text_FechaPromocion" id="text_FechaPromocion" placeholder="Ingrese Fecha Promocion"  data-rule="minlen:4" data-msg="Porfavor ingrese Fecha Promocion" />
                                             <div class="validation"></div>
-                                            <input required type="text" class="form-control" name="text_Imagenruta" id="text_Imagenruta" placeholder="Ingrese la imagen"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
-                                            <div class="validation"></div>
+                                            <!--input required type="text" class="form-control" name="text_Imagenruta" id="text_Imagenruta" placeholder="Ingrese la imagen"  data-rule="minlen:4" data-msg="Porfavor ingrese Identidad" />
+                                            <div class="validation"></div-->
+
+                                            <div class="form-group">
+                                                <input  type="hidden" id="text_Imagenruta" name="text_Imagenruta">
+                                                <label for="File-Image">Ingrese su imagen</label>
+                                                <input type="file" class="form-control-file" id="File-Image" name="file" >
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="span4 form-group">
@@ -360,44 +366,32 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/insertarEmpleado.js"></script>
 
-<!--Combobox dependientes-->
-<script language="javascript">
-    //Combobox de modelos
-    $(document).ready(function () {
-        $("#cbx_Marca").change(function () {
-            $('#cbx_Version').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-            $("#cbx_Marca option:selected").each(function () {
-                idMarca = $(this).val();
-                $.post("includes/get-Modelos.php", {idMarca: idMarca}, function (data) {
-                    $("#cbx_Modelo").html(data);
-                });
-            });
-        })
+<script language="javascript">   
+    //Imagen
+    $("#File-Image").change(function(){
+    var form = $("#Form_InsertarEmpleado")[0];
+    var formData = new FormData(form);
+    $.ajax({
+        url:"ajax/gestionar-imagen.php",
+        type:"POST",
+        dataType:"JSON",
+        contentType: false,
+        processData: false,
+        data: formData,
+        success:function(respuesta){
+            if(respuesta.status){
+                $("#text_Imagenruta").val("uploaded/profile/"+respuesta.ruta);
+            }
+            else
+            {
+                alert(respuesta.mensaje);
+            }
+        },
+        error: function(error){
+            console.log(error);
+        }
     });
-
-    //Combobox de versiones
-    $(document).ready(function () {
-        $("#cbx_Modelo").change(function () {
-            $("#cbx_Modelo option:selected").each(function () {
-                idModelo = $(this).val();
-                $.post("includes/get-Versiones.php", {idModelo: idModelo}, function (data) {
-                    $("#cbx_Version").html(data);
-                });
-            });
-        })
-    });
-
-    //Combobox de garages
-    $(document).ready(function () {
-        $("#cbx_Sucursal").change(function () {
-            $("#cbx_Sucursal option:selected").each(function () {
-                idSucursal = $(this).val();
-                $.post("includes/get-Sucursales.php", {idSucursal: idSucursal}, function (data) {
-                    $("#cbx_Garage").html(data);
-                });
-            });
-        })
-    });
+});
 </script>
 
 </body>

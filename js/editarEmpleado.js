@@ -91,11 +91,13 @@ $(function () {
         data:$(this).serialize(),
         success:function(respuesta){
            //alert("Entré aquí 3");
-            alert(respuesta);
-            console.log(respuesta);
+            
+            
             if(respuesta == 'Empleado actualizado con éxito'){
                 window.location='verPerfil.php';
-            }   
+            }   else{
+               alert(respuesta); 
+            }
             /*console.log(respuesta[0]);*/
         }
     });

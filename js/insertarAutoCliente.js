@@ -10,10 +10,11 @@ $(function () {
         data:$(this).serialize(),
         success:function(respuesta){
            //alert("Entré aquí 3");
-            alert(respuesta);
             if(respuesta == 'Vehiculo Cliente insertado con éxito'){
                 window.location='index.php';
-            }   
+            }   else{
+                  alert(respuesta);
+            }
             /*console.log(respuesta[0]);*/
         }
     });

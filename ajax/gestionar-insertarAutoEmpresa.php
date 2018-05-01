@@ -110,8 +110,8 @@
     $garage=$_POST["cbx_Garage"];
     $garage=(int)$garage;
   }
-  if(isset($_POST["text_Foto"])){
-    $rutaFoto=$_POST["text_Foto"];
+  if(isset($_POST["text_Imagenruta"])){
+    $rutaFoto=$_POST["text_Imagenruta"];
   }
 
   $respuesta="";

@@ -82,9 +82,9 @@
   
   $respuesta="";
 
-  if($genero==0){
-    $respuesta="Seleccione un Genero"; 
-  }
+if($genero==0){
+  $respuesta="Seleccione un Genero"; 
+}
 else if ($primernombre==null or $primernombre==""){
   $respuesta="Ingrese Primer Nombre";
 

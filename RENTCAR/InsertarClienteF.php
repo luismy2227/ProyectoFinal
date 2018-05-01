@@ -33,17 +33,19 @@
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="index.php">Inicio</a></li>                                        				          <li><a href="cars.html">Vehiculos</a></li>
-				          <li><a href="service.html">Servicios</a></li>
-				          <li><a href="team.html">Nuestro Equipo</a></li>
-				          <li><a href="about.html">Sucursales</a></li>	
-				          <li><a href="blog-home.html">Blog</a></li>	
-				          <li><a href="contact.html">Contactanos</a></li>	
-				          <li class="menu-has-children"><a href="">Mas</a>
+				          <li class="menu-active"><a href="index.php">Inicio</a></li>                                        				          <li class="menu-has-children"><a href="">Vehiculos</a>
 				            <ul>
-				              <li><a href="blog-single.html">Opiniones</a></li>
-				              <li><a href="elements.html">Acerca RENTCAR</a></li>
+				              <li><a href="VerAutos.php">Ver Todos</a></li>
+				              <li><a href="VerAutos.php">Autos Rentas</a></li>
+				              <li><a href="VerAutos.php">Autos Ventas</a></li>
 				            </ul>
+				          <li><a href="servicios.php">Servicios</a></li>
+				          <li><a href="NuestroEquipo.php">Nuestro Equipo</a></li>
+				          <li><a href="sucursales.php">Sucursales</a></li>
+				           <li><a href="InsertarClienteF.php">Registrarse</a></li>
+
+				          
+				          
 				          </li>	
 				          <?php
                                     if(isset($_SESSION["status"])==true){
@@ -59,7 +61,8 @@
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
 			    </div>
-			  </header><!-- #header <!-- #header -->
+			  </header><!-- #header -->
+
 
 
 
@@ -79,8 +82,8 @@
 							
 						</div>
 						<div class="col-lg-5  col-md-6 header-right">
-							<h4 class="text-white pb-30">Book Your Car Today!</h4>
-							<form class="form" role="form" autocomplete="off">
+							<h4 class="text-white pb-30">Registro</h4>
+							<form class="form" role="form" autocomplete="on">
 							    <div class="form-group">
 							       	<div class="default-select" id="default-select"">
 							<form action="" id="Form_InsertarCliente" name="Form_InsertarCliente" method="post" role="form" class="contactForm">
@@ -138,6 +141,10 @@
 							            <button type="submit" class="btn btn-default btn-lg btn-block text-center text-uppercase" name="btn_Guardar" id=btn_Guardar>Guardar</button>
 							        </div>
 							    </div>
+							</div>
+						</div>
+					</div>
+				</form>
 							</form>
 						</div>											
 					</div>

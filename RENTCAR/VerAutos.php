@@ -43,7 +43,7 @@
 		</head>
 		<body>
 
-			  <header id="header" id="home">
+			 <header id="header" id="home">
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
@@ -51,12 +51,18 @@
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="index.php">Inicio</a></li>
+				          <li class="menu-active"><a href="index.php">Inicio</a></li>                                        				          <li class="menu-has-children"><a href="">Vehiculos</a>
+				            <ul>
+				              <li><a href="VerAutos.php">Ver Todos</a></li>
+				              <li><a href="VerAutos.php">Autos Rentas</a></li>
+				              <li><a href="VerAutos.php">Autos Ventas</a></li>
+				            </ul>
 				          <li><a href="servicios.php">Servicios</a></li>
 				          <li><a href="NuestroEquipo.php">Nuestro Equipo</a></li>
-				          <li><a href="">Sucursales</a></li>	
-				          <li><a href="blog-home.html">Blog</a></li>	
-				          <li><a href="contactanos.php">Contactanos</a></li>	
+				          <li><a href="sucursales.php">Sucursales</a></li>
+				           <li><a href="InsertarClienteF.php">Registrarse</a></li>
+
+				          
 				          
 				          </li>	
 				          <?php
@@ -74,6 +80,7 @@
 			    	</div>
 			    </div>
 			  </header><!-- #header -->
+
 
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">	

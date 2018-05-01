@@ -1,10 +1,10 @@
 $(document).ready(function(){
-//alert("hola1");
+alert("hola1");
     verPerfil();
 });
 
 function verPerfil(){
-    //alert("hola2");
+    alert("hola2");
     $.ajax({
         url:"ajax/gestionar-verPerfil.php",
             dataType:"JSON",
@@ -13,7 +13,7 @@ function verPerfil(){
                 "accion":"verPerfil"
             },
             success:function(respuesta){
-                //alert("hola3");
+                alert("hola3");
 
                 //for (var i = 0; i < respuesta.length ; i++) {
                     var usuario = respuesta[0];

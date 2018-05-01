@@ -16,28 +16,6 @@
     INNER JOIN tbl_Persona p ON e.idPersona=p.idPersona
     ORDER BY p.primerNombre;";
     $resEmpleadoSuperior = $conexion->ejecutarConsulta($query);
-
-
-    /*$msg="";
-    $idVehiculo =0;
-    $idFoto =0;
-    if(isset($_POST['upload'])){
-    $target = "uploaded/".basename($_FILES['image']['name']);
-    $image = $_FILES['image']['name'];
-
-    $query ="SELECT MAX(idVehiculo) FROM tbl_Vehiculo;";
-    $idVehiculo = ($conexion -> ejecutarConsulta($query)) + 1;
-    $query ="SELECT MAX(idFoto) FROM tbl_Foto;";
-    $idFoto = ($conexion -> ejecutarConsulta($query)) + 1;
-
-    if(move_uploaded_file(($_FILES['image']['tmp_name']), $target)){
-    $msg = "Se subió exitosamente la imagen";
-    }else{
-    $msg="Se produjo un error al subir la imagen";
-    }
-    $query = "INSERT INTO tbl_Foto (idFoto, rutaFoto, idVehiculo) VALUES('$idFoto', '$target', '$idVehiculo');";
-    $conexion->ejecutarConsulta($query);
-    }*/
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +51,7 @@
                 <div class="navbar-inner">
                     <div class="container">
                         <!-- logo -->
-                        <a class="brand logo" href="index.html"><img src="assets/img/logo.png" alt=""></a>
+                        <a class="brand logo" href="index.php"><img src="assets/img/logo.png" alt=""></a>
                         <!-- end logo -->
                         <!-- top menu -->
                         <div class="navigation">
@@ -100,32 +78,34 @@
                                     <li class="dropdown active">
                                         <a href="#">Personas</a>
                                         <ul class="dropdown-menu">
+                                            <li><a href="verPerfil.php">Perfil</a></li>
                                             <li class="dropdown"><a href="#">Clientes</a>
                                                 <ul class="dropdown-menu sub-menu">
                                                     <li><a href="InsertarCliente.php">Agregar Cliente</a></li>
+                                                    <li><a href="verClientes.php">Ver Todos</a></li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown"><a href="#">Empleados</a>
                                                 <ul class="dropdown-menu sub-menu">
                                                     <li><a href="InsertarEmpleado.php">Agregar Empleado</a></li>
+                                                    <li><a href="verEmpleados.php">Ver Todos</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">Mantenimiento</a>
+                                      <a href="#">Mantenimiento</a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="about.html">Servicios</a></li>
-                                            <li><a href="pricingtable.html">Repuestos</a></li>
+                                            <li><a href="SolicitudMantenimiento.php">Solicitud</a></li>
 
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">Facturacion</a>
+                                        <a href="#">Facturación</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="InsertarFacturaRenta.php">Renta</a></li>
                                             <li><a href="InsertarFacturaVenta.php">Venta</a></li>
-                                            <li><a href="InsertarFacturaMantenimiento.php">Mantenimienro</a></li>
+                                            <li><a href="InsertarFacturaMantenimiento.php">Mantenimiento</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown">

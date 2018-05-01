@@ -146,28 +146,48 @@
                                         <!-- Layer 1 -->
                                         <li>
                                             <div class="info animate-in">
-                                                <h2>Rent Car</h2>
+                                                <h2>RENTCAR</h2>
                                                 <br>
-                                                <h3>Más que una Coorporacion</h3>
+                                                <h3>Más que una Coorporación</h3>
                                                 <p>
                                                     Ven, Atrevete a disfrutar una experiencia diferente.
                                                 </p>
-
                                             </div>
                                             <img class="slider_img animate-in" src="assets/img/slides/sequence/img-1.png" alt="">
                                         </li>
-                                        <!-- Layer 2 -->
+                                        <li>
+                                            <div class="info animate-in">
+                                                <h2>RENTCAR</h2>
+                                                <br>
+                                                <h3>Marcas exclusivas</h3>
+                                                <p>
+                                                    Distribuidor oficial de Coorporación FIAT.
+                                                </p>
+                                            </div>
+                                            <img class="slider_img animate-in" src="assets/img/slides/sequence/challenger.png" alt="">
+                                        </li>                                        <!-- Layer 2 -->
                                         <li>
                                             <div class="info">
-                                                <h2>Lo Mejor lo encuentras</h2>
+                                                <h2>Lo mejor lo encuentras</h2>
                                                 <br>
-                                                <h3>Siempre en RentCar</h3>
+                                                <h3>Siempre en RENTCAR</h3>
                                                 <p>
-                                                    El Mejor servicio a nivel nacional. 
+                                                    El mejor servicio a nivel nacional. 
                                                 </p>
 
                                             </div>
                                             <img class="slider_img" src="assets/img/slides/sequence/img-2.png" alt="">
+                                        </li>
+                                        <li>
+                                            <div class="info animate-in">
+                                                <h2>RENTCAR</h2>
+                                                <br>
+                                                <h3>Marcas exclusivas</h3>
+                                                <p>
+                                                    Tenemos los mejores Asian Muscle Cars.
+                                                </p>
+                                            </div>
+                                            <img class="slider_img animate-in" src="assets/img/slides/sequence/gtr.png" alt="">
                                         </li>
                                         <!-- Layer 3 -->
                                         <li>
@@ -176,7 +196,7 @@
                                                 <br>
                                                 <h3>Lo último en tecnologia </h3>
                                                 <p>
-                                                    Porque nosotros somos tu opcion atrevete 
+                                                    Porque nosotros somos tu mejor opción, atrevete. 
                                                 </p>
 
                                             </div>
@@ -210,7 +230,7 @@
                         <div class="dotted_line">
                         </div>
                         <p class="left">
-                            La venta de vehículos con nosotros es la más segura que podrás encontrar, RENTCAR te ofrece un mejor servicio a nivel nacional, buscanos.
+                            La venta de vehículos, con nosotros, es la más segura que podrás encontrar, RENTCAR te ofrece un mejor servicio a nivel nacional, búscanos.
                         </p>
 
                     </div>
@@ -230,7 +250,7 @@
                         <div class="dotted_line">
                         </div>
                         <p class="left">
-                            Encargados de brindar el mejor servicio en todo el país, ven a conocernos, nosotros somos los mejores en lo que hacemos. ¿Quieres calidad? busca RENTCAR.
+                            Encargados de brindar el mejor servicio en todo el país, ven a conocernos, nosotros somos los mejores en lo que hacemos. ¿Quiéres calidad? busca RENTCAR.
                         </p>
 
                     </div>

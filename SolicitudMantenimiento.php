@@ -11,7 +11,7 @@
     $conexion = new Conexion();
     
      $query = "SELECT tbl_VehiculoCliente.idVehiculoCliente, tbl_Marca.descripcion, 
-    tbl_Modelo.descripcion, EXTRACT(YEAR FROM tbl_Vehiculo.anio) FROM tbl_VehiculoCliente
+    tbl_Modelo.descripcion, EXTRACT(YEAR FROM tbl_Vehiculo.anio), tbl_VehiculoCliente.idClientePertenece FROM tbl_VehiculoCliente
     INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoCliente.idVehiculo
     INNER JOIN tbl_Marca ON tbl_Marca.idMarca = tbl_Vehiculo.idMarca
     INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
@@ -179,7 +179,10 @@
                                             <select id="cbx_VehiculoCliente" name="cbx_VehiculoCliente" required>
                                                 <option value='0'>Selecciona un Vehiculo</option>
                                                 <?php while($rowVehiculoCliente = pg_fetch_array($resVehiculoCliente)) { ?>
-                                                <option value="<?php echo $rowVehiculoCliente[0]; ?>" ><?php echo $rowVehiculoCliente[1]; ?> </option>
+                                                <option value="<?php echo $rowVehiculoCliente[0]; ?>" >
+                                                    <?php echo $rowVehiculoCliente[1]." ".
+                                                        $rowVehiculoCliente[2]." ".$rowVehiculoCliente[3]." (Cliente: ".$rowVehiculoCliente[4].")"; 
+                                                    ?> </option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -293,8 +296,7 @@
                     </div>
                 </div>
                 </form>
-                <
-            </div>
+                            </div>
         </div>
     </div>
 </div>

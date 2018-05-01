@@ -1,8 +1,8 @@
 <?php
-session_start();
+  session_start();
   include("../class/class-conexion.php");
   $conexion= new Conexion();
-  $idEmpleado=$_SESSION['idUsuario'];
+  $idEmpleado=(int)$_SESSION['idUsuario'];
 
   if(isset($_POST["cbx_VehiculoCliente"])){
     $vehiculoCliente=$_POST["cbx_VehiculoCliente"];
@@ -49,8 +49,6 @@ session_start();
   else if($repuesto==0){
     $respuesta="Seleccione un Repuesto";
   }
-
- 
 
   else if($taller==0){
     $respuesta="Seleccione un Taller";

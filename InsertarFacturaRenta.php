@@ -12,7 +12,7 @@
     INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
     INNER JOIN tbl_Marca ON tbl_Marca.idMarca = tbl_Vehiculo.idMarca
     INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
-    WHERE tbl_VehiculoEmpresa.seRenta = TRUE 
+    WHERE tbl_VehiculoEmpresa.seRenta = TRUE AND tbl_VehiculoEmpresa.vendido = FALSE
     ORDER BY tbl_VehiculoEmpresa.idVehiculoEmpresa;";
     $resVehiculos = $conexion->ejecutarConsulta($query);
 
@@ -22,6 +22,17 @@
     WHERE tbl_Cliente.idCliente <> 16
     ORDER BY tbl_Cliente.idCliente;";
     $resClientes = $conexion->ejecutarConsulta($query);
+
+    //Obteniendo descuentos activos
+    $query = "SELECT idDescuento, descripcion, valor FROM tbl_Descuento
+            WHERE estado ='A' OR estado ='a'
+            ORDER BY descripcion;";
+    $resDescuentos = $conexion->ejecutarConsulta($query);
+
+    //Obteniendo las formas de pago
+    $query = "SELECT idFormaPago, descripcion FROM tbl_FormaPago
+            ORDER BY descripcion;";
+    $resFormaPago = $conexion->ejecutarConsulta($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -171,14 +182,10 @@
                                     <div class="span4 form-group">
                                          <div class="span4 form-group">
                                         </div>
+
+
                                     <div class="span4 form-group">
-                                    <input required type="date" class="form-control" name="text_FechaEntrega" id="text_FechaEntrega" placeholder="Fecha de entrega" data-rule="minlen:4" data-msg="Por favor ingrese Fecha Entrega" />
-                                    <div class="validation"></div>
-                                    <input required type="date" class="form-control" name="text_FechaDevolucion" id="text_FechaDevolucion" placeholder="Fecha de devolución" data-rule="minlen:4" data-msg="Por favor ingrese Fecha Devolucion" />
-                                    <div class="validation"></div>
-                                    <input required type="number" class="form-control" name="text_Anticipo" id="text_Anticipo" placeholder="Anticipo" data-rule="minlen:4" data-msg="Campo requerido: Anticipo" />
-                                    <div class="validation"></div>
-                                    <select required type="text" id="cbx_VehiculoEmpresa" name="cbx_VehiculoEmpresa" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
+                                        <select required type="text" id="cbx_VehiculoEmpresa" name="cbx_VehiculoEmpresa" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
                                         <option value='0'>Seleccione un Vehículo</option>
                                         <?php while($rowVehiculo = pg_fetch_array($resVehiculos)) { ?>
                                                 <option value="<?php echo $rowVehiculo[0]; ?>" >
@@ -194,7 +201,29 @@
                                                 </option>
                                         <?php } ?>
                                     </select>
-                                    <div class="row" id="detalle" name="detalle"></div>
+                                    <input required type="date" class="form-control" name="text_FechaEntrega" id="text_FechaEntrega" placeholder="Fecha de entrega" data-rule="minlen:4" data-msg="Por favor ingrese Fecha Entrega" />
+                                    <div class="validation"></div>
+                                    <input required type="date" class="form-control" name="text_FechaDevolucion" id="text_FechaDevolucion" placeholder="Fecha de devolución" data-rule="minlen:4" data-msg="Por favor ingrese Fecha Devolucion" />
+                                    <div class="validation"></div>
+                                    <input required type="number" class="form-control" name="text_totalHoras" id="text_totalHoras" placeholder="Total horas" data-rule="minlen:4" data-msg="Campo requerido: Total horas" value="0"/>
+                                    <div class="validation"></div>
+                                    <select required type="text" id="cbx_FormaPago" name="cbx_FormaPago" class="form-control" placeholder="Seleccione forma de pago"  data-rule="minlen:4" data-msg="Seleccione una forma de pago">
+                                        <option value='0'>Seleccione una forma de pago</option>
+                                        <?php while($rowFormaPago = pg_fetch_array($resFormaPago)) { ?>
+                                                <option value="<?php echo $rowFormaPago[0]; ?>" >
+                                                    <?php echo $rowFormaPago[1]; ?> 
+                                                </option>
+                                        <?php } ?>
+                                    </select>
+                                    <select required type="text" id="cbx_Descuento" name="cbx_Descuento" class="form-control" placeholder="Seleccione descuento"  data-rule="minlen:4" data-msg="Seleccione un descuento">
+                                        <option value='0'>Seleccione un descuento</option>
+                                        <?php while($rowDescuento = pg_fetch_array($resDescuentos)) { ?>
+                                                <option value="<?php echo $rowDescuento[0]; ?>" >
+                                                    <?php echo $rowDescuento[1]." ".$rowDescuento[2]."%"; ?> 
+                                                </option>
+                                        <?php } ?>
+                                    </select>
+                                    
                                 </div>
                             </div>
                             <div class="span4 form-group">
@@ -296,7 +325,7 @@
 <script src="assets/js/custom.js"></script>
 
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/insertarCliente.js"></script>
+<script src="js/facturarRenta.js"></script>
 
 <!--Combobox dependientes>
 <script language="javascript">

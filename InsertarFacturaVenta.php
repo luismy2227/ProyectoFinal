@@ -239,67 +239,6 @@
     </div>
 </div>
 
-<section class="center" id="Tablita" name="Tablita">
-                            
-
-<button class="btn btn-color btn-rounded" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Detalle</button>
-          <h4 class=" my-2 my-sm-0 " style="color:#fff">  Detalle de Factura  </h4>
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Detalle de Factura</h5>
-                  <?php 
-                    $query = "SELECT MAX(idFactura) FROM vv_Detalle_Factura;";
-                    $idFact = $conexion->ejecutarConsulta($query);
-
-                    $rowidFact = pg_fetch_array($idFact);
-                    $idFact2 = $rowidFact[0];
-
-                    $query = "SELECT * FROM vv_Detalle_Factura WHERE idFactura = $idFact2;";
-                    $detalle = $conexion->ejecutarConsulta($query);
-
-                    $rowDetalle = pg_fetch_array($detalle);
-                    $target = $rowDetalle;
-                  ?>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="container" id="Tabla" name="Tabla">
-                    <table class="table table-dark">
-                      <thead>
-                        <tr>
-                          <th scope="col">No. Factura</th>
-                          <th scope="col">Subtotal</th>
-                          <th scope="col">Impuesto</th>
-                          <th scope="col">Descuento</th>
-                          <th scope="col">Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row"><?php echo $target[0]; ?></th>
-                          <td><?php echo $target[1]; ?></td>
-                          <td><?php echo $target[2]; ?></td>
-                          <td><?php echo $target[3]; ?></td>
-                          <td><?php echo $target[4]; ?></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" onclick="javascript:window.location = 'index.php';" class="btn btn-primary">Aceptar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-      </section>
-<section>
-    
-</section>
 </section>
 <footer class="footer">
     <div class="container">

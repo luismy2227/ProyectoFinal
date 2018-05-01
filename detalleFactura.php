@@ -6,11 +6,19 @@
   }
     include("class/class-conexion.php");
     $conexion = new Conexion();
+?>
+<?php 
+    $query = "SELECT MAX(idFactura) FROM vv_Detalle_Factura;";
+    $idFact = $conexion->ejecutarConsulta($query);
 
-    //Obteniendo las formas de pago
-    $query = "SELECT idFormaPago, descripcion FROM tbl_FormaPago
-            ORDER BY descripcion;";
-    $resFormaPago = $conexion->ejecutarConsulta($query);
+    $rowidFact = pg_fetch_array($idFact);
+    $idFact2 = $rowidFact[0];
+
+    $query = "SELECT * FROM vv_Detalle_Factura WHERE idFactura = $idFact2;";
+    $detalle = $conexion->ejecutarConsulta($query);
+
+    $rowDetalle = pg_fetch_array($detalle);
+    $target = $rowDetalle;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,12 +43,9 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-
-
     </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar">
-        <header>
+         <header>
             <!-- Navbar
             ================================================== -->
             <div class="navbar navbar-fixed-top">
@@ -90,6 +95,7 @@
                                          <a href="#">Mantenimiento</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="SolicitudMantenimiento.php">Solicitud</a></li>
+
                                         </ul>
                                     </li>
                                     <li class="dropdown active">
@@ -131,9 +137,9 @@
                     <div class="row">
                         <div class="span12">
                             <div class="centered">
-                                <h3>Módulo De Factura</h3>
+                                <h3>Detalle de Factura</h3>
                                 <p>
-                                    Llena la información solicitada 
+                                    Información de la última transacción realizada. 
                                 </p>
                             </div>
                         </div>
@@ -141,124 +147,38 @@
                 </div>
             </div>
         </section>
-
-
-                                        
-
         <section id="maincontent">
             <div class="container">
                 <div class="row">
                     <div class="span4">
                         <div class="span8">
                             <div class="spacer30"></div>
-                                
-
-
-                            <form action="" id="Form_Venta" name="Form_Venta" method="post" role="form" class="contactForm">
-                                <div class="row">
-                                    <div class="span4 form-group">
-                                        <div class="span4 form-group">              
-                                        </div>
-                                    <div class="span4 form-group">
-                                        <div class="dotted_line"></div>
-                                        <p><h3> Venta</h3></p>
-                                        <div class="dotted_line"></div>
-                                            <div class="span4 form-group">
-                                            <select required type="text" id="cbx_VehiculoEmpresa" name="cbx_VehiculoEmpresa" class="form-control" placeholder="Seleccione vehículo"  data-rule="minlen:4" data-msg="Seleccione un vehículo">
-                                                <option value='0'>Seleccione un Vehículo</option>
-                                                <?php while($rowVehiculo = pg_fetch_array($resVehiculos)) { ?>
-                                                        <option value="<?php echo $rowVehiculo[0]; ?>" >
-                                                            <?php echo $rowVehiculo[0]." | ". $rowVehiculo[1]." | ".$rowVehiculo[2]." | ".$rowVehiculo[3]; ?> 
-                                                        </option>
-                                                <?php } ?>
-                                            </select>
-                                            <select required type="text" id="cbx_Clientes" name="cbx_Clientes" class="form-control" placeholder="Seleccione cliente"  data-rule="minlen:4" data-msg="Seleccione un cliente">
-                                                <option value='0'>Seleccione un Cliente</option>
-                                                <?php while($rowCliente = pg_fetch_array($resClientes)) { ?>
-                                                        <option value="<?php echo $rowCliente[0]; ?>" >
-                                                            <?php echo $rowCliente[0]." | ". $rowCliente[1]." ".$rowCliente[2]; ?> 
-                                                        </option>
-                                                <?php } ?>
-                                            </select>
-                                            <select required type="text" id="cbx_FormaPago" name="cbx_FormaPago" class="form-control" placeholder="Seleccione forma de pago"  data-rule="minlen:4" data-msg="Seleccione una forma de pago">
-                                                <option value='0'>Seleccione una forma de pago</option>
-                                                <?php while($rowFormaPago = pg_fetch_array($resFormaPago)) { ?>
-                                                        <option value="<?php echo $rowFormaPago[0]; ?>" >
-                                                            <?php echo $rowFormaPago[1]; ?> 
-                                                        </option>
-                                                <?php } ?>
-                                            </select>
-                                            <select required type="text" id="cbx_Descuento" name="cbx_Descuento" class="form-control" placeholder="Seleccione descuento"  data-rule="minlen:4" data-msg="Seleccione un descuento">
-                                                <option value='0'>Seleccione un descuento</option>
-                                                <?php while($rowDescuento = pg_fetch_array($resDescuentos)) { ?>
-                                                        <option value="<?php echo $rowDescuento[0]; ?>" >
-                                                            <?php echo $rowDescuento[1]." ".$rowDescuento[2]."%"; ?> 
-                                                        </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                     
-
-                                <div class="span8 form-group">
-                                    <div class="text-center">
-                                        <button class="btn btn-color btn-rounded" id="btn_Guardar" name="btn_Guardar" type="submit">Guardar</button>
-                                        <button class="btn btn-color btn-rounded" id="btn_Cancelar" name="btn_Cancelar" type="cancel" href="index.php" onclick="javascript:window.location = 'index.php';">Cancelar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
+                                 <div class="container" id="Tabla" name="Tabla">
+                    <table class="table table-dark">
+                      <thead>
+                        <tr>
+                          <th scope="col">No. Factura</th>
+                          <th scope="col">Subtotal</th>
+                          <th scope="col">Impuesto</th>
+                          <th scope="col">Descuento</th>
+                          <th scope="col">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row"><?php echo $target[0]; ?></th>
+                          <td><?php echo $target[1]; ?></td>
+                          <td><?php echo $target[2]; ?></td>
+                          <td><?php echo $target[3]; ?></td>
+                          <td><?php echo $target[4]; ?></td>
+                        </tr>
+                      </tbody>
+                    </table>
                 </div>
-                </form>
             </div>
         </div>
     </div>
 </div>
-
-<section class="center">
-            <div class="dotted_line"></div>
-                <h3>Detalle De Factura</h3>
-            <div class="dotted_line"></div>
-                            
-</section>
-<section>
-    <div class="container" id="Tabla" name="Tabla">
-        <table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">No. Factura</th>
-      <th scope="col">Subtotal</th>
-      <th scope="col">Impuesto</th>
-      <th scope="col">Descuento</th>
-      <th scope="col">Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-
-  </tbody>
-</table
-    </div>
-</section>
 </section>
 <footer class="footer">
     <div class="container">
@@ -332,46 +252,22 @@
 <script src="assets/js/custom.js"></script>
 
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/facturarVenta.js"></script>
+<script src="js/facturarRenta.js"></script>
 
-<!--Combobox dependientes-->
-<!--script language="javascript">
-                    //Combobox de modelos
-                    $(document).ready(function () {
-                        $("#cbx_Marca").change(function () {
-                            $('#cbx_Version').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-                            $("#cbx_Marca option:selected").each(function () {
-                                idMarca = $(this).val();
-                                $.post("includes/get-Modelos.php", {idMarca: idMarca}, function (data) {
-                                    $("#cbx_Modelo").html(data);
-                                });
-                            });
-                        })
-                    });
+<!--Combobox dependientes>
+<script language="javascript">
+    $(document).ready(function () {
+        $("#cbx_VehiculoEmpresa").change(function () {
+            $("#cbx_VehiculoEmpresa option:selected").each(function () {
+                var idVehiculo = $(this).val();
+                alert(idVehiculo);
+                $.post("includes/get-Detalle.php", {idVehiculo: idVehiculo}, function (data) {
+                    $("#detalle").append(data);
+                });alert(idVehiculo);
+            });
+        })
+    });
 
-                    //Combobox de versiones
-                    $(document).ready(function () {
-                        $("#cbx_Modelo").change(function () {
-                            $("#cbx_Modelo option:selected").each(function () {
-                                idModelo = $(this).val();
-                                $.post("includes/get-Versiones.php", {idModelo: idModelo}, function (data) {
-                                    $("#cbx_Version").html(data);
-                                });
-                            });
-                        })
-                    });
-
-                    //Combobox de garages
-                    $(document).ready(function () {
-                        $("#cbx_Sucursal").change(function () {
-                            $("#cbx_Sucursal option:selected").each(function () {
-                                idSucursal = $(this).val();
-                                $.post("includes/get-Sucursales.php", {idSucursal: idSucursal}, function (data) {
-                                    $("#cbx_Garage").html(data);
-                                });
-                            });
-                        })
-                    });
 </script-->
 
 </body>

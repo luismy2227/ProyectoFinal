@@ -1,11 +1,11 @@
 $(function () {
 //alert("Entre aqui");
-$(document).on("submit","#Form_Venta",function(event){
+$(document).on("submit","#Form_Mantenimiento",function(event){
     event.preventDefault();
     //alert("Hola 2");
     $.ajax({
         type:"POST",
-        url:"ajax/gestionar-facturarVenta.php",
+        url:"ajax/gestionar-facturarMantenimiento.php",
         dataType:"JSON",
         data:$(this).serialize(),
         //data:$(this).serialize(),
@@ -13,7 +13,7 @@ $(document).on("submit","#Form_Venta",function(event){
             //alert("Entré aquí 3");
             //var html = '';
             //alert(respuesta.mensajeSesions);
-            if(respuesta=="Vehiculo vendido con éxito") {
+            if(respuesta=="Mantenimiento cancelado con éxito") {
                 alert(respuesta);
                 window.location='detalleFactura.php';
             }

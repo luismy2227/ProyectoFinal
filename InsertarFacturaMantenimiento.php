@@ -14,9 +14,20 @@
     INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
     INNER JOIN tbl_SolicitudMantenimiento ON tbl_SolicitudMantenimiento.idVehiculoCliente = tbl_VehiculoCliente.idVehiculoCliente
     INNER JOIN tbl_Mantenimiento ON tbl_Mantenimiento.idSolicitudMantenimiento = tbl_SolicitudMantenimiento.idSolicitudMantenimiento
-    WHERE tbl_SolicitudMantenimiento.idSolicitudMantenimiento <> 31
+    WHERE tbl_SolicitudMantenimiento.idSolicitudMantenimiento <> 31 AND tbl_Mantenimiento.estado <> 'P'
     ORDER BY tbl_SolicitudMantenimiento.idSolicitudMantenimiento;";
     $resVehiculos = $conexion->ejecutarConsulta($query);
+
+    //Obteniendo descuentos activos
+    $query = "SELECT idDescuento, descripcion, valor FROM tbl_Descuento
+            WHERE estado ='A' OR estado ='a'
+            ORDER BY descripcion;";
+    $resDescuentos = $conexion->ejecutarConsulta($query);
+
+    //Obteniendo las formas de pago
+    $query = "SELECT idFormaPago, descripcion FROM tbl_FormaPago
+            ORDER BY descripcion;";
+    $resFormaPago = $conexion->ejecutarConsulta($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -163,7 +174,7 @@
                                         <p><h3> Mantenimiento</h3></p>
                                         <div class="dotted_line"></div>
                                             <div class="span4 form-group">
-                                                <select required type="text" id="cbx_VehiculoEmpresa" name="cbx_VehiculoEmpresa" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
+                                                <select required type="text" id="cbx_Mantenimiento" name="cbx_Mantenimiento" class="form-control" placeholder="Seleccione Descuento"  data-rule="minlen:4" data-msg="Seleccione un Descuento">
                                                     <option value='0'>Seleccione un vehículo en mantenimiento</option>
                                                     <?php while($rowVehiculo = pg_fetch_array($resVehiculos)) { ?>
                                                             <option value="<?php echo $rowVehiculo[0]; ?>" >
@@ -171,6 +182,22 @@
                                                             </option>
                                                     <?php } ?>
                                                 </select>
+                                                <select required type="text" id="cbx_FormaPago" name="cbx_FormaPago" class="form-control" placeholder="Seleccione forma de pago"  data-rule="minlen:4" data-msg="Seleccione una forma de pago">
+                                        <option value='0'>Seleccione una forma de pago</option>
+                                        <?php while($rowFormaPago = pg_fetch_array($resFormaPago)) { ?>
+                                                <option value="<?php echo $rowFormaPago[0]; ?>" >
+                                                    <?php echo $rowFormaPago[1]; ?> 
+                                                </option>
+                                        <?php } ?>
+                                    </select>
+                                    <select required type="text" id="cbx_Descuento" name="cbx_Descuento" class="form-control" placeholder="Seleccione descuento"  data-rule="minlen:4" data-msg="Seleccione un descuento">
+                                        <option value='0'>Seleccione un descuento</option>
+                                        <?php while($rowDescuento = pg_fetch_array($resDescuentos)) { ?>
+                                                <option value="<?php echo $rowDescuento[0]; ?>" >
+                                                    <?php echo $rowDescuento[1]." ".$rowDescuento[2]."%"; ?> 
+                                                </option>
+                                        <?php } ?>
+                                    </select>
                                             </div>
                                         </div>
                                         <div class="span8 form-group">

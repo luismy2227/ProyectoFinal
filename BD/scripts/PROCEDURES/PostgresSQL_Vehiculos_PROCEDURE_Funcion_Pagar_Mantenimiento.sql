@@ -149,6 +149,8 @@
 			INSERT INTO tbl_FormaPagoPorFactura(idFactura, idFormaPago, monto)
 			VALUES(auxiliarFactura, pn_idFormaPago, auxiliarMonto);
 
+			UPDATE tbl_Mantenimiento SET estado = 'P' WHERE idMantenimiento = pn_idMantenimiento;
+
 			/*-----------------Todo bien, todo correcto------------*/
 			pcMensaje := 'Mantenimiento cancelado con éxito';
 			pbOcurreError := FALSE;

@@ -23,6 +23,17 @@
     $descuento=$_POST["cbx_Descuento"];
     $descuento=(int)$descuento;
   }
+  if(isset($_POST["text_FechaEntrega"])){
+    $fechaEntrega=$_POST["text_FechaEntrega"];
+  }
+  if(isset($_POST["text_FechaDevolucion"])){
+    $fechaDevolucion=$_POST["text_FechaDevolucion"];
+  }
+
+  if(isset($_POST["text_totalHoras"])){
+    $totalHoras=$_POST["text_totalHoras"];
+    $totalHoras=(int)$totalHoras;
+  }
   
   $usuario = $_SESSION['idUsuario'];
 
@@ -41,9 +52,19 @@ else if($formaPago==0){
 else if($descuento==0){
   $respuesta="Seleccione un descuento"; 
 }
+else if($totalHoras==0){
+  $respuesta="Ingrese la cantidad de horas"; 
+}
+else if($fechaEntrega=='' OR $fechaEntrega==NULL){
+  $respuesta="Ingrese la fecha de entrega"; 
+}
+else if($fechaDevolucion=='' OR $fechaDevolucion==NULL){
+  $respuesta="Ingrese la fecha de devolución"; 
+}
 
   else{
-    $query="SELECT  * FROM Funcion_Pagar_Venta($idVehiculo, $idCliente, $usuario, $descuento, $formaPago)";  
+    $query="SELECT  * FROM Funcion_Pagar_Renta($idVehiculo, $idCliente, $usuario, $descuento, 
+    $formaPago, '$fechaEntrega', '$fechaDevolucion', $totalHoras)";  
     $resultados=$conexion->ejecutarConsulta($query);
     $respuesta=$conexion->obtenerFila($resultados);
     $respuesta=$respuesta[1];

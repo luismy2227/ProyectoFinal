@@ -4,9 +4,9 @@
   session_start();
   $query=null;
 
-  if(isset($_POST["cbx_VehiculoEmpresa"])){
-    $idVehiculo=$_POST["cbx_VehiculoEmpresa"];
-    $idVehiculo=(int)$idVehiculo;
+  if(isset($_POST["cbx_Mantenimiento"])){
+    $idMantenimiento=$_POST["cbx_Mantenimiento"];
+    $idMantenimiento=(int)$idMantenimiento;
   }
 
   if(isset($_POST["cbx_Clientes"])){
@@ -29,12 +29,10 @@
   
   $respuesta="";
 
-if($idVehiculo==0){
+if($idMantenimiento==0){
   $respuesta="Seleccione un vehículo"; 
 }
-else if($idCliente==0){
-  $respuesta="Seleccione un cliente"; 
-}
+
 else if($formaPago==0){
   $respuesta="Seleccione una forma de pago"; 
 }
@@ -43,7 +41,7 @@ else if($descuento==0){
 }
 
   else{
-    $query="SELECT  * FROM Funcion_Pagar_Venta($idVehiculo, $idCliente, $usuario, $descuento, $formaPago)";  
+    $query="SELECT  * FROM Funcion_Pagar_Mantenimiento($idMantenimiento, $usuario, $descuento, $formaPago)";  
     $resultados=$conexion->ejecutarConsulta($query);
     $respuesta=$conexion->obtenerFila($resultados);
     $respuesta=$respuesta[1];

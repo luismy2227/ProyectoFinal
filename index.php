@@ -75,6 +75,7 @@
                                             <li class="dropdown"><a href="#">Clientes</a>
                                                 <ul class="dropdown-menu sub-menu">
                                                     <li><a href="InsertarCliente.php">Agregar Cliente</a></li>
+                                                    <li><a href="verClientes.php">Ver Todos</a></li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown"><a href="#">Empleados</a>

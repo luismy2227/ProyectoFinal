@@ -7,7 +7,7 @@
   include("class/class-conexion.php");
     $conexion = new Conexion();
   //Obteniendo los vehículos
-    $query = "SELECT tbl_SolicitudMantenimiento.idSolicitudMantenimiento, tbl_Marca.descripcion, 
+    $query = "SELECT tbl_Mantenimiento.idMantenimiento, tbl_Marca.descripcion, 
     tbl_Modelo.descripcion, EXTRACT(YEAR FROM tbl_Vehiculo.anio) FROM tbl_VehiculoCliente
     INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoCliente.idVehiculo
     INNER JOIN tbl_Marca ON tbl_Marca.idMarca = tbl_Vehiculo.idMarca
@@ -288,7 +288,7 @@
 <script src="assets/js/custom.js"></script>
 
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/insertarCliente.js"></script>
+<script src="js/facturarMantenimiento.js"></script>
 
 <!--Combobox dependientes-->
 <script language="javascript">

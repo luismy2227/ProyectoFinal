@@ -8,7 +8,7 @@ $(document).on("submit","#Form_Mantenimiento",function(event){
         url:"ajax/gestionar-facturarMantenimiento.php",
         dataType:"JSON",
         data:$(this).serialize(),
-        //data:$(this).serialize(),
+        data:$(this).serialize(),
         success:function(respuesta){
             //alert("Entré aquí 3");
             //var html = '';

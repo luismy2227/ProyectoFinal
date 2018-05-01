@@ -9,8 +9,8 @@
 	    IN pn_Taller                    INTEGER,
 		In pn_Repuesto                  INTEGER,
 
-		OUT pbOcurreErrorMantenimiento 	BOOLEAN,
-		OUT pcMensajeMantenimiento			VARCHAR(2000)
+		OUT pbOcurreError 	BOOLEAN,
+		OUT pcMensaje		VARCHAR(2000)
 	)
 	RETURNS RECORD AS
 	$BODY$
@@ -23,7 +23,7 @@
 			auxiliarMantenimiento2   	INTEGER DEFAULT 0;
 			codigoempleado              INTEGER DEFAULT 0;
 		BEGIN
-			pbOcurreErrorMantenimiento:=TRUE;
+			pbOcurreError:=TRUE;
 			temMensaje := '';
 
 			--Comprobando que la pn_clientePertence no sea null:
@@ -50,7 +50,7 @@
 			END IF;
 
 			IF temMensaje<>'' THEN
-				pcMensajeMantenimiento := CONCAT('Campos requeridos para poder realizar el Mantenimiento: ',temMensaje);
+				pcMensaje := CONCAT('Campos requeridos para poder realizar el Mantenimiento: ',temMensaje);
 				RETURN;
 			END IF;
 
@@ -58,23 +58,26 @@
             INNER JOIN tbl_Usuario u on e.idusuario=u.idusuario
             WHERE u.idusuario=pn_empleado;
 
-			SELECT pbOcurreErrorMantenimiento,pcMensaje INTO vb_OcurreErrorMantenimiento, vc_MensajeMantenimiento
+			SELECT * INTO vc_MensajeMantenimiento, vb_OcurreErrorMantenimiento
 			FROM Funcion_Solicitud_Mantenimiento(pn_vehiculo, codigoempleado);
 			
 			-- Verificando que el proceso Agregar Vehiculo haya sido exitoso
 			IF vb_OcurreErrorMantenimiento = TRUE THEN
-				pcMensajeMantenimiento := vc_MensajeMantenimiento;
+				pcMensaje := vc_MensajeMantenimiento;
 				RETURN;
 			END IF;
 
 			-- Insertando:
-			SELECT MAX(idMantenimiento) INTO auxiliarMantenimiento FROM tbl_Mantenimiento; 
-			SELECT idMantenimiento INTO auxiliarMantenimiento2 FROM tbl_SolicitudMantenimiento WHERE idSolicitudMantenimiento = pn_vehiculo; --Obteniendo el idVehiculo
-			INSERT INTO tbl_Mantenimiento(idVehiculoMantenimiento,descripcion,fechaIngreso, fechaSalida, estado, idSolicitudMantenimiento,idEmpleado,idTipoMantenimiento,idtaller)
-			VALUES(auxiliarVehiculo+1,'Falla Mecanica', CURRENT_DATE,CURRENT_DATE,'E',pn_idTipoMantenimiento,codigoempleado,pn_idTipoMantenimiento,pn_idtaller);
+			SELECT MAX(idMantenimiento) INTO auxiliarMantenimiento FROM tbl_Mantenimiento;
 
-			pcMensajeMantenimiento := 'Mantenimiento insertado con éxito';
-			pbOcurreErrorMantenimiento := FALSE;
+			SELECT MAX(idSolicitudMantenimiento) INTO auxiliarMantenimiento2 
+			FROM tbl_SolicitudMantenimiento ; --Obteniendo el idSolicitudMantenimiento
+
+			INSERT INTO tbl_Mantenimiento(idMantenimiento,descripcion,fechaIngreso, fechaSalida, estado, idSolicitudMantenimiento,idEmpleado,idTipoMantenimiento,idRepuesto,idtaller)
+			VALUES(auxiliarMantenimiento+1,'Falla Mecanica', pc_FechaEntrada,pc_FechaSalida,'E',auxiliarMantenimiento2,codigoempleado,pn_TipoMantenimiento,pn_Repuesto,pn_taller);
+
+			pcMensaje := 'Mantenimiento insertado con éxito';
+			pbOcurreError := FALSE;
 			--COMMIT;
 			RETURN;
 		END;

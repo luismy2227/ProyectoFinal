@@ -58,10 +58,11 @@
 				              <li><a href="VerAutos.php">Autos Ventas</a></li>
 				            </ul>
 				          <li><a href="servicios.php">Servicios</a></li>
-				          <li><a href="team.html">Nuestro Equipo</a></li>
-				          <li><a href="">Sucursales</a></li>	
-				          <li><a href="blog-home.html">Blog</a></li>	
-				          <li><a href="contactanos.php">Contactanos</a></li>	
+				          <li><a href="NuestroEquipo.php">Nuestro Equipo</a></li>
+				          <li><a href="sucursales.php">Sucursales</a></li>
+				           <li><a href="InsertarClienteF.php">Registrarse</a></li>
+
+				          
 				          
 				          </li>	
 				          <?php

@@ -1,9 +1,9 @@
 $(document).ready(function(){
 //alert("hola1");
-    verPerfil();
+    verEmpleados();
 });
 
-function verPerfil(){
+function verEmpleados(){
     //alert("hola2");
     $.ajax({
         url:"ajax/gestionar-verPerfil.php",
@@ -15,8 +15,8 @@ function verPerfil(){
             success:function(respuesta){
                 //alert("hola3");
 
-                //for (var i = 0; i < respuesta.length ; i++) {
-                    var usuario = respuesta[0];
+                for (var i = 0; i < respuesta.length ; i++) {
+                    var usuario = respuesta[i];
                     //alert("hola4");
                     //alert(usuario.idusuario);
                     //alert("hola5");
@@ -41,13 +41,13 @@ function verPerfil(){
                                 '<br>Fecha de contratación: '+usuario.fechacontratacion+
                                 '<br>Cargo: '+usuario.cargo+
                                 '<br>Fecha de obtención de cargo: '+usuario.fechapromocion+
-                                '<br>Teléfono: '+usuario.telefono+
+                                '<br>Telefono: '+usuario.telefono+
                                 '<br>Correo Electrónico: '+usuario.correoelectronico+
                                 '<br><br><br>'+
                                 '<button class="btn btn-color btn-rounded" id="btn_Editar" name="btn_Editar" type="submit" onclick="javascript:window.location = \'editarEmpleado.php\';">Editar</button>'
                                 ;                    
                     $("#PersonalInfo").append(html);
-                //}
+                }
             },
             error:function(e){
                 console.log(e);

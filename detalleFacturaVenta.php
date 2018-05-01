@@ -6,28 +6,6 @@
   }
     include("class/class-conexion.php");
     $conexion = new Conexion();
-  //Obteniendo los vehículos
-    $query = "SELECT tbl_VehiculoEmpresa.idVehiculoEmpresa, tbl_Marca.descripcion, 
-    tbl_Modelo.descripcion, EXTRACT(YEAR FROM tbl_Vehiculo.anio) FROM tbl_VehiculoEmpresa
-    INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
-    INNER JOIN tbl_Marca ON tbl_Marca.idMarca = tbl_Vehiculo.idMarca
-    INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
-    WHERE tbl_VehiculoEmpresa.seVende = TRUE AND tbl_VehiculoEmpresa.vendido = FALSE
-    ORDER BY tbl_VehiculoEmpresa.idVehiculoEmpresa;";
-    $resVehiculos = $conexion->ejecutarConsulta($query);
-
-    //Obteniendo los clientes
-    $query = "SELECT tbl_Cliente.idCliente, tbl_Persona.primerNombre, tbl_Persona.primerApellido FROM tbl_Cliente
-    INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Cliente.idPersona
-    WHERE tbl_Cliente.idCliente <> 16
-    ORDER BY tbl_Cliente.idCliente;";
-    $resClientes = $conexion->ejecutarConsulta($query);
-
-    //Obteniendo descuentos activos
-    $query = "SELECT idDescuento, descripcion, valor FROM tbl_Descuento
-            WHERE estado ='A' OR estado ='a'
-            ORDER BY descripcion;";
-    $resDescuentos = $conexion->ejecutarConsulta($query);
 
     //Obteniendo las formas de pago
     $query = "SELECT idFormaPago, descripcion FROM tbl_FormaPago
@@ -239,66 +217,47 @@
     </div>
 </div>
 
-<section class="center" id="Tablita" name="Tablita">
+<section class="center">
+            <div class="dotted_line"></div>
+                <h3>Detalle De Factura</h3>
+            <div class="dotted_line"></div>
                             
-
-<button class="btn btn-color btn-rounded" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Detalle</button>
-          <h4 class=" my-2 my-sm-0 " style="color:#fff">  Detalle de Factura  </h4>
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Detalle de Factura</h5>
-                  <?php 
-                    $query = "SELECT MAX(idFactura) FROM vv_Detalle_Factura;";
-                    $idFact = $conexion->ejecutarConsulta($query);
-
-                    $rowidFact = pg_fetch_array($idFact);
-                    $idFact2 = $rowidFact[0];
-
-                    $query = "SELECT * FROM vv_Detalle_Factura WHERE idFactura = $idFact2;";
-                    $detalle = $conexion->ejecutarConsulta($query);
-
-                    $rowDetalle = pg_fetch_array($detalle);
-                    $target = $rowDetalle;
-                  ?>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="container" id="Tabla" name="Tabla">
-                    <table class="table table-dark">
-                      <thead>
-                        <tr>
-                          <th scope="col">No. Factura</th>
-                          <th scope="col">Subtotal</th>
-                          <th scope="col">Impuesto</th>
-                          <th scope="col">Descuento</th>
-                          <th scope="col">Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row"><?php echo $target[0]; ?></th>
-                          <td><?php echo $target[1]; ?></td>
-                          <td><?php echo $target[2]; ?></td>
-                          <td><?php echo $target[3]; ?></td>
-                          <td><?php echo $target[4]; ?></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" onclick="javascript:window.location = 'index.php';" class="btn btn-primary">Aceptar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-      </section>
+</section>
 <section>
-    
+    <div class="container" id="Tabla" name="Tabla">
+        <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">No. Factura</th>
+      <th scope="col">Subtotal</th>
+      <th scope="col">Impuesto</th>
+      <th scope="col">Descuento</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+
+  </tbody>
+</table
+    </div>
 </section>
 </section>
 <footer class="footer">

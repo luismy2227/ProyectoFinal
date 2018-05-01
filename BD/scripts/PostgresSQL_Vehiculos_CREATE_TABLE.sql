@@ -275,7 +275,7 @@
             seRenta BOOLEAN NULL,
             estadoMatricula VARCHAR(1),
             montoMatricula DECIMAL(10,2),
-            vendido BOOLEAN NOT NULL,
+            vendido BOOLEAN NOT NULL DEFAULT FALSE,
             CONSTRAINT Pk_VehiculoEmpresa_idVehiculoEmpresa PRIMARY KEY (idVehiculoEmpresa),
             CONSTRAINT Fk_Vehiculo_idVehiculo FOREIGN KEY (idVehiculo) REFERENCES tbl_Vehiculo (idVehiculo)
             ON DELETE NO ACTION

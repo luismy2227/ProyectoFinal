@@ -1,6 +1,6 @@
 <?php
 
-	class class-Sucursal{
+	class Sucursal{
 
 		private $idSucursal;
 		private $descripcion;
@@ -35,6 +35,20 @@
 			return "IdSucursal: " . $this->idSucursal .
 				" Descripcion: " . $this->descripcion .
 				" IdDireccion: " . $this->idDireccion;
+		}
+
+		public static function listar($conexion){
+			$query = "SELECT suc.idSucursal idSucursal, suc.descripcion descripcion, suc.rutaFoto foto, dir.departamento departamento, 
+			dir.municipio municipio, dir.colonia, colonia, dir.sector sector, dir.numeroCasa numeroCasa FROM tbl_Sucursal suc
+			INNER JOIN tbl_Direccion dir ON dir.idDireccion = suc.idDireccion;";
+			$sucursales = $conexion -> ejecutarConsulta($query);
+			$res = array();
+
+			while($respuesta=$conexion->obtenerFilas($sucursales)){
+                $res[]=$respuesta;
+            }
+            return $res;
+
 		}
 	}
 ?>

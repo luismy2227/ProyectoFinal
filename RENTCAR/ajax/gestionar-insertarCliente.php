@@ -29,8 +29,8 @@
     $userpassword=$_POST["text_UserPassword"];
     
   }
-  if(isset($_POST["text_ImagenRuta"])){
-    $imagenruta=$_POST["text_ImagenRuta"];
+  if(isset($_POST["text_Imagenruta"])){
+    $imagenruta=$_POST["text_Imagenruta"];
     
   }
 

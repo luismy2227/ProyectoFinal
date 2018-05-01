@@ -149,11 +149,13 @@
 
 		public static function listarCarros($conexion){
 			$query = "SELECT tbl_VehiculoEmpresa.idVehiculoEmpresa idVehiculo, tbl_Marca.descripcion marca, tbl_Modelo.descripcion modelo,
-			tbl_VehiculoEmpresa.precioVenta precioVenta, tbl_VehiculoEmpresa.precioVenta precioRenta, tbl_Foto.rutaFoto foto FROM tbl_VehiculoEmpresa 
+			tbl_VehiculoEmpresa.precioVenta precioVenta, tbl_VehiculoEmpresa.precioRentaHora precioRenta, tbl_Foto.rutaFoto foto FROM tbl_VehiculoEmpresa 
 			INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
 			INNER JOIN tbl_Marca ON tbl_Vehiculo.idMarca = tbl_Marca.idMarca
 			INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
-			INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo;"; //where=tbl_vehiculo.sevende=true y con se renta
+			INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo
+			WHERE tbl_VehiculoEmpresa.idVehiculoEmpresa <>46 AND tbl_VehiculoEmpresa.vendido = FALSE
+			ORDER BY tbl_VehiculoEmpresa.idVehiculoEmpresa;";
 			$vehiculos = $conexion -> ejecutarConsulta($query);
 			$carros = array();
 
@@ -162,6 +164,67 @@
             }
             return $carros;
 
+		}
+
+		public static function listarCarrosVenta($conexion){
+			$query = "SELECT tbl_VehiculoEmpresa.idVehiculoEmpresa idVehiculo, tbl_Marca.descripcion marca, tbl_Modelo.descripcion modelo,
+			tbl_Vehiculo.anio anio, tbl_VehiculoEmpresa.precioVenta precioVenta, tbl_Foto.rutaFoto foto FROM tbl_VehiculoEmpresa 
+			INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
+			INNER JOIN tbl_Marca ON tbl_Vehiculo.idMarca = tbl_Marca.idMarca
+			INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
+			INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo
+			WHERE tbl_VehiculoEmpresa.seVende = TRUE AND tbl_VehiculoEmpresa.idVehiculoEmpresa <>46
+			AND tbl_VehiculoEmpresa.vendido = FALSE
+			ORDER BY tbl_VehiculoEmpresa.idVehiculoEmpresa;";
+			$vehiculos = $conexion -> ejecutarConsulta($query);
+			$carros = array();
+
+			while($respuesta=$conexion->obtenerFilas($vehiculos)){
+                $carros[]=$respuesta;
+            }
+            return $carros;
+
+		}
+
+		public static function listarCarrosRenta($conexion){
+			$query = "SELECT tbl_VehiculoEmpresa.idVehiculoEmpresa idVehiculo, tbl_Marca.descripcion marca, tbl_Modelo.descripcion modelo,
+			tbl_VehiculoEmpresa.precioRentaHora precioRenta, tbl_Foto.rutaFoto foto FROM tbl_VehiculoEmpresa 
+			INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
+			INNER JOIN tbl_Marca ON tbl_Vehiculo.idMarca = tbl_Marca.idMarca
+			INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
+			INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo
+			WHERE tbl_VehiculoEmpresa.seRenta = TRUE AND tbl_VehiculoEmpresa.idVehiculoEmpresa <>46
+			AND tbl_VehiculoEmpresa.vendido = FALSE
+			ORDER BY tbl_VehiculoEmpresa.idVehiculoEmpresa;";
+			$vehiculos = $conexion -> ejecutarConsulta($query);
+			$carros = array();
+
+			while($respuesta=$conexion->obtenerFilas($vehiculos)){
+                $carros[]=$respuesta;
+            }
+            return $carros;
+		}
+
+		public static function listarSeleccionado($conexion, $idVehiculo){
+			$query = "SELECT tbl_VehiculoEmpresa.idVehiculoEmpresa idVehiculo, tbl_Marca.descripcion marca, tbl_Modelo.descripcion modelo,
+			tbl_VehiculoEmpresa.seVende seVende, tbl_VehiculoEmpresa.precioVenta precioVenta, tbl_VehiculoEmpresa.precioRentaHora precioRenta, 
+			tbl_VehiculoEmpresa.seRenta seRenta, tbl_Foto.rutaFoto foto, EXTRACT(YEAR FROM tbl_Vehiculo.anio) anio, 
+			tbl_Cilindraje.descripcion cilindraje, tbl_TipoGasolina.descripcion gasolina, tbl_Vehiculo.tipoMotor tipoMotor,
+			tbl_Transmision.descripcion transmision, tbl_Vehiculo.placa placa FROM tbl_VehiculoEmpresa 
+			INNER JOIN tbl_Vehiculo ON tbl_Vehiculo.idVehiculo = tbl_VehiculoEmpresa.idVehiculo
+			INNER JOIN tbl_Marca ON tbl_Vehiculo.idMarca = tbl_Marca.idMarca
+			INNER JOIN tbl_Modelo ON tbl_Modelo.idModelo = tbl_Vehiculo.idModelo
+			INNER JOIN tbl_Foto ON tbl_Foto.idVehiculo = tbl_Vehiculo.idVehiculo
+			INNER JOIN tbl_Transmision ON tbl_Transmision.idTransmision = tbl_Vehiculo.idTransmision
+			INNER JOIN tbl_Cilindraje ON tbl_Cilindraje.idCilindraje = tbl_Vehiculo.idCilindraje
+			INNER JOIN tbl_Estado ON tbl_Estado.idEstado = tbl_VehiculoEmpresa.idEstado
+			INNER JOIN tbl_TipoGasolina ON tbl_TipoGasolina.idTipoGasolina = tbl_Vehiculo.idTipoGasolina
+			WHERE tbl_VehiculoEmpresa.idVehiculoEmpresa = $idVehiculo AND tbl_VehiculoEmpresa.idVehiculoEmpresa <>46
+			AND tbl_VehiculoEmpresa.vendido = FALSE;";
+			$vehiculos = $conexion -> ejecutarConsulta($query);
+			$respuesta=$conexion->obtenerFilas($vehiculos);
+                
+            return $respuesta;
 		}
 	}
 ?>

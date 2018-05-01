@@ -41,7 +41,7 @@
 				            </ul>
 				          <li><a href="servicios.php">Servicios</a></li>
 				          <li><a href="NuestroEquipo.php">Nuestro Equipo</a></li>
-				          <li><a href="sucursales.php">Sucursales</a></li>
+				          <li><a href="sucursal.php">Sucursales</a></li>
 				           <li><a href="InsertarClienteF.php">Registrarse</a></li>
 
 				          
@@ -67,6 +67,7 @@
 
 
 			<!-- start banner Area -->
+
 			<section class="banner-area relative" id="home">
 				<div class="overlay overlay-bg"></div>	
 				<div class="container">
@@ -80,77 +81,175 @@
 								RentCar una compañia que brinda los mejores servicios de renta y venta de vehiculos a nivel nacional somos la mejor empresa de renta,venta y mantenimiento de vehiculo.
 							</p>
 							
-						</div>
-						<div class="col-lg-5  col-md-6 header-right">
-							<h4 class="text-white pb-30">Registro</h4>
-							<form class="form" role="form" autocomplete="on">
+						</div>	<br><br><br>
+
+						<div class="col-lg-4  col-md-20 header-right">
+
+						
+							
 							    <div class="form-group">
-							       	<div class="default-select" id="default-select"">
+							       	
 							<form action="" id="Form_InsertarCliente" name="Form_InsertarCliente" method="post" role="form" class="contactForm">
-							    <div class="form-group">
+							    
 							    
 							       		<div class="form-group">
+							       	
 							       		<input required class="form-control" type="text" name="text_PrimerNombre" id="text_PrimerNombre" placeholder="Primer Nombre">
-							       	</div>
-							     
-							       	<div class="form-group">
-							       		<div class="form-group">
+                                        </div>
+                                        <div class="form-group">
+							       	
 							       		<input required class="form-control" type="text" name="text_SegundoNombre" id="text_SegundoNombre" placeholder="Segundo Nombre">
-							       	</div>
-							       		<div class="form-group">
-							       		<input required class="form-control" type="text" name="text_PrimerApellido" id="text_PrimerApellido" placeholder="Primer Apellido">
-							       	</div>
-							       		<div class="form-group">
-							       		<input  required class="form-control" type="text" name="text_SegundoApellido" id="text_SegundoApellido" placeholder="Segundo Apellido">
-							       	</div>
-							       		<div class="form-group">
-							    	<input required class="form-control" type="text" name="text_Correo" id="text_Correo" placeholder="Correo">
-							    	<input required class="form-control" type="text" name="text_Telefono" id="text_Telefono" placeholder="Numero Telefono">
+							            </div>
+
+                                      
+
+
+
+
+							       		<div class="form-group row">
+							        <div class="col-md-6 wrap-left">
+								       	<input required class="form-control" type="text" name="text_PrimerApellido" id="text_PrimerApellido" placeholder="Primer Apellido">
+							        </div>
+							        <div class="col-md-6 wrap-right">
 										
-									</div>
+							       		<input  required class="form-control" type="text" name="text_SegundoApellido" id="text_SegundoApellido" placeholder="Segundo Apellido">
+							        </div>
 							    </div>
-							   
-							 						    
-							    <div class="from-group">
-							    	 	<div required class="default-select" id="default-select"">
-							    	<input  required class="form-control" type="text" name="text_NombreUsuario" id="text_NombreUsuario" placeholder="Usuario">
-							    	<input required class="form-control" type="password" name="text_UserPassword" id="text_UserPassword" placeholder="Contraseña">
-							    	<div class="from-group">
-							    		<div class="from-group left">
-							    	<select required type="text" id="cbx_SeleccioneGenero" name="cbx_SeleccioneGenero" class="form-control" placeholder="Seleccione Genero"  data-rule="minlen:4" data-msg="Seleccione un Genero">
+							         <div class="form-group row">
+							        <div class="col-md-6 wrap-left">
+								       		<input required class="form-control" type="text" name="text_Correo" id="text_Correo" placeholder="Correo">
+							        </div>
+							        <div class="col-md-6 wrap-right">
+										
+							       		<input required class="form-control" type="text" name="text_Telefono" id="text_Telefono" placeholder="Numero Telefono">
+							        </div>
+							    </div>
+							     <div class="form-group row">
+							        <div class="col-md-6 wrap-left">
+								       		
+							    	<input required class="form-control" type="text" name="text_Identidad" id="text_Identidad" placeholder="Ingrese Identidad">
+							        </div>
+							        <div class="col-md-6 wrap-right">
+										
+							       		<input required class="form-control" type="text" name="text_Rtn" id="text_Rtn" placeholder="RTN">
+							        </div>
+							    </div>
+							      <div class="form-group">
+                                        <select required type="text" id="cbx_SeleccioneGenero" name="cbx_SeleccioneGenero" class="form-control" placeholder="Seleccione Genero"  data-rule="minlen:4" data-msg="Seleccione un Genero">
                                                 <option value='0'>Seleccione un Genero</option>
                                                 <option value='1'>Femenino</option>
                                                 <option value='2'>Masculino</option>
                                             </select>
-                                        </div>
-                                            <div class="from-group">
-							    	<input class="form-control" type="text" name="text_Departamento" id="text_Departamento"  placeholder="Departamento">
+                                           </div>
+							       		
+							       	<div class="form-group row">
+							        <div class="col-md-6 wrap-left">
+								       		<input  required class="form-control" type="text" name="text_NombreUsuario" id="text_NombreUsuario" placeholder="Usuario">
+							        </div>
+							        <div class="col-md-6 wrap-right">
+										<input required class="form-control" type="password" name="text_UserPassword" id="text_UserPassword" placeholder="Contraseña">
+							        </div>
 							    </div>
-							    	 <div class="from-group">
+							       		
+							    							          	<div class="form-group row">
+							        <div class="col-md-6 wrap-left">
+								       		<input class="form-control" type="text" name="text_Departamento" id="text_Departamento"  placeholder="Departamento">
+							        </div>
+							        <div class="col-md-6 wrap-right">
+										
 							    	<input required class="form-control" type="text" name="text_Municipio" id="text_Municipio"  placeholder="Municipio">
+							
+							        </div>
 							    </div>
-							    	<input required class="form-control" type="text" name="text_Colonia" id="text_Colonia" placeholder="Colonia">
-							    	<input required class="form-control" type="text" name="text_Sector" id="text_Sector" placeholder="Sector">
-							    	<input required class="form-control" type="text" name="text_NumeroCasa" id="text_NumeroCasa" placeholder="Numero Vivienda">
-							    	<input required class="form-control" type="text" name="text_Identidad" id="text_Identidad" placeholder="Ingrese Identidad">
-							    	<input required class="form-control" type="text" name="text_Rtn" id="text_Rtn" placeholder="RTN">
-							    	<input required class="form-control" type="text" name="text_ImagenRuta" id="text_ImagenRuta" placeholder="Imagen">
+								      	<div class="form-group row">
+							        <div class="col-md-6 wrap-left">
+								       		<input required class="form-control" type="text" name="text_Colonia" id="text_Colonia" placeholder="Colonia">
+							        </div>
+							        <div class="col-md-6 wrap-right">
+										
+							    		<input required class="form-control" type="text" name="text_Sector" id="text_Sector" placeholder="Sector">
+							
+							        </div>
+							    </div>
+							    <div class="form-group row">
+							        <div class="col-md-6 wrap-left">
+								       		<input required class="form-control" type="text" name="text_NumeroCasa" id="text_NumeroCasa" placeholder="Numero Vivienda">
+							        </div>
+							        <div class="col-md-6 wrap-right">
+										
+							    		<input required class="form-control" type="text" name="text_Sector" id="text_Sector" placeholder="Sector">
+							
+							        </div>
+							    </div>
+                                        
+                               
+                                                    <div class="form-group">
+                                                    <input  id="text_Imagenruta" name="text_Imagenruta">
+                                                    <label for="File-Image">Ingrese su imagen</label>
+                                                    <input type="file" class="form-control-file" id="File-Image" name="file" >
+                                                    </div>
+
+							    
+							    	
+							    
+							    
+							    
+							    	
+							    	<button type="submit" class="btn btn-default btn-lg btn-block text-center text-uppercase" name="btn_Guardar" id=btn_Guardar>Guardar</button>
+							       	</div>
+							       		<div class="form-group">
+							    	
+							    </div>
+							 <div class="form-group">
+							    
+										
+									</div>
+							    </div>
+							   
+							 
 							    </div>
 							    <div class="form-group row">
 							        <div class="col-md-12">
-							            <button type="submit" class="btn btn-default btn-lg btn-block text-center text-uppercase" name="btn_Guardar" id=btn_Guardar>Guardar</button>
+							            
 							        </div>
 							    </div>
 							</div>
 						</div>
 					</div>
 				</form>
-							</form>
+							
 						</div>											
 					</div>
 				</div>					
 			</section>
 			<!-- End banner Area -->	
+			<script language="javascript">   
+    //Imagen
+    $("#File-Image").change(function(){
+    var form = $("#Form_InsertarCliente")[0];
+    var formData = new FormData(form);
+    $.ajax({
+        url:"ajax/gestionar-imagen.php",
+        type:"POST",
+        dataType:"JSON",
+        contentType: false,
+        processData: false,
+        data: formData,
+        success:function(respuesta){
+            if(respuesta.status){
+                $("#text_Imagenruta").val("uploaded/profile/"+respuesta.ruta);
+            }
+            else
+            {
+                alert(respuesta.mensaje);
+            }
+        },
+        error: function(error){
+            console.log(error);
+        }
+    });
+});
+</script>
 
 			
 

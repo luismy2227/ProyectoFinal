@@ -58,7 +58,7 @@
 				            </ul>
 				          <li><a href="servicios.php">Servicios</a></li>
 				          <li><a href="NuestroEquipo.php">Nuestro Equipo</a></li>
-				          <li><a href="sucursales.php">Sucursales</a></li>
+				          <li><a href="sucursal.php">Sucursales</a></li>
 				           <li><a href="InsertarClienteF.php">Registrarse</a></li>
 
 				          
@@ -88,9 +88,9 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Support Teams			
+								Nuestro Equipo			
 							</h1>	
-							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="team.html"> Teams</a></p>
+							<p class="text-white link-nav"><a href="index.php">Inicio </a>  <span class="lnr lnr-arrow-right"></span>  <a href="team.html"> Equipo</a></p>
 						</div>											
 					</div>
 				</div>
@@ -103,8 +103,8 @@
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
 							<div class="title text-center">
-								<h1 class="mb-10">Experienced Mentor Team</h1>
-								<p>Who are in extremely love with eco friendly system.</p>
+								<h1 class="mb-10">Equipo con la Mejor Experiencia</h1>
+								<p>Contamos con el mejor personal altamente capacitado.</p>
 							</div>
 						</div>
 					</div>						
@@ -113,14 +113,14 @@
 						    <div class="thumb">
 						        <img class="img-fluid" src="img/pages/t1.jpg" alt="">
 						        <div class="align-items-center justify-content-center d-flex">
-									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="www.facebook.com"><i class="fa fa-facebook"></i></a>
 									<a href="#"><i class="fa fa-twitter"></i></a>
 									<a href="#"><i class="fa fa-linkedin"></i></a>
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
-							    <h4>Ethel Davis</h4>
-							    <p>Managing Director (Sales)</p>									    	
+							    <h4>Cristian Joel</h4>
+							    <p>Gerente general</p>									    	
 						    </div>
 						</div>
 						<div class="col-md-3 single-team">
@@ -133,8 +133,8 @@
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
-							    <h4>Rodney Cooper</h4>
-							    <p>Creative Art Director (Project)</p>			    	
+							    <h4>Bradley Cooper</h4>
+							    <p>Mecanico</p>			    	
 						    </div>
 						</div>	
 						<div class="col-md-3 single-team">
@@ -147,8 +147,8 @@
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
-							    <h4>Dora Walker</h4>
-							    <p>Senior Core Developer</p>			    	
+							    <h4>Alejandro Lopez</h4>
+							    <p>Recursos Humanos</p>			    	
 						    </div>
 						</div>	
 						<div class="col-md-3 single-team">
@@ -161,13 +161,13 @@
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
-							    <h4>Lena Keller</h4>
-							    <p>Creative Content Developer</p>			    	
+							    <h4>Lena Amador</h4>
+							    <p>TeleMercadeo</p>			    	
 						    </div>
 						</div>		
 						<div class="col-md-3 single-team">
 						    <div class="thumb">
-						        <img class="img-fluid" src="img/pages/t1.jpg" alt="">
+						        <img class="img-fluid" src="img/pages/t8.png" alt="">
 						        <div class="align-items-center justify-content-center d-flex">
 									<a href="#"><i class="fa fa-facebook"></i></a>
 									<a href="#"><i class="fa fa-twitter"></i></a>
@@ -175,13 +175,13 @@
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
-							    <h4>Ethel Davis</h4>
-							    <p>Managing Director (Sales)</p>									    	
+							    <h4>Roberto Ezpinoza</h4>
+							    <p>Ejecutivo en Ventas</p>									    	
 						    </div>
 						</div>
 						<div class="col-md-3 single-team">
 						    <div class="thumb">
-						        <img class="img-fluid" src="img/pages/t2.jpg" alt="">
+						        <img class="img-fluid" src="img/pages/t5.jpg" alt="">
 						        <div class="align-items-center justify-content-center d-flex">
 									<a href="#"><i class="fa fa-facebook"></i></a>
 									<a href="#"><i class="fa fa-twitter"></i></a>
@@ -189,13 +189,13 @@
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
-							    <h4>Rodney Cooper</h4>
-							    <p>Creative Art Director (Project)</p>			    	
+							    <h4>Fabricio Ismael</h4>
+							    <p>Programador</p>			    	
 						    </div>
 						</div>	
 						<div class="col-md-3 single-team">
 						    <div class="thumb">
-						        <img class="img-fluid" src="img/pages/t3.jpg" alt="">
+						        <img class="img-fluid" src="img/pages/t6.jpg" alt="">
 						        <div class="align-items-center justify-content-center d-flex">
 									<a href="#"><i class="fa fa-facebook"></i></a>
 									<a href="#"><i class="fa fa-twitter"></i></a>
@@ -203,13 +203,13 @@
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
-							    <h4>Dora Walker</h4>
-							    <p>Senior Core Developer</p>			    	
+							    <h4>Juan Carlos</h4>
+							    <p>Vendedor Automotriz</p>			    	
 						    </div>
 						</div>	
 						<div class="col-md-3 single-team">
 						    <div class="thumb">
-						        <img class="img-fluid" src="img/pages/t4.jpg" alt="">
+						        <img class="img-fluid" src="img/pages/t7.png" alt="">
 						        <div class="align-items-center justify-content-center d-flex">
 									<a href="#"><i class="fa fa-facebook"></i></a>
 									<a href="#"><i class="fa fa-twitter"></i></a>
@@ -217,8 +217,8 @@
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
-							    <h4>Lena Keller</h4>
-							    <p>Creative Content Developer</p>			    	
+							    <h4>David Figueroa</h4>
+							    <p>Marketing</p>			    	
 						    </div>
 						</div>															
 					</div>
@@ -227,162 +227,6 @@
 			<!-- End team Area -->					
 
 
-			<!-- Start callaction Area -->
-			<section class="callaction-area relative section-gap">
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-lg-10">
-							<h1 class="text-white">Experience Great Support</h1>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-							</p>
-							<a class="callaction-btn text-uppercase" href="#">Reach Our Support Team</a>	
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End callaction Area -->
-
-			<!-- Start feature Area -->
-			<section class="feature-area section-gap" id="service">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="col-md-8 pb-40 header-text">
-							<h1>What Services we offer to our clients</h1>
-							<p>
-								Who are in extremely love with eco friendly system.
-							</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-user"></span>Expert Technicians</h4>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-license"></span>Professional Service</h4>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-phone"></span>Great Support</h4>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-rocket"></span>Technical Skills</h4>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>				
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-diamond"></span>Highly Recomended</h4>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-bubble"></span>Positive Reviews</h4>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>									
-							</div>
-						</div>						
-					</div>
-				</div>	
-			</section>
-			<!-- End feature Area -->				
-	
-			<!-- start footer Area -->		
-			<footer class="footer-area section-gap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-2 col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>Quick links</h6>
-								<ul>
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Brand Assets</a></li>
-									<li><a href="#">Investor Relations</a></li>
-									<li><a href="#">Terms of Service</a></li>
-								</ul>								
-							</div>
-						</div>
-						<div class="col-lg-2 col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>Features</h6>
-								<ul>
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Brand Assets</a></li>
-									<li><a href="#">Investor Relations</a></li>
-									<li><a href="#">Terms of Service</a></li>
-								</ul>								
-							</div>
-						</div>
-						<div class="col-lg-2 col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>Resources</h6>
-								<ul>
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Brand Assets</a></li>
-									<li><a href="#">Investor Relations</a></li>
-									<li><a href="#">Terms of Service</a></li>
-								</ul>								
-							</div>
-						</div>												
-						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-							<div class="single-footer-widget">
-								<h6>Follow Us</h6>
-								<p>Let us be social</p>
-								<div class="footer-social d-flex align-items-center">
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-									<a href="#"><i class="fa fa-dribbble"></i></a>
-									<a href="#"><i class="fa fa-behance"></i></a>
-								</div>
-							</div>
-						</div>							
-						<div class="col-lg-4  col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>Newsletter</h6>
-								<p>Stay update with our latest</p>
-								<div class="" id="mc_embed_signup">
-									<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-										<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
-			                            	<button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
-			                            	<div style="position: absolute; left: -5000px;">
-												<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-											</div>
-
-										<div class="info"></div>
-									</form>
-								</div>
-							</div>
-						</div>	
-						<p class="mt-50 mx-auto footer-text col-lg-12">
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						</p>											
-					</div>
-				</div>
-			</footer>	
 			<!-- End footer Area -->		
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>

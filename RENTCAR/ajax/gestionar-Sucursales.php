@@ -1,21 +1,16 @@
 <?php
   //session_start();
   include("../class/class-conexion.php");
-  include("../class/class-Vehiculo.php");
+  include("../class/class-Sucursal.php");
   if(isset($_POST["accion"])){
     $conexion = new Conexion();
     switch ($_POST['accion']) {
-      case "listar-carros":
-            $respuesta=Vehiculo::listarCarros($conexion);
+      case "listar":
+            $respuesta=Sucursal::listar($conexion);
             echo json_encode($respuesta);
       break;
 
-      case "seleccionar-especifico":
-            if(isset($_POST["idvehiculo"])){
-              $idVehiculo = (int)$_POST["idvehiculo"];
-            }
-            $respuesta=Vehiculo::listarSeleccionado($conexion, $idVehiculo);
-            echo json_encode($respuesta);
+      case "seleccionar":
       break;
 
       case "eliminar-registro":

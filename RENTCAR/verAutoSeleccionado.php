@@ -1,4 +1,4 @@
-
+	
 	<?php
     session_start();
     if(isset($_SESSION["status"])==false){
@@ -89,84 +89,52 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Servicios			
+								Vehiculos				
 							</h1>	
-							<p class="text-white link-nav"><a href="index.php">Inicio </a>  <span class="lnr lnr-arrow-right"></span>  <a href="service.html"> Servicios</a></p>
+							<p class="text-white link-nav"><a href="inicio.php">Inico </a>  <span class="lnr lnr-arrow-right"></span>  <a href="VerAutos.php"> Vehiculos</a></p>
 						</div>											
 					</div>
 				</div>
 			</section>
 			<!-- End banner Area -->	
 
+			<!-- Start home-about Area -->
+			<section class="home-about-area" id="about">
+				<div class="container-fluid">				
+					<div class="row justify-content-center align-items-center">
+						<div class="col-lg-6 no-padding home-about-left">
+							
+						</div>
+						<div class="col-lg-6 no-padding home-about-right">
+							<h1> <br>
+							</h1>
+							<p>
+								<span></span>
+							</p>
+							<p>
+								
+							</p>
+							
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End home-about Area -->	
+  <div  class="container">
+            <?php
+              echo '<input type="hidden" id="txt_idVehiculo" value="'.$_GET['id'].'">';
+              //echo $_GET['id'];
+            ?>
+            <ul>
+                <div id="carros" name="carros" class="row"></div>
+            </ul>
+        </div>
 			<!-- Start feature Area -->
 			<section class="feature-area section-gap" id="service">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
-						<div class="col-md-8 pb-40 header-text">
-							<h1>Cuales son nuestros Servicios para los Clientes</h1>
-							<p>
-								Somos una empresa agradable y con much calidad de Servicios.
-							</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-user"></span>Somos Expertos </h4>
-								<p>
-									Somos la mejor empresa en brindarte los mejores servicios en renta de vehiculos .
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-license"></span>Un Servicio Profesional</h4>
-								<p>
-									Profesionales en el campo de renta,venta y mantenimiento de vehiculos ven buscanos.
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-phone"></span>El Mejor Mantenimiento</h4>
-								<p>
-									Nos especializamos en el mejor servicio de mantenimiento a nivel nacional ven buscanos.
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-rocket"></span>Repuestos</h4>
-								<p>
-									Ofrecemos la mejor calidad de Repuestos las mejores marcas porque pensamos en tu seguridad.
-								</p>				
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-diamond"></span>Renta</h4>
-								<p>
-									Mejores autos tenemos a a renta solo a gama mas alta del mercado de automoviles rentcar te lo presenta.
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-bubble"></span>Venta</h4>
-								<p>
-									Tambien Somos especializados en la venta de vehiculos tenemos la mas ata gama de vehiculos .
-								</p>									
-							</div>
-						</div>						
-					</div>
-				</div>	
-			</section>
+						
 			
-			<!-- End feature Area -->				
-
-			<!-- Start fact Area -->
-			
-			<!-- End footer Area -->		
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -185,6 +153,10 @@
 			<script src="js/jquery.counterup.min.js"></script>					
 			<script src="js/parallax.min.js"></script>		
 			<script src="js/mail-script.js"></script>	
-			<script src="js/main.js"></script>	
+			<script src="js/main.js"></script>
+
+			<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/verAutoSeleccionado.js"></script>
+
 		</body>
 	</html>

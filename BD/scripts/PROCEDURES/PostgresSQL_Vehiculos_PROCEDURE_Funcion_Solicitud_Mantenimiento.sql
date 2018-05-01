@@ -54,6 +54,15 @@ CREATE OR REPLACE FUNCTION public.funcion_solicitud_mantenimiento(
 
 			RETURN;
 		END;
+<<<<<<< HEAD
+	
+$BODY$;
+
+
+
+
+=======
 	$BODY$
 	LANGUAGE plpgsql VOLATILE
 	COST 100;
+>>>>>>> 14c25bfba35afbc3c3bef04ec310a4c9befb935e

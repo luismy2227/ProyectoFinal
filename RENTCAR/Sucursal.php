@@ -42,8 +42,7 @@
 			<link rel="stylesheet" href="css/main.css">
 		</head>
 		<body>
-
-			 <header id="header" id="home">
+ <header id="header" id="home">
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
@@ -81,7 +80,6 @@
 			    </div>
 			  </header><!-- #header -->
 
-
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">	
 				<div class="overlay overlay-bg"></div>
@@ -89,84 +87,20 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Servicios			
+								Sucursales
 							</h1>	
-							<p class="text-white link-nav"><a href="index.php">Inicio </a>  <span class="lnr lnr-arrow-right"></span>  <a href="service.html"> Servicios</a></p>
+							<p class="text-white link-nav"><a href="index.html">Inicio</a>  <span class="lnr lnr-arrow-right"></span>  <a href="sucursal">Sucursal</a></p>
 						</div>											
 					</div>
 				</div>
 			</section>
 			<!-- End banner Area -->	
-
-			<!-- Start feature Area -->
-			<section class="feature-area section-gap" id="service">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="col-md-8 pb-40 header-text">
-							<h1>Cuales son nuestros Servicios para los Clientes</h1>
-							<p>
-								Somos una empresa agradable y con much calidad de Servicios.
-							</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-user"></span>Somos Expertos </h4>
-								<p>
-									Somos la mejor empresa en brindarte los mejores servicios en renta de vehiculos .
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-license"></span>Un Servicio Profesional</h4>
-								<p>
-									Profesionales en el campo de renta,venta y mantenimiento de vehiculos ven buscanos.
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-phone"></span>El Mejor Mantenimiento</h4>
-								<p>
-									Nos especializamos en el mejor servicio de mantenimiento a nivel nacional ven buscanos.
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-rocket"></span>Repuestos</h4>
-								<p>
-									Ofrecemos la mejor calidad de Repuestos las mejores marcas porque pensamos en tu seguridad.
-								</p>				
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-diamond"></span>Renta</h4>
-								<p>
-									Mejores autos tenemos a a renta solo a gama mas alta del mercado de automoviles rentcar te lo presenta.
-								</p>								
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<h4><span class="lnr lnr-bubble"></span>Venta</h4>
-								<p>
-									Tambien Somos especializados en la venta de vehiculos tenemos la mas ata gama de vehiculos .
-								</p>									
-							</div>
-						</div>						
-					</div>
-				</div>	
-			</section>
+ <div  class="container">
+            <ul>
+                <div id="sucursales" name="sucursales" class="row"></div>
+            </ul>
+        </div>
 			
-			<!-- End feature Area -->				
-
-			<!-- Start fact Area -->
-			
-			<!-- End footer Area -->		
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -186,5 +120,9 @@
 			<script src="js/parallax.min.js"></script>		
 			<script src="js/mail-script.js"></script>	
 			<script src="js/main.js"></script>	
+			<script src="js/sucursales.js"></script>
+
 		</body>
 	</html>
+
+

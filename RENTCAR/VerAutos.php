@@ -59,7 +59,7 @@
 				            </ul>
 				          <li><a href="servicios.php">Servicios</a></li>
 				          <li><a href="NuestroEquipo.php">Nuestro Equipo</a></li>
-				          <li><a href="sucursales.php">Sucursales</a></li>
+				          <li><a href="sucursal.php">Sucursales</a></li>
 				           <li><a href="InsertarClienteF.php">Registrarse</a></li>
 
 				          

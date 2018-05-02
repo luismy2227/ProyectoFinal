@@ -17,10 +17,13 @@ $(document).on("submit","#Login",function(event){
         //data:$(this).serialize(),
         success:function(respuesta){
             //alert("Entré aquí 3");
-            alert(respuesta[0]);
+            
             //alert(respuesta.mensajeSesions);
             if(respuesta[0]=="Usuario y contraseña correctos") {
                 window.location='index.php';
+            }
+            else{
+                alert(respuesta[0]);
             }
             console.log(respuesta);
         }

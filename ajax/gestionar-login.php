@@ -22,16 +22,15 @@
   if($respuesta[1] == 0){
     session_start();
 
-    $query="SELECT tbl_Usuario.idUsuario FROM tbl_Usuario 
-    INNER JOIN tbl_Empleado ON tbl_Empleado.idUsuario = tbl_Usuario.idUsuario
-    WHERE tbl_Usuario.nombreUsuario = '$usuario';";
+    $query="SELECT tbl_Persona.primerNombre, tbl_Persona.primerApellido FROM tbl_Persona 
+    INNER JOIN tbl_Cliente ON tbl_Cliente.idCliente=tbl_Persona.idPersona
+    INNER JOIN tbl_Usuario ON tbl_Cliente.idUsuario = tbl_Usuario.idUsuario;";
     $id = $conexion -> ejecutarConsulta($query);
     $idUser = $conexion ->obtenerFila($id);
 
-    $query="SELECT tbl_Persona.primerNombre, tbl_Persona.primerApellido FROM tbl_Usuario 
-    INNER JOIN tbl_Empleado ON tbl_Empleado.idUsuario = tbl_Usuario.idUsuario
-    INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Empleado.idPersona
-    WHERE tbl_Usuario.nombreUsuario = '$usuario';";
+    $query="SELECT tbl_Persona.primerNombre, tbl_Persona.primerApellido FROM tbl_Persona 
+    INNER JOIN tbl_Cliente ON tbl_Cliente.idCliente=tbl_Persona.idPersona
+    INNER JOIN tbl_Usuario ON tbl_Cliente.idUsuario = tbl_Usuario.idUsuario;";
     $nombre = $conexion -> ejecutarConsulta($query);
     $nombre = $conexion ->obtenerFila($nombre);
     $nombreCompleto = $nombre[0]." ".$nombre[1];

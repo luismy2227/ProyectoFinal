@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(isset($_SESSION["status"])==false){
+    session_destroy();
+    header("Location: login.php");
+    }
+?>	
+
+
 	<!DOCTYPE html>
 	<html lang="en" >
 	<head>
@@ -184,9 +193,8 @@
                                         
                                
                                                     <div class="form-group">
-                                                    <input  id="text_Imagenruta" name="text_Imagenruta">
-                                                    <label for="File-Image">Ingrese su imagen</label>
-                                                    <input type="file" class="form-control-file" id="File-Image" name="file" >
+                                                    <input required="" id="text_Imagenruta" name="text_Imagenruta" placeholder="Imagen" >
+                                                   
                                                     </div>
 
 							    
@@ -228,6 +236,7 @@
     $("#File-Image").change(function(){
     var form = $("#Form_InsertarCliente")[0];
     var formData = new FormData(form);
+    alert("Foto1");
     $.ajax({
         url:"ajax/gestionar-imagen.php",
         type:"POST",

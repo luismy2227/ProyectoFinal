@@ -10,7 +10,7 @@ $("#btn_Logout").click(function(){
         //data:$(this).serialize(),
         success:function(respuesta){
             //alert("Entré aquí 3");
-            alert(respuesta);
+            //alert(respuesta);
             if(respuesta.loggedin==0){
                 window.location.href = "index.php";
             }

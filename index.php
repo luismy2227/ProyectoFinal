@@ -362,7 +362,7 @@
                         <p> 
                             <?php  
                             if(isset($_SESSION["status"])==true){
-                            $mensaje = "Usted se ha identificado como ".$_SESSION["nombre"];
+                            $mensaje = "Usted se ha identificado como ".$_SESSION["idUsuario"]." ".$_SESSION["nombre"];
                             echo $mensaje;
                             } ?> 
                         </p>

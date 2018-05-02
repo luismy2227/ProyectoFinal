@@ -7,6 +7,7 @@
     switch ($_POST['accion']) {
       case "verPerfil":
             $respuesta=Usuario::verPerfil($conexion, $_SESSION['idUsuario']);
+            //$respuesta="Nada";
             echo json_encode($respuesta);
       break;
 
@@ -28,6 +29,7 @@
         echo json_encode("Petición inválida");
       break;
     }
+
     $conexion->cerrarConexion();
   }else{
     echo json_encode("No se especificó petición");

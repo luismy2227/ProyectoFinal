@@ -882,31 +882,7 @@
              (27,'+504-3505-5303',27),
              (28,'+504-3463-3745',28),
              (29,'+504-9748-5779',29),
-             (30,'+504-9571-2503',30),
-             (31,'+504-3535-5196',1),
-             (32,'+504-3551-6763',2),
-             (33,'+504-3137-8372',3),
-             (34,'+504-9199-3532',4),
-             (35,'+504-3156-2507',5),
-             (36,'+504-9324-1000',6),
-             (37,'+504-9998-1647',7),
-             (38,'+504-3468-2892',8),
-             (39,'+504-9163-2910',9),
-             (40,'+504-9128-3418',10),
-             (41,'+504-9458-9499',11),
-             (42,'+504-9038-4956',12),
-             (43,'+504-3076-9390',13),
-             (44,'+504-3061-2589',14),
-             (45,'+504-3178-8316',15),
-             (46,'+504-3147-4384',16),
-             (47,'+504-3329-9302',17),
-             (48,'+504-3673-8423',18),
-             (49,'+504-3341-2382',19),
-             (50,'+504-9946-8064',20),
-             (51,'+504-9112-2857',21),
-             (52,'+504-3242-8610',22),
-             (53,'+504-9014-3941',23),
-             (54,'+504-3837-1247',24);
+             (30,'+504-9571-2503',30);
 
     /*Tabla CorreoElectronico*/
       INSERT INTO tbl_CorreoElectronico (idCorreoElectronico,correoElectronico,idPersona) 
@@ -939,30 +915,7 @@
              (27,'Etiam.laoreet@placerat.net',27),
              (28,'consequat@utnisia.co.uk',28),
              (29,'metus.In@dapibusligula.com',29),
-             (30,'ac.nulla@laciniavitae.co.uk',30),
-             (31,'nascetur.ridiculus.mus@et.net',1),
-             (32,'vestibulum.magna@aliquetmagnaa.co.uk',2),
-             (33,'feugiat@porttitor.ca',3),
-             (34,'molestie.orci@lentesquemassa.net',4),
-             (35,'aliquet.vel@cursus.edu',5),
-             (36,'Mauris@loremDonec.edu',6),
-             (37,'aliquam.arcu@eratinconsectetuer.com',7),
-             (38,'nulla.magna@euismod.net',8),
-             (39,'sit@amet.com',9),
-             (40,'enim.Suspendisse@liberolacus.org',10),
-             (41,'eu@Aliquamfringilla.org',11),
-             (42,'rutrum.eu.ultrices@montes.ca',12),
-             (43,'egestas@apurus.edu',13),
-             (44,'iaculis@odio.com',14),
-             (45,'metus.vitae.velit@duiinsodales.ca',15),
-             (46,'dui@non.net',16),
-             (47,'arcu@Nam.net',17),
-             (48,'lobortis.Class@utsemNulla.co.uk',18),
-             (49,'fermentum@Etiamgravidamolestie.net',19),
-             (50,'non@necmetusfacilisis.net',20),
-             (51,'semper.rutrum@enim.net',21),
-             (52,'Mauris@convallisin.net',22),
-             (53,'non@ut.net',23);
+             (30,'ac.nulla@laciniavitae.co.uk',30);
 
     /*Tabla Cargo*/
       INSERT INTO tbl_Cargo (idCargo, descripcion)
@@ -2620,7 +2573,7 @@
       WHERE tbl_Persona.idPersona = auxiliarPersona;
       
       --Insertando telefono:
-      SELECT idTelefono INTO auxiliarTelefono FROM tbl_Telefono
+      SELECT tbl_Telefono.idTelefono INTO auxiliarTelefono FROM tbl_Telefono
       INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_Telefono.idPersona 
       INNER JOIN tbl_Empleado ON tbl_Empleado.idPersona = tbl_Persona.idPersona
       INNER JOIN tbl_Usuario ON tbl_Usuario.idUsuario = tbl_Empleado.idUsuario
@@ -2630,7 +2583,7 @@
       WHERE tbl_Telefono.idTelefono = auxiliarTelefono;
       
       --Insertando correo:
-      SELECT idCorreoElectronico INTO auxiliarCorreo FROM tbl_CorreoElectronico
+      SELECT tbl_CorreoElectronico.idCorreoElectronico INTO auxiliarCorreo FROM tbl_CorreoElectronico
       INNER JOIN tbl_Persona ON tbl_Persona.idPersona = tbl_CorreoElectronico.idPersona 
       INNER JOIN tbl_Empleado ON tbl_Empleado.idPersona = tbl_Persona.idPersona
       INNER JOIN tbl_Usuario ON tbl_Usuario.idUsuario = tbl_Empleado.idUsuario

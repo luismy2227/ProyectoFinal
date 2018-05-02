@@ -91,9 +91,11 @@ $(function () {
         data:$(this).serialize(),
         success:function(respuesta){
            //alert("Entré aquí 3");
+           console.log(respuesta);
             
             
             if(respuesta == 'Empleado actualizado con éxito'){
+                alert(respuesta);
                 window.location='verPerfil.php';
             }   else{
                alert(respuesta); 

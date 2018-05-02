@@ -278,44 +278,32 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/editarEmpleado.js"></script>
 
-<!--Combobox dependientes-->
-<!--script language="javascript">
-    //Combobox de modelos
-    $(document).ready(function () {
-        $("#cbx_Marca").change(function () {
-            $('#cbx_Version').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-            $("#cbx_Marca option:selected").each(function () {
-                idMarca = $(this).val();
-                $.post("includes/get-Modelos.php", {idMarca: idMarca}, function (data) {
-                    $("#cbx_Modelo").html(data);
-                });
-            });
-        })
+<!--script language="javascript">   
+    //Imagen
+    $("#File-Image").change(function(){
+    var form = $("#Form_InsertarCliente")[0];
+    var formData = new FormData(form);
+    $.ajax({
+        url:"ajax/gestionar-imagen.php",
+        type:"POST",
+        dataType:"JSON",
+        contentType: false,
+        processData: false,
+        data: formData,
+        success:function(respuesta){
+            if(respuesta.status){
+                $("#text_Imagenruta").val("uploaded/profile/"+respuesta.ruta);
+            }
+            else
+            {
+                alert(respuesta.mensaje);
+            }
+        },
+        error: function(error){
+            console.log(error);
+        }
     });
-
-    //Combobox de versiones
-    $(document).ready(function () {
-        $("#cbx_Modelo").change(function () {
-            $("#cbx_Modelo option:selected").each(function () {
-                idModelo = $(this).val();
-                $.post("includes/get-Versiones.php", {idModelo: idModelo}, function (data) {
-                    $("#cbx_Version").html(data);
-                });
-            });
-        })
-    });
-
-    //Combobox de garages
-    $(document).ready(function () {
-        $("#cbx_Sucursal").change(function () {
-            $("#cbx_Sucursal option:selected").each(function () {
-                idSucursal = $(this).val();
-                $.post("includes/get-Sucursales.php", {idSucursal: idSucursal}, function (data) {
-                    $("#cbx_Garage").html(data);
-                });
-            });
-        })
-    });
+});
 </script-->
 
 </body>
